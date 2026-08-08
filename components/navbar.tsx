@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react"
 import Link from "next/link"
+import Image from "next/image"
 import { usePathname } from "next/navigation"
 import { Menu, X } from "lucide-react"
 import { Button } from "@/components/ui/button"
@@ -13,6 +14,7 @@ const navLinks = [
   { href: "/destinations", label: "Destinations" },
   { href: "/success-stories", label: "Success Stories" },
   { href: "/resources", label: "Resources" },
+  { href: "/career-matcher", label: "Career Matcher" },
   { href: "/contact", label: "Contact" },
 ]
 
@@ -42,25 +44,14 @@ export function Navbar() {
       <nav className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4">
         {/* Logo */}
         <Link href="/" className="flex items-center gap-2">
-          <div className="flex items-center gap-1.5">
-            <svg
-              viewBox="0 0 32 32"
-              className="h-8 w-8"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <rect width="32" height="32" rx="6" className="fill-primary" />
-              <path
-                d="M16 6L18.5 12H25L19.5 16L21.5 22L16 18L10.5 22L12.5 16L7 12H13.5L16 6Z"
-                fill="white"
-              />
-              <rect x="11" y="22" width="10" height="2" rx="1" fill="white" />
-              <rect x="13" y="25" width="6" height="1.5" rx="0.75" fill="white" />
-            </svg>
-            <span className="font-heading text-xl font-bold tracking-tight text-foreground">
-              Quilon
-            </span>
-          </div>
+          <Image
+            src="/images/qec-logo.png"
+            alt="Quilon Educational Consultancy"
+            width={288}
+            height={98}
+            className="h-10 w-auto"
+            priority
+          />
         </Link>
 
         {/* Desktop Navigation */}

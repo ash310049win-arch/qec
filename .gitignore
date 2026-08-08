@@ -10,3 +10,11 @@ node_modules/
 .next/
 .env*.local
 .DS_Store
+
+# Build artifacts
+*.tsbuildinfo
+
+# Raw university source files (large, regenerable via scripts/build-dataset.py)
+# The compiled dataset the app reads (dataset/universities.compiled.json) is tracked.
+dataset/*.xlsx
+dataset/hipolabs-world-universities.json

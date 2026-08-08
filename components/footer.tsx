@@ -1,4 +1,5 @@
 import Link from "next/link"
+import Image from "next/image"
 import { Mail, Phone, MapPin } from "lucide-react"
 
 const footerLinks = {
@@ -6,6 +7,7 @@ const footerLinks = {
     { href: "/about", label: "About Us" },
     { href: "/services", label: "Our Services" },
     { href: "/destinations", label: "Destinations" },
+    { href: "/career-matcher", label: "Career Matcher" },
     { href: "/success-stories", label: "Success Stories" },
   ],
   resources: [
@@ -29,23 +31,13 @@ export function Footer() {
           {/* Brand */}
           <div className="lg:col-span-1">
             <Link href="/" className="flex items-center gap-1.5">
-              <svg
-                viewBox="0 0 32 32"
-                className="h-8 w-8"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <rect width="32" height="32" rx="6" className="fill-primary" />
-                <path
-                  d="M16 6L18.5 12H25L19.5 16L21.5 22L16 18L10.5 22L12.5 16L7 12H13.5L16 6Z"
-                  fill="white"
-                />
-                <rect x="11" y="22" width="10" height="2" rx="1" fill="white" />
-                <rect x="13" y="25" width="6" height="1.5" rx="0.75" fill="white" />
-              </svg>
-              <span className="font-heading text-xl font-bold tracking-tight text-white">
-                Quilon
-              </span>
+              <Image
+                src="/images/qec-logo.png"
+                alt="Quilon Educational Consultancy"
+                width={288}
+                height={98}
+                className="h-12 w-auto"
+              />
             </Link>
             <p className="mt-4 text-sm leading-relaxed text-white/60">
               Guiding students toward their global education dreams with personalized counseling,
@@ -99,16 +91,22 @@ export function Footer() {
             <ul className="mt-4 flex flex-col gap-3">
               <li className="flex items-start gap-2">
                 <Phone className="mt-0.5 h-4 w-4 shrink-0 text-primary" />
-                <span className="text-sm text-white/60">+1 (555) 123-4567</span>
+                <span className="text-sm text-white/60">
+                  +91 94977 71392
+                  <br />
+                  +91 92077 74401
+                </span>
               </li>
               <li className="flex items-start gap-2">
                 <Mail className="mt-0.5 h-4 w-4 shrink-0 text-primary" />
-                <span className="text-sm text-white/60">info@quilonconsultancy.com</span>
+                <span className="text-sm text-white/60">quilonconsultancy@gmail.com</span>
               </li>
               <li className="flex items-start gap-2">
                 <MapPin className="mt-0.5 h-4 w-4 shrink-0 text-primary" />
                 <span className="text-sm text-white/60">
-                  123 Education Lane, Suite 200, New York, NY 10001
+                  Opp. Swayamvara Silks, Pulamon Junction,
+                  <br />
+                  Kottarakara, Kollam, Kerala - 691531
                 </span>
               </li>
             </ul>
@@ -121,10 +119,10 @@ export function Footer() {
             &copy; {new Date().getFullYear()} Quilon Educational Consultancy. All rights reserved.
           </p>
           <div className="flex gap-6">
-            <Link href="/" className="text-xs text-white/40 hover:text-primary">
+            <Link href="/privacy-policy" className="text-xs text-white/40 hover:text-primary">
               Privacy Policy
             </Link>
-            <Link href="/" className="text-xs text-white/40 hover:text-primary">
+            <Link href="/terms-of-service" className="text-xs text-white/40 hover:text-primary">
               Terms of Service
             </Link>
           </div>
