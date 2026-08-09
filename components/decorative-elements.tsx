@@ -64,18 +64,26 @@ export function OrganicBlob({
   className = "",
   size = "md",
   color = "red",
+  opacity,
 }: {
   className?: string
-  size?: "sm" | "md" | "lg"
+  size?: "sm" | "md" | "lg" | "xl"
   color?: "red" | "gray"
+  opacity?: number
 }) {
   const sizeClasses = {
     sm: "h-40 w-40",
     md: "h-64 w-64",
     lg: "h-96 w-96",
+    xl: "h-[28rem] w-[28rem]",
   }
 
-  const bgColor = color === "red" ? "rgba(224, 36, 36, 0.06)" : "rgba(0, 0, 0, 0.04)"
+  const bgColor =
+    opacity !== undefined
+      ? `rgba(214, 38, 42, ${opacity})`
+      : color === "red"
+        ? "rgba(224, 36, 36, 0.06)"
+        : "rgba(0, 0, 0, 0.04)"
 
   return (
     <div

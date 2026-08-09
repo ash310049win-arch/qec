@@ -14,42 +14,42 @@ const destinations = [
     image: "/images/dest-usa.jpg",
     description:
       "World-class universities, diverse campuses, and unmatched research opportunities.",
-    href: "/destinations",
+    href: "/destinations/usa",
   },
   {
     country: "Canada",
     image: "/images/dest-canada.jpg",
     description:
       "Affordable quality education with strong post-study work opportunities.",
-    href: "/destinations",
+    href: "/destinations/canada",
   },
   {
     country: "United Kingdom",
     image: "/images/dest-uk.jpg",
     description:
       "Prestigious institutions with globally recognized degrees and rich culture.",
-    href: "/destinations",
+    href: "/destinations/united-kingdom",
   },
   {
     country: "Australia",
     image: "/images/dest-australia.jpg",
     description:
       "Excellent student life, innovative courses, and welcoming immigration policies.",
-    href: "/destinations",
+    href: "/destinations/australia",
   },
   {
     country: "Germany",
     image: "/images/dest-germany.jpg",
     description:
       "Tuition-free public universities and a booming economy for engineering and STEM.",
-    href: "/destinations",
+    href: "/destinations/germany",
   },
   {
     country: "Ireland",
     image: "/images/dest-ireland.jpg",
     description:
       "English-speaking, strong tech industry ties, and a friendly student community.",
-    href: "/destinations",
+    href: "/destinations/ireland",
   },
 ]
 

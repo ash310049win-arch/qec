@@ -36,7 +36,7 @@ export function BenefitsSection() {
   const ref = useScrollAnimation()
 
   return (
-    <section className="section-divider-wave-white blob-bg relative overflow-hidden bg-background py-20 lg:py-28" ref={ref}>
+    <section className="section-divider-wave-white blob-bg relative overflow-hidden bg-background mt-20 py-20 lg:mt-24 lg:py-28" ref={ref}>
       {/* Floating decorative accents */}
       <FloatingDots className="top-10 right-12 hidden md:block" />
       <FloatingLine className="bottom-20 left-8" />

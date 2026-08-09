@@ -33,6 +33,9 @@ export function Navbar() {
     setIsOpen(false)
   }, [pathname])
 
+  const isDestinationsPage = pathname === "/destinations"
+  const whiteNav = isDestinationsPage && !scrolled
+
   return (
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
@@ -49,7 +52,7 @@ export function Navbar() {
             alt="Quilon Educational Consultancy"
             width={288}
             height={98}
-            className="h-10 w-auto"
+            className={`h-10 w-auto ${whiteNav ? "brightness-0 invert" : ""}`}
             priority
           />
         </Link>
@@ -62,8 +65,12 @@ export function Navbar() {
               href={link.href}
               className={`rounded-md px-3 py-2 text-sm font-medium transition-colors ${
                 pathname === link.href
-                  ? "text-primary"
-                  : "text-muted-foreground hover:text-foreground"
+                  ? whiteNav
+                    ? "text-white"
+                    : "text-primary"
+                  : whiteNav
+                    ? "text-white/80 hover:text-white"
+                    : "text-muted-foreground hover:text-foreground"
               }`}
             >
               {link.label}
@@ -82,7 +89,7 @@ export function Navbar() {
         <button
           type="button"
           onClick={() => setIsOpen(!isOpen)}
-          className="rounded-md p-2 text-foreground lg:hidden"
+          className={`rounded-md p-2 lg:hidden ${whiteNav ? "text-white" : "text-foreground"}`}
           aria-label={isOpen ? "Close menu" : "Open menu"}
         >
           {isOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}

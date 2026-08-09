@@ -8,11 +8,16 @@ import { OrganicBlob, FloatingDots, FloatingTriangle, FloatingLine } from "@/com
 
 export function HeroSection() {
   return (
-    <section className="section-divider-wave relative overflow-hidden bg-secondary pt-28 pb-20 lg:pt-36 lg:pb-28">
+    <section className="section-divider-wave relative overflow-hidden bg-secondary pt-32 pb-24 lg:pt-40 lg:pb-36">
       {/* Organic background blobs */}
       <OrganicBlob className="top-10 right-0" size="lg" color="red" />
       <OrganicBlob className="bottom-0 left-0" size="md" color="gray" />
       <OrganicBlob className="top-1/3 left-1/4" size="sm" color="red" />
+
+      {/* Large soft red blob centered behind the left text block (mirror of the right-edge blob) */}
+      <div className="pointer-events-none absolute top-1/2 left-1/3 h-[28rem] w-[28rem] -translate-x-1/2 -translate-y-1/2">
+        <OrganicBlob size="xl" color="red" opacity={0.12} />
+      </div>
 
       {/* Floating decorative elements */}
       <FloatingDots className="top-20 right-20 hidden lg:block" />
@@ -20,14 +25,14 @@ export function HeroSection() {
       <FloatingLine className="top-40 left-1/3" />
       <FloatingDots className="bottom-16 right-1/4 hidden lg:block" />
 
-      <div className="relative mx-auto flex max-w-7xl flex-col items-center gap-12 px-6 lg:flex-row lg:gap-16">
+      <div className="relative mx-auto flex max-w-7xl flex-col items-center gap-14 px-6 lg:flex-row lg:gap-20">
         {/* Left - Text Content */}
         <div className="flex-1 text-center lg:text-left">
-          <h1 className="animate-fade-up font-heading text-4xl font-extrabold leading-tight tracking-tight text-foreground md:text-5xl lg:text-6xl text-balance">
+          <h1 className="animate-fade-up font-heading text-5xl font-extrabold leading-tight tracking-tight text-foreground md:text-6xl lg:text-7xl text-balance">
             Study Abroad with{" "}
             <span className="text-primary">Confidence.</span>
           </h1>
-          <p className="animate-fade-up-delay-1 mt-6 max-w-lg text-lg leading-relaxed text-muted-foreground mx-auto lg:mx-0 text-pretty">
+          <p className="animate-fade-up-delay-1 mt-6 max-w-xl text-lg leading-relaxed text-muted-foreground mx-auto lg:mx-0 text-pretty md:text-xl">
             Quilon Educational Consultancy guides you from choosing the right
             country to landing on campus. Your dream education, our expert
             guidance.
@@ -68,7 +73,7 @@ export function HeroSection() {
 
         {/* Right - Visual */}
         <div className="relative flex-1 animate-fade-up-delay-2">
-          <div className="relative mx-auto max-w-md lg:max-w-lg">
+          <div className="relative mx-auto max-w-lg lg:max-w-xl">
             {/* Main image card */}
             <div className="relative overflow-hidden rounded-2xl bg-background shadow-2xl">
               <Image
