@@ -99,9 +99,12 @@ function Slide({
   )
 }
 
+const AUTOPLAY_INTERVAL_MS = 2500
+
 export function DestinationsCarousel() {
-  const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true, align: "start" })
+  const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true, align: "start", duration: 40 })
   const [selectedIndex, setSelectedIndex] = useState(0)
+  const [paused, setPaused] = useState(false)
 
   useEffect(() => {
     if (!emblaApi) return
@@ -112,6 +115,26 @@ export function DestinationsCarousel() {
       emblaApi.off("select", onSelect)
     }
   }, [emblaApi])
+
+  useEffect(() => {
+    if (!emblaApi) return
+    const pause = () => setPaused(true)
+    const resume = () => setPaused(false)
+    emblaApi.on("pointerDown", pause)
+    emblaApi.on("pointerUp", resume)
+    emblaApi.on("settle", resume)
+    return () => {
+      emblaApi.off("pointerDown", pause)
+      emblaApi.off("pointerUp", resume)
+      emblaApi.off("settle", resume)
+    }
+  }, [emblaApi])
+
+  useEffect(() => {
+    if (paused || !emblaApi) return
+    const id = window.setInterval(() => emblaApi.scrollNext(), AUTOPLAY_INTERVAL_MS)
+    return () => window.clearInterval(id)
+  }, [emblaApi, paused, selectedIndex])
 
   useEffect(() => {
     const onKey = (e: KeyboardEvent) => {
