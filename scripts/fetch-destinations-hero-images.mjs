@@ -4,63 +4,138 @@ import { join } from "node:path"
 const COUNTRIES = [
   {
     slug: "japan",
-    queries: ["Tokyo skyline", "Mount Fuji Chureito Pagoda", "Shibuya Crossing Tokyo"],
+    queries: [
+      "Kyoto University campus",
+      "Waseda University Okuma Auditorium",
+      "Keio University Mita campus",
+      "University of Tokyo Hongo campus",
+    ],
   },
   {
     slug: "usa",
-    queries: ["New York City Manhattan skyline", "Golden Gate Bridge San Francisco", "Statue of Liberty New York"],
+    queries: [
+      "Harvard Yard Harvard University",
+      "MIT Great Dome Massachusetts",
+      "Stanford University campus",
+      "Yale University campus",
+    ],
   },
   {
     slug: "canada",
-    queries: ["Toronto skyline CN Tower", "Vancouver skyline", "Lake Louise Banff"],
+    queries: [
+      "McGill University campus",
+      "University of British Columbia campus",
+      "University of Toronto Convocation Hall",
+      "University of Waterloo campus",
+    ],
   },
   {
     slug: "united-kingdom",
-    queries: ["London skyline Thames", "Big Ben Westminster London", "Oxford skyline"],
+    queries: [
+      "University of Oxford",
+      "King's College Chapel Cambridge",
+      "Bodleian Library Oxford",
+      "University of Cambridge",
+    ],
   },
   {
     slug: "australia",
-    queries: ["Sydney Opera House harbour", "Melbourne skyline", "Bondi Beach Sydney"],
+    queries: [
+      "University of Sydney Quadrangle",
+      "Australian National University",
+      "University of Queensland campus",
+      "University of Melbourne campus",
+    ],
   },
   {
     slug: "germany",
-    queries: ["Berlin skyline Fernsehturm", "Munich skyline Frauenkirche", "Cologne Cathedral"],
+    queries: [
+      "Technical University Munich",
+      "RWTH Aachen University",
+      "University of Freiburg",
+      "Heidelberg University",
+    ],
   },
   {
     slug: "ireland",
-    queries: ["Cliffs of Moher", "Dublin city", "Trinity College Dublin"],
+    queries: [
+      "University College Dublin campus",
+      "Trinity College Dublin campus",
+      "Dublin City University",
+      "University College Cork campus",
+    ],
   },
   {
     slug: "new-zealand",
-    queries: ["Milford Sound", "Auckland skyline", "Queenstown New Zealand"],
+    queries: [
+      "University of Otago Clocktower",
+      "University of Auckland campus",
+      "Victoria University of Wellington",
+      "University of Canterbury",
+    ],
   },
   {
     slug: "france",
-    queries: ["Paris skyline Eiffel Tower", "Paris La Defense", "Mont Saint-Michel"],
+    queries: [
+      "La Sorbonne Paris",
+      "Ecole Polytechnique Palaiseau",
+      "Sciences Po Paris",
+      "Sorbonne University Paris",
+    ],
   },
   {
     slug: "netherlands",
-    queries: ["Amsterdam canal houses", "Rotterdam skyline", "Keukenhof tulips"],
+    queries: [
+      "Leiden University",
+      "Delft University of Technology",
+      "University of Amsterdam",
+      "Utrecht University",
+    ],
   },
   {
     slug: "uae",
-    queries: ["Dubai skyline Burj Khalifa", "Dubai Marina", "Abu Dhabi skyline"],
+    queries: [
+      "Khalifa University Abu Dhabi",
+      "United Arab Emirates University Al Ain",
+      "American University of Sharjah",
+      "Abu Dhabi University",
+    ],
   },
   {
     slug: "south-korea",
-    queries: ["Seoul skyline", "Seoul night skyline Lotte World Tower", "Gyeongbokgung Palace Seoul"],
+    queries: [
+      "Korea University campus",
+      "Yonsei University campus",
+      "Sungkyunkwan University campus",
+      "Seoul National University campus",
+    ],
   },
   {
     slug: "singapore",
-    queries: ["Singapore skyline Marina Bay", "Gardens by the Bay Singapore", "Merlion Singapore"],
+    queries: [
+      "Nanyang Technological University",
+      "National University of Singapore",
+      "Singapore Management University",
+      "NUS University Town",
+    ],
   },
   {
     slug: "poland",
-    queries: ["Warsaw skyline", "Warsaw Old Town", "Krakow Wawel Castle"],
+    queries: [
+      "University of Warsaw",
+      "Warsaw University of Technology",
+      "Jagiellonian University campus",
+      "Adam Mickiewicz University Poznan",
+    ],
   },
   {
     slug: "malaysia",
-    queries: ["Kuala Lumpur skyline Petronas", "Kuala Lumpur night", "Penang George Town"],
+    queries: [
+      "Universiti Teknologi Malaysia",
+      "Universiti Sains Malaysia",
+      "Monash University Malaysia",
+      "Universiti Kebangsaan Malaysia",
+    ],
   },
 ]
 
@@ -93,11 +168,49 @@ async function fetchWithRetry(url, attempts = 6) {
   throw new Error("fetch failed")
 }
 
+// Reject photos of generic tourist landmarks (city skylines, monuments,
+// beaches, theme-park sights) so every download reads as "studying here".
+const TOURIST_TOKENS = [
+  "opera house",
+  "golden gate",
+  "statue of liberty",
+  "eiffel",
+  "petronas",
+  "merlion",
+  "marina bay sands",
+  "burj",
+  "mosque",
+  "batu caves",
+  "cliffs of moher",
+  "milford sound",
+  "keukenhof",
+  "neuschwanstein",
+  "brandenburg",
+  "wawel",
+  "castle",
+  "waterfall",
+  "dune",
+  "desert",
+  "big ben",
+  "westminster",
+  "louvre",
+  "namsan",
+  "seoul tower",
+  "ferris wheel",
+  "skyline",
+]
+
+function isTourist(title = "") {
+  const t = title.toLowerCase()
+  return TOURIST_TOKENS.some((token) => t.includes(token))
+}
+
 // Prefer wide, high-resolution landscape photos (16:9-ish) that crop well
 // into a full-bleed viewport background.
-function scoreCandidate(ii) {
+function scoreCandidate(ii, title) {
   const { width, height } = ii
   if (ii.mime !== "image/jpeg" || !ii.thumburl) return -1
+  if (isTourist(title)) return -1
   if (width < 2000 || height < 1000) return -1
   const aspect = width / height
   if (aspect < 1.35 || aspect > 2.6) return -1
@@ -106,22 +219,25 @@ function scoreCandidate(ii) {
 }
 
 async function searchBestImage(query) {
+  await sleep(2500)
   const q = encodeURIComponent(`filetype:bitmap ${query}`)
   const url = `https://commons.wikimedia.org/w/api.php?action=query&generator=search&gsrsearch=${q}&gsrlimit=10&gsrnamespace=6&prop=imageinfo&iiprop=url|size|mime&iiurlwidth=2560&format=json&origin=*`
   const res = await fetchWithRetry(url)
   const data = await res.json()
   const pages = data.query ? Object.values(data.query.pages) : []
   const candidates = pages
-    .map((p) => p.imageinfo && p.imageinfo[0])
-    .filter(Boolean)
-    .map((ii) => ({ ii, score: scoreCandidate(ii) }))
+    .map((p) => ({ title: p.title || "", ii: p.imageinfo && p.imageinfo[0] }))
+    .filter((c) => c.ii)
+    .map((c) => ({ ii: c.ii, score: scoreCandidate(c.ii, c.title) }))
     .filter((c) => c.score >= 0)
     .sort((a, b) => a.score - b.score)
   return candidates[0] ? candidates[0].ii : null
 }
 
 async function main() {
-  for (const country of COUNTRIES) {
+  const only = process.argv.slice(2)
+  const countries = COUNTRIES.filter((c) => only.length === 0 || only.includes(c.slug))
+  for (const country of countries) {
     const outName = `dest-${country.slug}-hero.jpg`
     const outPath = join(process.cwd(), "public", "images", outName)
     if (existsSync(outPath)) {
