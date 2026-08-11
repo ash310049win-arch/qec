@@ -79,8 +79,18 @@ function Slide({
           <p className="font-heading text-xs font-semibold uppercase tracking-[0.22em] text-white/70 md:text-sm">
             Study Destination
           </p>
-          <h2 className="mt-3 max-w-3xl font-display text-5xl font-black leading-none tracking-tight text-white text-balance md:text-7xl lg:text-8xl">
-            {country.flag} {country.name}
+          <h2 className="mt-3 flex flex-wrap items-center gap-4 font-display text-5xl font-black leading-none tracking-tight text-white text-balance md:text-7xl lg:text-8xl">
+            <Image
+              src={country.flag}
+              alt=""
+              width={72}
+              height={48}
+              unoptimized
+              priority={isActive}
+              draggable={false}
+              className="h-[0.5em] w-[0.75em] shrink-0 rounded-sm object-cover shadow-lg shadow-black/40"
+            />
+            <span>{country.name}</span>
           </h2>
           <p className="mt-4 max-w-xl text-base leading-relaxed text-white/90 text-pretty md:text-lg">
             {country.eyebrow}

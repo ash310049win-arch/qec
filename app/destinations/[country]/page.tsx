@@ -3,7 +3,7 @@ import { notFound } from "next/navigation"
 import { PageWrapper } from "@/components/page-wrapper"
 import { CountryHero } from "@/components/destinations/country-hero"
 import { CountryContent } from "@/components/destinations/country-sections"
-import { getCountryBySlug } from "@/lib/destinations-data"
+import { COUNTRIES, getCountryBySlug } from "@/lib/destinations-data"
 import { getUniversitiesForCountry, getCountryUniversityTotal } from "@/lib/destinations-universities"
 
 type Props = {
@@ -11,23 +11,7 @@ type Props = {
 }
 
 export function generateStaticParams() {
-  return [
-    { country: "japan" },
-    { country: "usa" },
-    { country: "canada" },
-    { country: "united-kingdom" },
-    { country: "australia" },
-    { country: "germany" },
-    { country: "ireland" },
-    { country: "new-zealand" },
-    { country: "france" },
-    { country: "netherlands" },
-    { country: "uae" },
-    { country: "south-korea" },
-    { country: "singapore" },
-    { country: "poland" },
-    { country: "malaysia" },
-  ]
+  return COUNTRIES.map((country) => ({ country: country.slug }))
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {

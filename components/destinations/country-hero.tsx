@@ -21,34 +21,17 @@ export function CountryHero({ country }: { country: CountryData }) {
         </p>
 
         <h1 className="animate-fade-up-delay-1 mt-4 font-display text-[15vw] font-black leading-[0.92] tracking-tight text-ink sm:text-7xl md:text-8xl lg:text-[7.5rem]">
-          {country.name}
+          {country.headline}
         </h1>
 
         <div className="mt-6 flex max-w-2xl flex-col gap-6">
           <p className="animate-fade-up-delay-2 text-base leading-relaxed text-ink/70 md:text-lg">
             {country.tagline}
           </p>
-
-          <div className="animate-fade-up-delay-3 flex flex-wrap items-center gap-4">
-            <Link
-              href="/contact"
-              className="inline-flex h-12 items-center gap-2 rounded-lg bg-brand px-7 font-heading text-sm font-semibold uppercase tracking-wide text-white shadow-md transition-colors hover:bg-brand-dark"
-            >
-              Get Your Free Consultation Plan
-              <ArrowRight className="h-4 w-4" />
-            </Link>
-            <a
-              href="#why"
-              className="inline-flex h-12 items-center gap-2 rounded-lg border border-ink/15 px-6 font-heading text-sm font-semibold uppercase tracking-wide text-ink transition-colors hover:border-brand hover:text-brand"
-            >
-              Explore {country.name}
-              <ArrowDown className="h-4 w-4" />
-            </a>
-          </div>
         </div>
 
         {/* Tall photo cards with brand-red blocks */}
-        <div className="mt-14 grid snap-x snap-mandatory gap-4 overflow-x-auto pb-2 md:mt-16 md:grid-cols-2 md:snap-none md:overflow-visible lg:grid-cols-4">
+        <div className="mt-12 grid snap-x snap-mandatory gap-4 overflow-x-auto pb-2 md:mt-14 md:grid-cols-2 md:snap-none md:overflow-visible lg:grid-cols-4">
           {country.heroCards.map((card, i) => (
             <figure
               key={card.label}
@@ -73,6 +56,24 @@ export function CountryHero({ country }: { country: CountryData }) {
               </figcaption>
             </figure>
           ))}
+        </div>
+
+        {/* Primary CTA below the card row */}
+        <div className="animate-fade-up-delay-3 mt-10 flex flex-wrap items-center gap-4 md:mt-12">
+          <Link
+            href="/contact"
+            className="inline-flex h-12 items-center gap-2 rounded-lg bg-brand px-7 font-heading text-sm font-semibold uppercase tracking-wide text-white shadow-md transition-colors hover:bg-brand-dark"
+          >
+            Get Your Free Consultation Plan
+            <ArrowRight className="h-4 w-4" />
+          </Link>
+          <a
+            href="#why"
+            className="inline-flex h-12 items-center gap-2 rounded-lg border border-ink/15 px-6 font-heading text-sm font-semibold uppercase tracking-wide text-ink transition-colors hover:border-brand hover:text-brand"
+          >
+            Explore {country.name}
+            <ArrowDown className="h-4 w-4" />
+          </a>
         </div>
       </div>
     </section>
