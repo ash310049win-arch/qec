@@ -1,9 +1,12 @@
 "use client"
 
+import { useEffect, useState } from "react"
 import { PageWrapper } from "@/components/page-wrapper"
 import { SectionHeading } from "@/components/section-heading"
 import { useScrollAnimation } from "@/hooks/use-scroll-animation"
-import { Star, Users, Globe, CheckCircle2 } from "lucide-react"
+import useEmblaCarousel from "embla-carousel-react"
+import Image from "next/image"
+import { Star, Users, Globe, CheckCircle2, ArrowLeft, ArrowRight, Plane } from "lucide-react"
 
 const stats = [
   { icon: Users, value: "5,000+", label: "Students Guided" },
@@ -14,78 +17,166 @@ const stats = [
 
 const stories = [
   {
-    name: "Arjun Patel",
-    initials: "AP",
-    university: "University of Toronto",
-    country: "Canada",
-    program: "MSc Computer Science",
+    name: "Anjali Nair",
+    initials: "AN",
+    university: "University of Limerick",
+    country: "Ireland",
+    program: "Nursing",
     quote:
-      "Quilon made the entire process so smooth. From university shortlisting to visa approval, they were with me every step of the way. The personalized attention I received was incredible. I was nervous about applying abroad, but their team made me feel confident at every stage.",
-  },
-  {
-    name: "Priya Sharma",
-    initials: "PS",
-    university: "University of Melbourne",
-    country: "Australia",
-    program: "MBA",
-    quote:
-      "The personalized approach at Quilon is what sets them apart. They understood my goals and helped me secure a scholarship I didn't even know existed. My counselor spent hours fine-tuning my SOP, and I truly believe that made the difference in my application.",
+      "Quilon walked me through the nursing program details and the visa process step by step. I arrived in Limerick knowing exactly what to expect.",
   },
   {
     name: "Rahul Menon",
     initials: "RM",
-    university: "University College London",
-    country: "United Kingdom",
-    program: "MA International Relations",
+    university: "University of Toronto",
+    country: "Canada",
+    program: "Computer Science",
     quote:
-      "I was overwhelmed by the application process, but Quilon's team simplified everything. Their test prep guidance helped me score higher than I expected on the IELTS. The mock visa interviews were so thorough that the actual interview felt easy.",
+      "They helped me compare a few Canadian programs and settle on Toronto. The paperwork after that was straightforward.",
   },
   {
-    name: "Sneha Krishnan",
-    initials: "SK",
-    university: "Georgia Institute of Technology",
-    country: "USA",
-    program: "MS Electrical Engineering",
-    quote:
-      "Quilon's visa counseling was exceptional. They prepared me thoroughly for my interview and I got my student visa approved on the first attempt! Their step-by-step checklist ensured I never missed a deadline.",
-  },
-  {
-    name: "Vikram Desai",
-    initials: "VD",
-    university: "TU Munich",
+    name: "Fathima Rasheed",
+    initials: "FR",
+    university: "RWTH Aachen University",
     country: "Germany",
-    program: "MSc Automotive Engineering",
+    program: "Mechanical Engineering",
     quote:
-      "Studying in Germany was my dream, but the process seemed complex. Quilon navigated the blocked account, APS certificate, and university applications seamlessly. I'm now studying at one of Europe's best engineering universities tuition-free!",
+      "The blocked account, APS, and university applications were all new to me. They handled each one in order, without rushing.",
   },
   {
-    name: "Anjali Nair",
-    initials: "AN",
+    name: "Arjun Pillai",
+    initials: "AP",
+    university: "University of Melbourne",
+    country: "Australia",
+    program: "Data Science",
+    quote:
+      "I knew I wanted data science, but not where to study it. They helped me shortlist, and it worked out.",
+  },
+  {
+    name: "Sreelakshmi S. Kumar",
+    initials: "SK",
+    university: "Coventry University",
+    country: "UK",
+    program: "Business Analytics",
+    quote:
+      "Every step, from course choice to flight booking, was planned in advance. I never had to wonder what came next.",
+  },
+  {
+    name: "Muhammed Sinan",
+    initials: "MS",
     university: "Trinity College Dublin",
     country: "Ireland",
-    program: "MSc Data Analytics",
+    program: "Pharmacy",
     quote:
-      "I wanted to study in a country with strong tech industry connections. Quilon recommended Ireland and helped me choose the perfect program. Within a month of graduating, I had a job at a major tech company in Dublin. Best decision ever.",
+      "The application timelines were managed well and the documents stayed in order. It all went the way they said it would.",
   },
   {
-    name: "Karthik Sundaram",
-    initials: "KS",
-    university: "McGill University",
+    name: "Devika Warrier",
+    initials: "DW",
+    university: "University of Auckland",
+    country: "New Zealand",
+    program: "Civil Engineering",
+    quote:
+      "They gave me a realistic picture of costs and timelines before I committed. That clarity made the process easier.",
+  },
+  {
+    name: "Akhil Krishnan",
+    initials: "AK",
+    university: "TU Munich",
+    country: "Germany",
+    program: "Automotive Engineering",
+    quote:
+      "German applications can feel complicated from outside. Their team kept everything organized and the deadlines clear.",
+  },
+  {
+    name: "Nandana Suresh",
+    initials: "NS",
+    university: "National University of Singapore",
+    country: "Singapore",
+    program: "Business Analytics",
+    quote:
+      "I had a long list of questions about NUS before applying. They answered each one and helped me prepare a focused application.",
+  },
+  {
+    name: "Vishnu Prasad",
+    initials: "VP",
+    university: "Technical University of Munich",
+    country: "Germany",
+    program: "Renewable Energy",
+    quote:
+      "Two universities in Germany appealed to me. They helped me weigh both and apply where my profile fit best.",
+  },
+  {
+    name: "Aiswarya Mohan",
+    initials: "AM",
+    university: "University College Dublin",
+    country: "Ireland",
+    program: "Data Science",
+    quote:
+      "They listened to what I actually wanted to study instead of pushing a program. The university they suggested suited me.",
+  },
+  {
+    name: "Mohammed Shafi",
+    initials: "MSh",
+    university: "University of Malaya",
+    country: "Malaysia",
+    program: "Engineering",
+    quote:
+      "Malaysia was not on my list at first. They explained the quality and cost, and it turned out to be the right fit.",
+  },
+  {
+    name: "Parvathy Anilkumar",
+    initials: "PA",
+    university: "University of Manchester",
+    country: "UK",
+    program: "Finance",
+    quote:
+      "The whole timeline, from IELTS to visa, was mapped out on day one. I followed it and everything went smoothly.",
+  },
+  {
+    name: "Nithin Raj",
+    initials: "NR",
+    university: "University of Waterloo",
     country: "Canada",
-    program: "MEng Civil Engineering",
+    program: "Software Engineering",
     quote:
-      "What I appreciated most about Quilon was their honesty. They didn't just tell me what I wanted to hear but gave realistic advice about my chances and helped me build a strong profile. The result? Admission to my top-choice university with a partial scholarship.",
+      "Co-op programs were unfamiliar to me. They explained how Waterloo works and shaped my application around it.",
   },
   {
-    name: "Divya Raghavan",
-    initials: "DR",
-    university: "University of Edinburgh",
-    country: "United Kingdom",
-    program: "MSc Psychology",
+    name: "Athira Balakrishnan",
+    initials: "AB",
+    university: "Wageningen University",
+    country: "Netherlands",
+    program: "Environmental Science",
     quote:
-      "From my first meeting with Quilon to my arrival in Edinburgh, the experience was seamless. They helped with everything, from selecting the right course to finding accommodation. I felt fully prepared and supported throughout my journey.",
+      "Choosing a niche program felt like a risk. Their research on the university made me confident in the choice.",
+  },
+  {
+    name: "Sachin Dev",
+    initials: "SD",
+    university: "Waseda University",
+    country: "Japan",
+    program: "Robotics",
+    quote:
+      "Studying in Japan means meeting specific language and application expectations. They made that clear from the start.",
   },
 ]
+
+const flagCodes: Record<string, string> = {
+  Ireland: "ie",
+  Canada: "ca",
+  Germany: "de",
+  Australia: "au",
+  UK: "gb",
+  "New Zealand": "nz",
+  Singapore: "sg",
+  Malaysia: "my",
+  Netherlands: "nl",
+  Japan: "jp",
+}
+
+const flagUrl = (country: string) =>
+  `https://flagcdn.com/${flagCodes[country] ?? "xx"}.svg`
 
 function PageBanner() {
   return (
@@ -129,54 +220,139 @@ function StatsBar() {
   )
 }
 
-function StoriesGrid() {
+function StoriesCarousel() {
   const ref = useScrollAnimation()
+  const [emblaRef, emblaApi] = useEmblaCarousel({
+    align: "start",
+    containScroll: "trimSnaps",
+  })
+  const [scrollProgress, setScrollProgress] = useState(0)
+  const [canScrollPrev, setCanScrollPrev] = useState(false)
+  const [canScrollNext, setCanScrollNext] = useState(true)
+
+  useEffect(() => {
+    if (!emblaApi) return
+    const onScroll = () => {
+      setScrollProgress(emblaApi.scrollProgress())
+      setCanScrollPrev(emblaApi.canScrollPrev())
+      setCanScrollNext(emblaApi.canScrollNext())
+    }
+    onScroll()
+    emblaApi.on("scroll", onScroll)
+    emblaApi.on("reInit", onScroll)
+    return () => {
+      emblaApi.off("scroll", onScroll)
+      emblaApi.off("reInit", onScroll)
+    }
+  }, [emblaApi])
 
   return (
-    <section className="bg-background py-20 lg:py-28" ref={ref}>
+    <section className="overflow-hidden bg-background py-20 lg:py-28" ref={ref}>
       <div className="mx-auto max-w-7xl px-6">
         <div className="animate-on-scroll">
           <SectionHeading
             title="Hear From Our Students"
-            subtitle="Every story is unique, and every student's success is our greatest achievement."
+            subtitle="Short accounts from students who made the journey abroad."
           />
+          <p className="mt-6 text-center text-xs font-medium uppercase tracking-[0.18em] text-muted-foreground/60">
+            Placeholder profiles for review before launch
+          </p>
         </div>
 
-        <div className="mt-14 grid gap-6 md:grid-cols-2">
-          {stories.map((story, i) => (
-            <div
-              key={story.name}
-              className={`animate-on-scroll stagger-${(i % 4) + 1} rounded-xl border border-border bg-card p-6 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg`}
-            >
-              <div className="flex gap-1">
-                {Array.from({ length: 5 }).map((_, j) => (
-                  <Star
-                    key={j}
-                    className="h-4 w-4 fill-primary text-primary"
-                  />
-                ))}
-              </div>
-              <p className="mt-4 text-sm leading-relaxed text-muted-foreground italic">
-                {`"${story.quote}"`}
-              </p>
-              <div className="mt-5 flex items-center gap-3 border-t border-border pt-4">
-                <div className="flex h-11 w-11 items-center justify-center rounded-full bg-primary text-sm font-bold text-primary-foreground">
-                  {story.initials}
+        <div className="mt-14">
+          <div ref={emblaRef} className="overflow-hidden">
+            <div className="flex touch-pan-y">
+              {stories.map((story) => (
+                <div
+                  key={story.name}
+                  className="min-w-0 flex-[0_0_100%] px-3 md:flex-[0_0_33.3333%]"
+                >
+                  <div className="group relative flex h-full flex-col overflow-hidden rounded-2xl border border-border bg-card p-6 text-center shadow-[0_0_24px_-12px_rgba(214,38,42,0.25)] transition-shadow duration-300 hover:shadow-[0_0_48px_-10px_rgba(214,38,42,0.45)] md:p-8">
+                    <div
+                      className="pointer-events-none absolute inset-0 bg-gradient-to-br from-brand/[0.04] via-transparent to-transparent"
+                      aria-hidden="true"
+                    />
+                    <div className="pointer-events-none absolute inset-0 flex items-center justify-center opacity-[0.07]">
+                      <div className="relative h-40 w-64">
+                        <Image
+                          src={flagUrl(story.country)}
+                          alt=""
+                          fill
+                          unoptimized
+                          draggable={false}
+                          className="object-contain"
+                        />
+                      </div>
+                    </div>
+
+                    <div className="relative flex flex-1 flex-col">
+                      <div className="flex items-center gap-3">
+                        <span className="font-heading text-xs font-semibold uppercase tracking-widest text-primary">
+                          Kerala
+                        </span>
+                        <div className="flex flex-1 items-center gap-2">
+                          <div className="h-px flex-1 border-t border-dashed border-primary/40" aria-hidden="true" />
+                          <Plane
+                            className="h-4 w-4 shrink-0 rotate-45 text-primary animate-float-gentle"
+                            aria-hidden="true"
+                          />
+                          <div className="h-px flex-1 border-t border-dashed border-primary/40" aria-hidden="true" />
+                        </div>
+                        <span className="font-heading text-xs font-semibold uppercase tracking-widest text-primary">
+                          {story.country}
+                        </span>
+                      </div>
+
+                      <div className="flex flex-1 flex-col items-center justify-center py-8">
+                        <p className="max-w-sm text-base leading-relaxed md:text-lg">
+                          <span className="font-display text-lg font-medium text-foreground md:text-xl">
+                            {story.quote.split(" ").slice(0, 3).join(" ")}
+                          </span>
+                          <span className="text-muted-foreground">
+                            {` ${story.quote.split(" ").slice(3).join(" ")}`}
+                          </span>
+                        </p>
+                        <div className="mt-6 h-px w-16 bg-border" aria-hidden="true" />
+                        <p className="mt-6 font-heading text-lg font-semibold text-foreground">
+                          {story.name}
+                        </p>
+                        <span className="mt-3 rounded-full bg-primary/10 px-3 py-1 text-xs font-medium text-primary">
+                          {story.university}, {story.country}
+                        </span>
+                      </div>
+                    </div>
+                  </div>
                 </div>
-                <div>
-                  <p className="text-sm font-semibold text-card-foreground">
-                    {story.name}
-                  </p>
-                  <p className="text-xs text-muted-foreground">
-                    {story.program}
-                  </p>
-                  <p className="text-xs text-primary">
-                    {story.university}, {story.country}
-                  </p>
-                </div>
-              </div>
+              ))}
             </div>
-          ))}
+          </div>
+
+          <div className="mt-10 flex items-center justify-center gap-6">
+            <button
+              type="button"
+              onClick={() => emblaApi?.scrollPrev()}
+              disabled={!canScrollPrev}
+              aria-label="Previous story"
+              className="hidden h-10 w-10 items-center justify-center rounded-full border border-border text-muted-foreground transition-colors hover:border-primary hover:text-primary disabled:cursor-default disabled:opacity-40 disabled:hover:border-border disabled:hover:text-muted-foreground md:flex"
+            >
+              <ArrowLeft className="h-4 w-4" />
+            </button>
+            <div className="h-1 w-44 overflow-hidden rounded-full bg-border sm:w-64" role="progressbar" aria-valuemin={0} aria-valuemax={1} aria-valuenow={scrollProgress}>
+              <div
+                className="h-full rounded-full bg-primary transition-[width] duration-200 ease-out"
+                style={{ width: `${Math.round(scrollProgress * 100)}%` }}
+              />
+            </div>
+            <button
+              type="button"
+              onClick={() => emblaApi?.scrollNext()}
+              disabled={!canScrollNext}
+              aria-label="Next story"
+              className="hidden h-10 w-10 items-center justify-center rounded-full border border-border text-muted-foreground transition-colors hover:border-primary hover:text-primary disabled:cursor-default disabled:opacity-40 disabled:hover:border-border disabled:hover:text-muted-foreground md:flex"
+            >
+              <ArrowRight className="h-4 w-4" />
+            </button>
+          </div>
         </div>
       </div>
     </section>
@@ -188,7 +364,7 @@ export default function SuccessStoriesPage() {
     <PageWrapper>
       <PageBanner />
       <StatsBar />
-      <StoriesGrid />
+      <StoriesCarousel />
     </PageWrapper>
   )
 }
