@@ -3,6 +3,7 @@
 import { PageWrapper } from "@/components/page-wrapper"
 import { SectionHeading } from "@/components/section-heading"
 import { useScrollAnimation } from "@/hooks/use-scroll-animation"
+import Image from "next/image"
 import { Target, Eye, Award, Users, Globe, GraduationCap } from "lucide-react"
 import { OrganicBlob, FloatingDots, FloatingTriangle, FloatingLine, FloatingCircle } from "@/components/decorative-elements"
 
@@ -15,41 +16,31 @@ const stats = [
 
 const team = [
   {
-    name: "Dr. Meera Nair",
-    role: "Founder & Chief Counselor",
-    initials: "MN",
-    bio: "Over 15 years of experience in international education. Former admissions advisor at a leading UK university.",
+    name: "Divya Vaman",
+    role: "Senior Admission Counselor",
+    initials: "DV",
+    bio: "Guides students through university selection and admissions across top global destinations.",
   },
   {
-    name: "Rajesh Kumar",
-    role: "Senior Visa Consultant",
-    initials: "RK",
-    bio: "Expert in visa processes across USA, Canada, and Australia. Has assisted 2,000+ visa applications.",
+    name: "Anju",
+    role: "Visa Counselor",
+    initials: "AN",
+    bio: "Expert in student visa documentation and smooth application processes.",
   },
   {
-    name: "Sarah Thompson",
-    role: "Admissions Specialist",
-    initials: "ST",
-    bio: "Specializes in Ivy League and Russell Group university admissions with a strong track record.",
+    name: "Vipanjika",
+    role: "Visa Counselor",
+    initials: "VI",
+    bio: "Specializes in visa interview preparation and funding guidance.",
   },
   {
-    name: "Anita George",
-    role: "Test Prep Coordinator",
-    initials: "AG",
-    bio: "IELTS and TOEFL specialist with proven strategies that have helped students achieve top scores.",
+    name: "Arunraj",
+    role: "Marketing Head",
+    initials: "AR",
+    bio: "Leads our marketing and outreach, connecting students with the right programs.",
   },
 ]
 
-const partners = [
-  "University of Oxford",
-  "MIT",
-  "University of Toronto",
-  "University of Melbourne",
-  "ETH Zurich",
-  "NUS Singapore",
-  "University of Edinburgh",
-  "McGill University",
-]
 
 function PageBanner() {
   return (
@@ -68,6 +59,90 @@ function PageBanner() {
           Empowering students to achieve their global education dreams through expert guidance,
           personalized counseling, and unwavering support.
         </p>
+      </div>
+    </section>
+  )
+}
+
+function FounderSection() {
+  const ref = useScrollAnimation()
+
+  return (
+    <section
+      className="section-divider-wave-white relative overflow-hidden bg-secondary py-20 lg:py-28"
+      ref={ref}
+    >
+      <FloatingDots className="top-14 right-10 hidden md:block" />
+      <OrganicBlob className="bottom-0 left-0" size="md" color="red" />
+
+      <div className="relative mx-auto max-w-7xl px-6">
+        <div className="grid items-center gap-12 lg:grid-cols-2 lg:gap-16">
+          <div className="animate-on-scroll">
+            <div className="mx-auto max-w-md">
+              <div className="relative">
+                <div
+                  className="pointer-events-none absolute -left-4 -top-4 h-full w-full rounded-2xl border-2 border-primary/20"
+                  aria-hidden="true"
+                />
+                <div className="relative aspect-[4/5] w-full overflow-hidden rounded-2xl bg-secondary shadow-xl shadow-black/10">
+                  <Image
+                    src="/images/Founder.jpeg"
+                    alt="P. B. Sunil, Founder of Quilon Educational Consultancy"
+                    fill
+                    sizes="(max-width: 1024px) 100vw, 448px"
+                    className="object-cover"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div className="animate-on-scroll stagger-2">
+            <p className="font-heading text-xs font-semibold uppercase tracking-[0.22em] text-primary">
+              Word from Our Founder
+            </p>
+            <div className="relative mt-6">
+              <span
+                className="pointer-events-none absolute -top-8 -left-3 select-none font-display text-8xl leading-none text-primary/10"
+                aria-hidden="true"
+              >
+                &ldquo;
+              </span>
+              <h2 className="relative font-display text-3xl font-bold leading-tight text-ink text-balance md:text-4xl">
+                Education is not just about degrees &mdash; it&apos;s about the
+                doors they open.
+              </h2>
+            </div>
+            <div className="mt-6 space-y-4 leading-relaxed text-muted-foreground">
+              <p>
+                For over a decade, I have watched students walk through our
+                doors full of questions and leave with their dreams packed in a
+                suitcase. Every one of them reminded me why we started this
+                journey &mdash; to make a world-class education feel possible,
+                not distant.
+              </p>
+              <p>
+                Quilon is built on a simple promise: we treat every student the
+                way we would treat our own family. From the first counseling
+                session to the day you step off the plane, we stand beside you
+                &mdash; honest advice, careful planning, and unwavering support
+                at every step.
+              </p>
+              <p>Wherever you want to go, we will walk with you.</p>
+            </div>
+            <div className="mt-8 flex items-center gap-4 border-t border-border pt-6">
+              <div className="h-px w-10 bg-primary" />
+              <div>
+                <p className="font-display text-2xl italic text-ink">
+                  P. B. Sunil
+                </p>
+                <p className="text-sm text-muted-foreground">
+                  Founder &amp; Chief Counselor
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
   )
@@ -185,48 +260,14 @@ function TeamSection() {
   )
 }
 
-function PartnersSection() {
-  const ref = useScrollAnimation()
-
-  return (
-    <section className="relative overflow-hidden bg-background py-20 lg:py-28" ref={ref}>
-      <OrganicBlob className="top-0 right-0" size="sm" color="gray" />
-      <FloatingLine className="bottom-10 left-16" />
-
-      <div className="relative mx-auto max-w-7xl px-6">
-        <div className="animate-on-scroll">
-          <SectionHeading
-            title="Our Partner Institutions"
-            subtitle="We collaborate with leading universities and institutions worldwide."
-            decorativeIcon="cap"
-          />
-        </div>
-
-        <div className="animate-on-scroll mt-14 grid grid-cols-2 gap-4 md:grid-cols-4">
-          {partners.map((partner) => (
-            <div
-              key={partner}
-              className="card-enhanced flex items-center justify-center rounded-lg border border-border bg-card px-4 py-6 text-center transition-all duration-300"
-            >
-              <span className="text-sm font-medium text-muted-foreground">
-                {partner}
-              </span>
-            </div>
-          ))}
-        </div>
-      </div>
-    </section>
-  )
-}
-
 export default function AboutPage() {
   return (
     <PageWrapper>
       <PageBanner />
+      <FounderSection />
       <MissionVision />
       <StatsSection />
       <TeamSection />
-      <PartnersSection />
     </PageWrapper>
   )
 }
