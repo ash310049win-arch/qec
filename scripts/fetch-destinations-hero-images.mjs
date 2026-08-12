@@ -140,9 +140,9 @@ const COUNTRIES = [
   {
     slug: "mauritius",
     queries: [
+      "Ile aux Cerfs Mauritius beach greenery",
+      "Mauritius beach palm trees vegetation",
       "University of Mauritius campus",
-      "University of Mauritius students",
-      "University of Technology Mauritius campus",
       "Mauritius university campus",
     ],
   },

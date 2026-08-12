@@ -14,7 +14,7 @@ const navLinks = [
   { href: "/destinations", label: "Destinations" },
   { href: "/success-stories", label: "Success Stories" },
   { href: "/resources", label: "Resources" },
-  { href: "/career-matcher", label: "Career Matcher" },
+  { href: "/career-matcher", label: "Course Finder" },
   { href: "/contact", label: "Contact" },
 ]
 

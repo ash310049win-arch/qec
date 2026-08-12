@@ -93,7 +93,7 @@ export default function TermsOfServicePage() {
               <p>
                 Welcome to the Quilon Educational Consultancy (&quot;we&quot;, &quot;us&quot;, or
                 &quot;our&quot;) website. By accessing or using our website, including the contact
-                form and career-matcher tool, you agree to be bound by these Terms of Service
+                form and Course Finder tool, you agree to be bound by these Terms of Service
                 (&quot;Terms&quot;). If you do not agree with any part of these Terms, please do not
                 use our website or services.
               </p>
@@ -119,9 +119,9 @@ export default function TermsOfServicePage() {
               </ul>
             </Section>
 
-            <Section title="Career Matcher Tool">
+            <Section title="Course Finder Tool">
               <p>
-                The Career Matcher is an interactive tool that provides personalized study-abroad
+                The Course Finder is an interactive tool that provides personalized study-abroad
                 recommendations based on the preferences you enter, such as your interests, preferred
                 destination, academic stream, budget, timeline, and test readiness. The results are
                 provided for general guidance and information purposes only. They are not a guarantee

@@ -118,8 +118,8 @@ export default function PrivacyPolicyPage() {
                   such as your current education level, desired country, and target intake.
                 </li>
                 <li>
-                  <strong className="font-semibold text-foreground">Career Matcher quiz:</strong>{" "}
-                  When you use our career-matcher tool, we collect the student preference data you
+                  <strong className="font-semibold text-foreground">Course Finder quiz:</strong>{" "}
+                  When you use our Course Finder tool, we collect the student preference data you
                   enter, including areas of interest, preferred destination, academic stream, budget
                   range, intended timeline, and test readiness. This information is used to generate
                   personalized study-abroad recommendations.
@@ -144,7 +144,7 @@ export default function PrivacyPolicyPage() {
                 <li>Respond to your inquiries and provide study-abroad consultation services.</li>
                 <li>
                   Generate personalized study-abroad recommendations and matching results based on
-                  your career-matcher preferences.
+                  your Course Finder preferences.
                 </li>
                 <li>Schedule consultations and follow up with you about your enquiry.</li>
                 <li>
@@ -155,7 +155,7 @@ export default function PrivacyPolicyPage() {
                 <li>Comply with legal and regulatory obligations.</li>
               </ul>
               <p>
-                Where you have provided your details through the career matcher without submitting a
+                Where you have provided your details through the Course Finder without submitting a
                 contact form, your quiz answers are used only to generate your recommendations.
               </p>
             </Section>

@@ -142,7 +142,7 @@ function ProcessAssurance() {
               href="/career-matcher"
               className="mt-8 inline-flex h-12 items-center gap-2 rounded-lg border border-cream/25 px-6 font-heading text-sm font-semibold uppercase tracking-wide text-cream transition-colors hover:border-gold hover:text-gold"
             >
-              Not sure where to start? Try the Career Matcher
+              Not sure where to start? Try the Course Finder
               <ArrowRight className="h-4 w-4" />
             </Link>
           </div>

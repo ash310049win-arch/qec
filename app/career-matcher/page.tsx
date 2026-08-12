@@ -268,7 +268,7 @@ function PageBanner() {
           Free Career Assessment
         </span>
         <h1 className="animate-fade-up mt-4 font-heading text-4xl font-extrabold tracking-tight text-white md:text-5xl text-balance">
-          Career Matcher
+          Course Finder
         </h1>
         <p className="animate-fade-up-delay-1 mx-auto mt-4 max-w-2xl text-white/60 leading-relaxed text-pretty">
           Eight quick steps. Tell us your interests, study path, destinations,

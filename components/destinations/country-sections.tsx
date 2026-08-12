@@ -412,7 +412,7 @@ function ClosingCta({ country }: { country: CountryData }) {
             href="/career-matcher"
             className="inline-flex h-12 items-center gap-2 rounded-lg border border-white/40 px-6 font-heading text-sm font-semibold uppercase tracking-wide text-white transition-colors hover:bg-white/10"
           >
-            Try the Career Matcher
+            Try the Course Finder
           </Link>
         </div>
       </div>

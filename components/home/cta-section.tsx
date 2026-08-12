@@ -35,7 +35,7 @@ export function CtaSection() {
               className="text-base px-8"
             >
               <Link href="/career-matcher">
-                Career Matcher
+                Course Finder
                 <ArrowRight className="ml-1 h-4 w-4" />
               </Link>
             </Button>
