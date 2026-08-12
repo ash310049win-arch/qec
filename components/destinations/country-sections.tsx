@@ -154,20 +154,24 @@ function UniversitiesSection({
       />
       <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
         {universities.map((uni) => (
-          <div
+          <Link
             key={`${uni.name}-${uni.city}`}
+            href={`/book-consultation?country=${encodeURIComponent(country.name)}`}
+            aria-label={`Discuss studying at ${uni.name} in ${country.name}`}
             className={cn(
-              "flex items-start gap-4 rounded-xl border p-5",
+              "group flex items-start gap-4 rounded-xl border p-5 transition-all duration-200 hover:-translate-y-0.5 hover:shadow-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand focus-visible:ring-offset-2",
               uni.fromFeatured
-                ? "border-brand/15 bg-white shadow-sm"
-                : "border-ink/5 bg-white/60"
+                ? "border-brand/15 bg-white shadow-sm hover:border-brand/40"
+                : "border-ink/5 bg-white/60 hover:border-brand/30 hover:bg-white"
             )}
           >
-            <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-lg bg-brand/10 text-brand">
+            <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-lg bg-brand/10 text-brand transition-colors duration-200 group-hover:bg-brand group-hover:text-white">
               <GraduationCap className="h-5 w-5" />
             </div>
             <div className="min-w-0">
-              <h3 className="font-heading text-sm font-bold leading-snug text-ink">{uni.name}</h3>
+              <h3 className="font-heading text-sm font-bold leading-snug text-ink transition-colors duration-200 group-hover:text-brand">
+                {uni.name}
+              </h3>
               <p className="mt-1.5 flex flex-wrap items-center gap-x-2 gap-y-0.5 text-xs text-ink/55">
                 {uni.city && (
                   <span className="inline-flex items-center gap-1">
@@ -181,8 +185,11 @@ function UniversitiesSection({
                 </span>
               </p>
             </div>
-            {uni.fromFeatured && <BadgeCheck className="ml-auto h-4 w-4 shrink-0 text-gold" />}
-          </div>
+            <div className="ml-auto flex shrink-0 items-center gap-1.5">
+              {uni.fromFeatured && <BadgeCheck className="h-4 w-4 shrink-0 text-gold" />}
+              <ArrowRight className="h-4 w-4 shrink-0 text-brand opacity-0 transition-all duration-200 group-hover:translate-x-0.5 group-hover:opacity-100" />
+            </div>
+          </Link>
         ))}
       </div>
       <p className="mt-6 flex items-center gap-2 text-xs text-ink/45">

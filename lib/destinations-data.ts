@@ -14,6 +14,7 @@ export type MotifKey =
   | "orchid-merlion"
   | "eagle-amber"
   | "hibiscus"
+  | "palm-coast"
 
 export type HeroCard = {
   label: string
@@ -1976,6 +1977,133 @@ export const COUNTRIES: CountryData[] = [
     closing: {
       heading: "Malaysia, the Smart Start",
       text: "A free consultation shows how an accredited Malaysian degree — or a UK/Australian twinning degree — fits your budget.",
+    },
+  },
+  {
+    slug: "mauritius",
+    name: "Mauritius",
+    flag: "https://flagcdn.com/mu.svg",
+    datasetCountry: "Mauritius",
+    heroImage: "/images/dest-mauritius-hero.jpg",
+    headline: "STUDY IN MAURITIUS",
+    eyebrow:
+      "Affordable island education with an English-medium system and a growing Indian student community",
+    tagline:
+      "English-medium degrees at island prices, campuses in partnership with UK, French, and Australian universities, and a growing Indian student community in a safe, multicultural, politically stable setting.",
+    motif: "palm-coast",
+    heroCards: [
+      {
+        label: "Grand Baie",
+        image: "/images/dest-mauritius-1.jpg",
+        alt: "Sailboat at sunset off Grand Baie beach, Mauritius",
+      },
+      {
+        label: "Quatre Bornes",
+        image: "/images/dest-mauritius-2.jpg",
+        alt: "Middlesex University Mauritius campus entrance near Quatre Bornes",
+        vertical: true,
+      },
+      {
+        label: "Top University",
+        image: "/images/dest-mauritius-3.jpg",
+        alt: "Students on a bright modern university campus",
+      },
+      {
+        label: "Campus Life",
+        image: "/images/dest-mauritius-4.jpg",
+        alt: "Students walking on a green campus lawn",
+        vertical: true,
+      },
+    ],
+    whyTitle: "Why Mauritius?",
+    whyPoints: [
+      {
+        icon: "briefcase",
+        title: "Post-study work",
+        text: "There's no formal post-study work visa, but graduates who secure a job offer can transition to a Professional Occupation Permit — the practical route to staying on.",
+      },
+      {
+        icon: "award",
+        title: "Standout strength",
+        text: "A large, established Indian student community, English-medium instruction, and degrees often awarded in partnership with UK, French, and Australian universities.",
+      },
+      {
+        icon: "wallet",
+        title: "Cost positioning",
+        text: "Tuition runs roughly ₹3L–₹8L per year with living costs of ₹20,000–₹40,000 a month — among the most affordable English-medium options anywhere.",
+      },
+      {
+        icon: "alert",
+        title: "The honest caveat",
+        text: "Post-study stay is job-offer dependent — without an offer there's no automatic work visa, so choose programs wisely and plan your job search early.",
+      },
+    ],
+    featuredUniversities: [
+      { name: "University of Mauritius", city: "Réduit" },
+      { name: "University of Technology, Mauritius", city: "Moka" },
+      { name: "Middlesex University Mauritius", city: "Quatre Bornes" },
+      { name: "Open University of Mauritius", city: "Réduit" },
+    ],
+    popularCourses: [
+      "Business",
+      "IT",
+      "Hospitality",
+      "Marine Science",
+      "Engineering",
+    ],
+    cost: {
+      tuition: "₹3L–₹8L per year depending on program and institution",
+      living: "₹20,000–₹40,000 per month — modest compared with most study destinations",
+      note: "Approximate estimate for planning only. Figures shift with exchange rates and lifestyle; part-time work (up to 20 hrs/week during studies) can offset costs.",
+    },
+    visa: {
+      type: "Student visa (applied for after receiving an admission offer letter)",
+      funds: "Show proof of funds, accommodation confirmation, and health clearance (chest X-ray, HIV test)",
+      documents: [
+        "Admission offer letter from a Mauritian institution",
+        "Proof of funds / bank statement",
+        "Accommodation confirmation",
+        "Health clearance (chest X-ray, HIV test)",
+        "Passport, photos, and application forms",
+      ],
+      postStudyWorkName: "Professional Occupation Permit (job-offer route)",
+      postStudyWorkDuration:
+        "No dedicated post-study work visa — transition with a job offer; part-time work up to 20 hrs/week is allowed during studies",
+      intakes: [
+        "January / February",
+        "July / August",
+        "Some institutions: May / October",
+      ],
+    },
+    services: [
+      {
+        title: "Counseling & University Selection",
+        text: "From the University of Mauritius and UTM to Middlesex and Open University campuses, we shortlist programs that fit your budget, profile, and career plan.",
+      },
+      {
+        title: "Applications & Documentation",
+        text: "We prepare admission applications, transcripts, and the offer-letter paperwork Mauritian institutions expect — including English proficiency evidence.",
+      },
+      {
+        title: "Visa Counseling & Interview Prep",
+        text: "We build your student visa file — proof of funds, accommodation confirmation, and health clearance — so the streamlined review goes smoothly.",
+      },
+      {
+        title: "Test Preparation",
+        text: "IELTS/TOEFL for English-medium programs, plus any professional or entrance tests your chosen course requires.",
+      },
+      {
+        title: "Scholarships & Funding",
+        text: "Mauritius government scholarships, university merit awards, and financial planning to bring an already affordable budget down further.",
+      },
+      {
+        title: "Pre-Departure & Arrival Support",
+        text: "Accommodation leads, registration formalities, and an orientation to your island student life so you arrive settled and ready.",
+      },
+    ],
+    closing: {
+      heading: "Your Island Degree, Within Reach",
+      text: "A free consultation turns 'I'd love to study in Mauritius' into a concrete plan — universities, budget, visa steps, and intake timing.",
     },
   },
 ]

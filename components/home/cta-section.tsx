@@ -34,8 +34,8 @@ export function CtaSection() {
               size="lg"
               className="text-base px-8"
             >
-              <Link href="/contact">
-                Book a Free Consultation
+              <Link href="/career-matcher">
+                Career Matcher
                 <ArrowRight className="ml-1 h-4 w-4" />
               </Link>
             </Button>

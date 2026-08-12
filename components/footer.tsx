@@ -99,7 +99,7 @@ export function Footer() {
               </li>
               <li className="flex items-start gap-2">
                 <Mail className="mt-0.5 h-4 w-4 shrink-0 text-primary" />
-                <span className="text-sm text-white/60">quilonconsultancy@gmail.com</span>
+                <span className="text-sm text-white/60">info@quilonconsultancy.com</span>
               </li>
               <li className="flex items-start gap-2">
                 <MapPin className="mt-0.5 h-4 w-4 shrink-0 text-primary" />

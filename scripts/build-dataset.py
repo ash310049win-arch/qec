@@ -116,6 +116,7 @@ COUNTRY_TIER = {
     "Qatar": "premium",
     "Saudi Arabia": "mid",
     "Malaysia": "budget",
+    "Mauritius": "budget",
     "South Africa": "budget",
     "Brazil": "budget",
     "Mexico": "budget",

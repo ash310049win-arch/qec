@@ -85,6 +85,13 @@ const destinationOptions = [
     tagline: "English-speaking, tech hub of Europe",
     minBudget: 18000,
   },
+  {
+    id: "mauritius",
+    country: "Mauritius",
+    image: "/images/dest-mauritius.jpg",
+    tagline: "Affordable island education in English with a growing Indian community",
+    minBudget: 7000,
+  },
 ]
 
 const indiaDestinationOption = {

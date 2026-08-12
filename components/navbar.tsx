@@ -33,8 +33,8 @@ export function Navbar() {
     setIsOpen(false)
   }, [pathname])
 
-  const isDestinationsPage = pathname === "/destinations"
-  const whiteNav = isDestinationsPage && !scrolled
+  const isHeroImagePage = pathname === "/destinations" || pathname === "/book-consultation"
+  const whiteNav = isHeroImagePage && !scrolled
 
   return (
     <header
@@ -81,7 +81,7 @@ export function Navbar() {
         {/* Desktop CTA */}
         <div className="hidden lg:block">
           <Button asChild>
-            <Link href="/contact">Book a Free Consultation</Link>
+            <Link href="/book-consultation">Book a Free Consultation</Link>
           </Button>
         </div>
 
@@ -115,7 +115,7 @@ export function Navbar() {
             ))}
             <div className="mt-2 border-t border-border pt-3">
               <Button asChild className="w-full">
-                <Link href="/contact">Book a Free Consultation</Link>
+                <Link href="/book-consultation">Book a Free Consultation</Link>
               </Button>
             </div>
           </div>

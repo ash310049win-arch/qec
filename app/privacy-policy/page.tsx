@@ -59,8 +59,8 @@ function ContactUs() {
         <li className="flex items-start gap-3">
           <Mail className="mt-0.5 h-4 w-4 shrink-0 text-primary" />
           <span>
-            <a href="mailto:quilonconsultancy@gmail.com" className="text-primary hover:underline">
-              quilonconsultancy@gmail.com
+            <a href="mailto:info@quilonconsultancy.com" className="text-primary hover:underline">
+              info@quilonconsultancy.com
             </a>
           </span>
         </li>

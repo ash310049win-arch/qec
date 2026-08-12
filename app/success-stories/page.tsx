@@ -268,12 +268,8 @@ function StoriesCarousel() {
                   className="min-w-0 flex-[0_0_100%] px-3 md:flex-[0_0_33.3333%]"
                 >
                   <div className="group relative flex h-full flex-col overflow-hidden rounded-2xl border border-border bg-card p-6 text-center shadow-[0_0_24px_-12px_rgba(214,38,42,0.25)] transition-shadow duration-300 hover:shadow-[0_0_48px_-10px_rgba(214,38,42,0.45)] md:p-8">
-                    <div
-                      className="pointer-events-none absolute inset-0 bg-gradient-to-br from-brand/[0.04] via-transparent to-transparent"
-                      aria-hidden="true"
-                    />
-                    <div className="pointer-events-none absolute inset-0 flex items-center justify-center opacity-[0.07]">
-                      <div className="relative h-40 w-64">
+                    <div className="pointer-events-none absolute inset-0 flex items-center justify-center opacity-20">
+                      <div className="relative h-48 w-72">
                         <Image
                           src={flagUrl(story.country)}
                           alt=""

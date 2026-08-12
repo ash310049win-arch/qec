@@ -337,6 +337,38 @@ function MotifArt({ motif }: { motif: MotifKey }) {
           </g>
         </>
       )
+    case "palm-coast":
+      return (
+        <>
+          <g fill="none" strokeLinecap="round">
+            <g transform="translate(80 255)">
+              <path d="M0 0 C -8 -38 -4 -70 8 -92" strokeWidth="1.5" />
+              <path
+                d="M8 -92 C 20 -78 44 -82 62 -76 M8 -92 C 16 -72 30 -60 50 -54 M8 -92 C 4 -74 -12 -66 -30 -60 M8 -92 C -1 -82 -18 -80 -34 -76 M8 -92 C 10 -94 12 -94 14 -93"
+                strokeWidth="1.1"
+              />
+              <path d="M-18 -42 C -30 -48 -38 -42 -40 -34 M-22 -66 C -34 -72 -42 -66 -44 -58" strokeWidth="0.9" />
+            </g>
+            <g transform="translate(265 95) scale(0.8)">
+              <path d="M0 0 C -6 -30 -3 -56 7 -74" strokeWidth="1.3" />
+              <path
+                d="M7 -74 C 16 -63 36 -66 50 -61 M7 -74 C 13 -58 24 -49 40 -44 M7 -74 C 3 -60 -10 -54 -24 -49 M7 -74 C 0 -66 -14 -64 -28 -61 M7 -74 C 9 -76 10 -76 12 -75"
+                strokeWidth="1"
+              />
+            </g>
+            <g transform="translate(190 60) scale(0.55)">
+              <path d="M0 0 C -6 -30 -3 -56 7 -74" strokeWidth="1.3" />
+              <path
+                d="M7 -74 C 16 -63 36 -66 50 -61 M7 -74 C 13 -58 24 -49 40 -44 M7 -74 C 3 -60 -10 -54 -24 -49 M7 -74 C 0 -66 -14 -64 -28 -61 M7 -74 C 9 -76 10 -76 12 -75"
+                strokeWidth="1"
+              />
+            </g>
+            <path d="M20 282 Q 60 270 100 280 T 180 278" strokeWidth="1.1" />
+            <path d="M160 304 Q 200 292 240 302 T 320 300" strokeWidth="1" opacity="0.7" />
+            <path d="M40 326 Q 80 314 120 324 T 200 322" strokeWidth="0.9" opacity="0.55" />
+          </g>
+        </>
+      )
   }
 }
 

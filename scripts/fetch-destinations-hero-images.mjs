@@ -137,6 +137,15 @@ const COUNTRIES = [
       "Universiti Kebangsaan Malaysia",
     ],
   },
+  {
+    slug: "mauritius",
+    queries: [
+      "University of Mauritius campus",
+      "University of Mauritius students",
+      "University of Technology Mauritius campus",
+      "Mauritius university campus",
+    ],
+  },
 ]
 
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms))

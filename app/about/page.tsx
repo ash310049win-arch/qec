@@ -29,9 +29,9 @@ const team = [
   },
   {
     name: "Vipanjika",
-    role: "Visa Counselor",
+    role: "Admission Counselor",
     initials: "VI",
-    bio: "Specializes in visa interview preparation and funding guidance.",
+    bio: "Specializes in university admission preparation and funding guidance.",
   },
   {
     name: "Arunraj",
@@ -265,8 +265,8 @@ export default function AboutPage() {
     <PageWrapper>
       <PageBanner />
       <FounderSection />
-      <MissionVision />
       <StatsSection />
+      <MissionVision />
       <TeamSection />
     </PageWrapper>
   )

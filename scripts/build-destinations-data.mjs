@@ -17,6 +17,7 @@ const TARGET_COUNTRIES = [
   "Singapore",
   "Poland",
   "Malaysia",
+  "Mauritius",
 ]
 
 const db = JSON.parse(readFileSync(join(process.cwd(), "dataset", "universities.compiled.json"), "utf8"))

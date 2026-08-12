@@ -41,7 +41,7 @@ export function HeroSection() {
           {/* CTA Buttons */}
           <div className="animate-fade-up-delay-2 mt-8 flex flex-col items-center gap-3 sm:flex-row lg:justify-start">
             <Button asChild size="lg" className="text-base px-8">
-              <Link href="/contact">Book a Free Consultation</Link>
+              <Link href="/career-matcher">Career Matcher</Link>
             </Button>
             <Button
               asChild
