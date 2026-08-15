@@ -25,8 +25,8 @@ export function HeroSection() {
       <div className="relative mx-auto flex min-h-[640px] max-w-7xl items-center px-6 pt-32 pb-16 lg:min-h-[720px] lg:pt-40 lg:pb-20">
         <div className="max-w-2xl text-center lg:text-left">
           <h1 className="animate-fade-up font-heading text-5xl font-extrabold leading-tight tracking-tight text-white md:text-6xl lg:text-7xl text-balance">
-            Best Abroad Educational Consultancy in{" "}
-            <span className="text-primary">Keralam.</span>
+            Study Abroad with{" "}
+            <span className="text-primary">Confidence.</span>
           </h1>
           <p className="animate-fade-up-delay-1 mx-auto mt-6 max-w-xl text-lg leading-relaxed text-white/85 lg:mx-0 text-pretty md:text-xl">
             Quilon Educational Consultancy guides you from choosing the right
