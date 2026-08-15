@@ -22,8 +22,7 @@ function initials(name: string): string {
 
 function rankLabel(index: number): string {
   if (index === 0) return "Top Match"
-  if (index === 1) return "Match #2"
-  return "Match #3"
+  return `Match #${index + 1}`
 }
 
 function locationLabel(match: RankedMatch): string {
@@ -46,7 +45,7 @@ export function ResultCard({
 
   return (
     <article
-      className={`animate-fade-up${index === 0 ? "" : `-delay-${index}`} card-enhanced group flex flex-col overflow-hidden rounded-xl border border-border bg-card transition-all duration-300 hover:-translate-y-1 hover:shadow-lg`}
+      className={`${index === 0 ? "animate-fade-up" : index < 3 ? `animate-fade-up-delay-${index}` : ""} card-enhanced group flex h-full flex-col overflow-hidden rounded-xl border border-border bg-card transition-all duration-300 hover:-translate-y-1 hover:shadow-lg`}
     >
       <div className="relative h-40 w-full overflow-hidden">
         {countryImage ? (

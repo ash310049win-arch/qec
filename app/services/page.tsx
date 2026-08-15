@@ -197,7 +197,7 @@ function ServicesGrid() {
                   </ul>
                   <div className="mt-5">
                     <Button asChild variant="outline" size="sm" className="bg-transparent text-foreground hover:text-foreground border-foreground/20 hover:bg-foreground/5">
-                      <Link href="/contact">
+                      <Link href="/book-consultation">
                         Get help with this
                         <ArrowRight className="ml-1 h-3.5 w-3.5" />
                       </Link>

@@ -1,31 +1,43 @@
 "use client"
 
-import { useCallback, useEffect, useState } from "react"
-import Link from "next/link"
-import Image from "next/image"
+import { useCallback, useEffect, useRef, useState } from "react"
 import { PageWrapper } from "@/components/page-wrapper"
 import { SectionHeading } from "@/components/section-heading"
 import { useScrollAnimation } from "@/hooks/use-scroll-animation"
 import { Button } from "@/components/ui/button"
 import { Slider } from "@/components/ui/slider"
-import { Skeleton } from "@/components/ui/skeleton"
 import { CtaSection } from "@/components/home/cta-section"
-import { ResultCard } from "@/components/career-matcher/result-card"
+import { ResultCarousel } from "@/components/career-matcher/result-carousel"
+import { HowWeGotHere } from "@/components/career-matcher/how-we-got-here"
+import {
+  CORE_COUNTRY_IDS,
+  COUNTRY_BY_ID,
+  GLOBAL_COUNTRIES,
+  REGIONS,
+  STATE_OPTIONS,
+  STATE_OPTION_COUNTRIES,
+  type GlobalCountry,
+} from "@/lib/global-countries"
 import {
   ArrowLeft,
   ArrowRight,
   Check,
   CheckCircle2,
-  MapPin,
+  Database,
+  Globe2,
+  GraduationCap,
   RotateCcw,
+  Search,
   Sparkles,
   Target,
+  X,
 } from "lucide-react"
 import { OrganicBlob, FloatingDots, FloatingTriangle, FloatingLine } from "@/components/decorative-elements"
 import {
   INTEREST_OPTIONS,
   type InterestTag,
   type MatchAnswers,
+  type MatchExplanation,
   type PathwayAnswer,
   type RankedMatch,
 } from "@/lib/matcher"
@@ -34,72 +46,13 @@ type Answers = {
   interests: InterestTag[]
   pathway: PathwayAnswer | ""
   destinations: string[]
+  destinationStates: Record<string, string[]>
   stream: string
   gradeBand: string
   budget: number
   timeline: string
   testReadiness: string
   careerGoal: string
-}
-
-const destinationOptions = [
-  {
-    id: "usa",
-    country: "United States",
-    image: "/images/dest-usa.jpg",
-    tagline: "Home to the world's most prestigious universities",
-    minBudget: 28000,
-  },
-  {
-    id: "canada",
-    country: "Canada",
-    image: "/images/dest-canada.jpg",
-    tagline: "Quality education with strong immigration pathways",
-    minBudget: 20000,
-  },
-  {
-    id: "uk",
-    country: "United Kingdom",
-    image: "/images/dest-uk.jpg",
-    tagline: "Prestigious degrees with a rich academic tradition",
-    minBudget: 25000,
-  },
-  {
-    id: "australia",
-    country: "Australia",
-    image: "/images/dest-australia.jpg",
-    tagline: "Innovative education in a vibrant, welcoming environment",
-    minBudget: 22000,
-  },
-  {
-    id: "germany",
-    country: "Germany",
-    image: "/images/dest-germany.jpg",
-    tagline: "Tuition-free education in the heart of Europe",
-    minBudget: 8000,
-  },
-  {
-    id: "ireland",
-    country: "Ireland",
-    image: "/images/dest-ireland.jpg",
-    tagline: "English-speaking, tech hub of Europe",
-    minBudget: 18000,
-  },
-  {
-    id: "mauritius",
-    country: "Mauritius",
-    image: "/images/dest-mauritius.jpg",
-    tagline: "Affordable island education in English with a growing Indian community",
-    minBudget: 7000,
-  },
-]
-
-const indiaDestinationOption = {
-  id: "india",
-  country: "India",
-  image: "",
-  tagline: "Institutions in every state and stream",
-  minBudget: 6000,
 }
 
 const indianDestinationOptions = [
@@ -169,7 +122,7 @@ const stepMeta = [
   },
   {
     title: "Target Destinations",
-    subtitle: "Pick as many as you like, or tell us you're still exploring.",
+    subtitle: "Search every country in the world and pick as many as you like — or tell us you're still exploring.",
   },
   {
     title: "Academic Background",
@@ -193,11 +146,43 @@ const stepMeta = [
   },
 ]
 
+const stepMicroMessages = [
+  "Great, narrowing it down...",
+  "Nice, noting that down...",
+  "Perfect, adding your picks...",
+  "Good choice, adjusting your matches...",
+  "Great, almost there...",
+  "Two more to go — you're doing great!",
+  "Just a few more...",
+  "That's everything — finding your matches now!",
+]
+
+const loadingMessages = [
+  "Comparing universities against your profile...",
+  "Checking courses, campuses, and budgets...",
+  "Ranking your best-fit institutions...",
+  "Just a moment — almost there...",
+]
+
 function budgetBand(budget: number): string {
-  if (budget < 15000) return "budget-friendly"
-  if (budget < 30000) return "mid-range"
-  if (budget < 45000) return "higher-range"
+  if (budget < 1500000) return "budget-friendly"
+  if (budget < 3000000) return "mid-range"
+  if (budget < 4500000) return "higher-range"
   return "premium"
+}
+
+/** Compact INR figure, e.g. 1020000 -> "10.2L". */
+function formatLakh(value: number): string {
+  const lakhs = value / 100000
+  const rounded = Math.round(lakhs * 10) / 10
+  return `${rounded.toLocaleString("en-IN", { maximumFractionDigits: 1 })}L`
+}
+
+/** Plain-language listing, e.g. ["Brazil", "Kenya"] -> "Brazil and Kenya". */
+function listNames(items: string[]): string {
+  if (items.length <= 1) return items[0] ?? ""
+  if (items.length === 2) return `${items[0]} and ${items[1]}`
+  return `${items.slice(0, -1).join(", ")}, and ${items[items.length - 1]}`
 }
 
 function buildServiceTags(answers: Answers): string[] {
@@ -207,7 +192,7 @@ function buildServiceTags(answers: Answers): string[] {
   if (answers.testReadiness === "planning" || answers.testReadiness === "need-guidance") {
     tags.push("Test Prep Coaching")
   }
-  if (answers.budget < 15000) {
+  if (answers.budget < 1500000) {
     tags.push("Scholarship & Funding Guidance")
   } else {
     tags.push("Scholarship Search")
@@ -225,13 +210,9 @@ function toMatcherDestinations(answers: Answers): string[] {
   if (answers.destinations.includes("not-sure")) return []
   const out: string[] = []
   for (const id of answers.destinations) {
-    const country = destinationOptions.find((d) => d.id === id)
-    if (country) {
-      out.push(country.country)
-      continue
-    }
-    if (id === "india") {
-      out.push("india")
+    const entry = COUNTRY_BY_ID.get(id)
+    if (entry) {
+      out.push(...entry.datasetCountries)
       continue
     }
     const state = indianDestinationOptions.find((s) => s.id === id)
@@ -245,6 +226,7 @@ function toMatcherAnswers(answers: Answers): MatchAnswers {
     interests: answers.interests,
     pathway: (answers.pathway || "not-sure") as PathwayAnswer,
     destinations: toMatcherDestinations(answers),
+    destinationStates: answers.destinationStates,
     stream: answers.stream,
     gradeBand: answers.gradeBand,
     budget: answers.budget,
@@ -316,6 +298,111 @@ function RadioOption({
   )
 }
 
+function ProgressPath({
+  step,
+  total,
+  completed,
+}: {
+  step: number
+  total: number
+  completed: number
+}) {
+  const progress = total <= 1 ? 0 : (step / (total - 1)) * 100
+
+  return (
+    <div className="rounded-xl border border-border bg-secondary/50 p-4">
+      <div className="flex flex-wrap items-center justify-between gap-x-4 gap-y-1">
+        <span className="text-xs font-semibold text-muted-foreground">
+          Step {step + 1} of {total}
+          <span className="hidden text-muted-foreground/60 sm:inline"> · {completed} completed</span>
+        </span>
+        <span className="flex items-center gap-1.5 text-xs font-semibold text-muted-foreground">
+          <Database className="h-3.5 w-3.5 shrink-0 text-primary" />
+          <span className="hidden lg:inline">Our database of 80,000+ universities</span>
+          <span className="lg:hidden">80,000+ universities</span>
+        </span>
+      </div>
+
+      <div className="relative mt-4 h-9">
+        {/* Track */}
+        <div className="absolute inset-x-0 top-1/2 h-1.5 -translate-y-1/2 rounded-full bg-border/70" />
+        {/* Fill */}
+        <div className="absolute inset-x-0 top-1/2 h-1.5 -translate-y-1/2 overflow-hidden rounded-full">
+          <div
+            className="h-full rounded-full bg-primary transition-all duration-500 ease-out"
+            style={{ width: `${progress}%` }}
+          />
+        </div>
+
+        {/* Milestone dots */}
+        {Array.from({ length: total }).map((_, i) => {
+          const reached = i <= step
+          return (
+            <div
+              key={i}
+              className="absolute top-1/2 -translate-x-1/2 -translate-y-1/2"
+              style={{ left: `${(i / (total - 1)) * 100}%` }}
+            >
+              <div
+                className={`flex h-5 w-5 items-center justify-center rounded-full border-2 bg-card shadow-sm transition-all duration-300 ${
+                  reached ? "border-primary" : "border-border"
+                }`}
+              >
+                {reached && <Check className="h-2.5 w-2.5 text-primary" />}
+              </div>
+            </div>
+          )
+        })}
+
+        {/* Moving icon */}
+        <div
+          className="absolute top-1/2 z-10 -translate-x-1/2 -translate-y-1/2 transition-all duration-500 ease-out"
+          style={{ left: `${progress}%` }}
+        >
+          <div className="flex h-8 w-8 items-center justify-center rounded-full bg-primary text-primary-foreground shadow-md ring-4 ring-primary/15">
+            <GraduationCap className="h-4 w-4" />
+          </div>
+        </div>
+      </div>
+    </div>
+  )
+}
+
+function MatchLoading() {
+  const [messageIndex, setMessageIndex] = useState(0)
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setMessageIndex((m) => (m + 1) % loadingMessages.length)
+    }, 500)
+    return () => clearInterval(timer)
+  }, [])
+
+  return (
+    <div className="mx-auto mt-8 max-w-xl rounded-xl border border-border bg-card p-8 text-center md:p-10">
+      <div className="relative mx-auto flex h-20 w-20 items-center justify-center">
+        <div className="absolute inset-0 rounded-full bg-primary/10 animate-breathe" />
+        <div className="flex h-14 w-14 items-center justify-center rounded-full bg-primary text-primary-foreground shadow-md animate-float-gentle">
+          <GraduationCap className="h-7 w-7" />
+        </div>
+      </div>
+      <h3 className="mt-6 font-heading text-xl font-bold text-card-foreground md:text-2xl">
+        Finding your best matches...
+      </h3>
+      <p key={messageIndex} className="animate-quiz-pop mt-2 text-sm font-semibold text-primary">
+        {loadingMessages[messageIndex]}
+      </p>
+      <div className="mt-8 h-1.5 w-full overflow-hidden rounded-full bg-secondary">
+        <div className="h-full rounded-full bg-primary animate-loading-bar" />
+      </div>
+      <p className="mt-5 flex items-center justify-center gap-1.5 text-xs text-muted-foreground">
+        <Database className="h-3.5 w-3.5 shrink-0 text-primary" />
+        Matching you against our database of 80,000+ universities
+      </p>
+    </div>
+  )
+}
+
 function QuizSection({
   showResults,
   setShowResults,
@@ -328,27 +415,42 @@ function QuizSection({
     interests: [],
     pathway: "",
     destinations: [],
+    destinationStates: {},
     stream: "",
     gradeBand: "",
-    budget: 25000,
+    budget: 2500000,
     timeline: "",
     testReadiness: "",
     careerGoal: "",
   })
   const [step, setStep] = useState(0)
+  const [countrySearch, setCountrySearch] = useState("")
+  const [regionFilter, setRegionFilter] = useState<string | null>(null)
   const [results, setResults] = useState<RankedMatch[] | null>(null)
+  const [explanation, setExplanation] = useState<MatchExplanation | null>(null)
   const [eligible, setEligible] = useState(0)
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState<string | null>(null)
+  const [microMessage, setMicroMessage] = useState<string | null>(null)
+  const microTimer = useRef<ReturnType<typeof setTimeout> | null>(null)
+  const matchToken = useRef(0)
 
   useEffect(() => {
     if (showResults) window.scrollTo({ top: 0, behavior: "smooth" })
   }, [showResults])
 
+  const flashMicroMessage = (nextStep: number) => {
+    setMicroMessage(stepMicroMessages[nextStep] ?? null)
+    if (microTimer.current) clearTimeout(microTimer.current)
+    microTimer.current = setTimeout(() => setMicroMessage(null), 1500)
+  }
+
   const runMatch = useCallback(async () => {
+    const token = ++matchToken.current
     setLoading(true)
     setError(null)
     setResults(null)
+    const startedAt = Date.now()
     try {
       const response = await fetch("/api/career-match", {
         method: "POST",
@@ -359,11 +461,20 @@ function QuizSection({
       if (!response.ok) {
         throw new Error(data.error || "Something went wrong while matching.")
       }
+      if (matchToken.current !== token) return
       setResults(data.results as RankedMatch[])
+      setExplanation(data.explanation as MatchExplanation)
       setEligible(data.eligible as number)
     } catch (err) {
+      if (matchToken.current !== token) return
       setError(err instanceof Error ? err.message : "Something went wrong while matching.")
     } finally {
+      const elapsed = Date.now() - startedAt
+      const remaining = Math.max(0, 1700 - elapsed)
+      if (remaining > 0) {
+        await new Promise((resolve) => setTimeout(resolve, remaining))
+      }
+      if (matchToken.current !== token) return
       setLoading(false)
       setShowResults(true)
     }
@@ -392,7 +503,12 @@ function QuizSection({
   }
 
   const setPathway = (value: string) => {
-    setAnswers((prev) => ({ ...prev, pathway: value as Answers["pathway"], destinations: [] }))
+    setAnswers((prev) => ({
+      ...prev,
+      pathway: value as Answers["pathway"],
+      destinations: [],
+      destinationStates: {},
+    }))
   }
 
   const toggleDestination = (id: string) => {
@@ -405,15 +521,34 @@ function QuizSection({
       }
       const withoutNotSure = prev.destinations.filter((d) => d !== "not-sure")
       if (withoutNotSure.includes(id)) {
-        return { ...prev, destinations: withoutNotSure.filter((d) => d !== id) }
+        const { [id]: _removed, ...remainingStates } = prev.destinationStates
+        return {
+          ...prev,
+          destinations: withoutNotSure.filter((d) => d !== id),
+          destinationStates: remainingStates,
+        }
       }
       return { ...prev, destinations: [...withoutNotSure, id] }
+    })
+  }
+
+  const toggleState = (countryId: string, stateId: string) => {
+    setAnswers((prev) => {
+      const current = prev.destinationStates[countryId] ?? []
+      const next = current.includes(stateId)
+        ? current.filter((s) => s !== stateId)
+        : [...current, stateId]
+      return {
+        ...prev,
+        destinationStates: { ...prev.destinationStates, [countryId]: next },
+      }
     })
   }
 
   const handleNext = () => {
     if (!canProceed) return
     if (step < stepMeta.length - 1) {
+      flashMicroMessage(step + 1)
       setStep(step + 1)
     } else {
       runMatch()
@@ -429,18 +564,23 @@ function QuizSection({
   }
 
   const handleRetake = () => {
+    matchToken.current++
+    setMicroMessage(null)
+    if (microTimer.current) clearTimeout(microTimer.current)
     setAnswers({
       interests: [],
       pathway: "",
       destinations: [],
+      destinationStates: {},
       stream: "",
       gradeBand: "",
-      budget: 25000,
+      budget: 2500000,
       timeline: "",
       testReadiness: "",
       careerGoal: "",
     })
     setResults(null)
+    setExplanation(null)
     setEligible(0)
     setError(null)
     setLoading(false)
@@ -449,6 +589,27 @@ function QuizSection({
   }
 
   const meta = stepMeta[step]
+
+  const query = countrySearch.trim().toLowerCase()
+  const matchesCountryQuery = (c: GlobalCountry) =>
+    query.length === 0 ||
+    c.name.toLowerCase().includes(query) ||
+    c.id.toLowerCase().includes(query)
+  const showIndiaInCountries = answers.pathway !== "abroad"
+  const selectedCountryIds = answers.destinations.filter((id) => id !== "not-sure")
+  const stateCountries = selectedCountryIds.filter((id) => STATE_OPTION_COUNTRIES.includes(id))
+  const nonCoreSelected = selectedCountryIds.filter((id) => !CORE_COUNTRY_IDS.has(id))
+  const visibleRegions = REGIONS.filter(
+    (region) => regionFilter === null || regionFilter === region
+  )
+  const hasVisibleCountries = visibleRegions.some((region) =>
+    GLOBAL_COUNTRIES.some(
+      (c) =>
+        c.region === region &&
+        (showIndiaInCountries || c.id !== "India") &&
+        matchesCountryQuery(c)
+    )
+  )
 
   return (
     <section className="blob-bg relative overflow-hidden bg-background py-20 lg:py-28" ref={ref}>
@@ -474,28 +635,20 @@ function QuizSection({
           {!showResults ? (
             <div className="card-enhanced mx-auto max-w-3xl rounded-xl border border-border bg-card p-6 lg:p-8">
               {/* Progress */}
-              <div className="flex items-center justify-between text-xs font-semibold text-muted-foreground">
-                <span>
-                  Step {step + 1} of {stepMeta.length}: {meta.title}
-                </span>
-                <span className="flex items-center gap-1.5">
-                  <CheckCircle2 className="h-3.5 w-3.5 text-primary" />
-                  {stepAnswered.filter(Boolean).length} completed
-                </span>
-              </div>
-              <div className="mt-2 h-2 w-full rounded-full bg-secondary">
-                <div
-                  className="h-2 rounded-full bg-primary transition-all duration-500"
-                  style={{ width: `${((step + (canProceed ? 1 : 0)) / stepMeta.length) * 100}%` }}
-                />
+              <ProgressPath
+                step={step}
+                total={stepMeta.length}
+                completed={stepAnswered.filter(Boolean).length}
+              />
+
+              <div key={step} className="animate-quiz-step">
+                <h2 className="mt-6 font-heading text-xl font-bold text-card-foreground md:text-2xl">
+                  {meta.title}
+                </h2>
+                <p className="mt-1 text-sm text-muted-foreground">{meta.subtitle}</p>
               </div>
 
-              <h2 className="mt-6 font-heading text-xl font-bold text-card-foreground md:text-2xl">
-                {meta.title}
-              </h2>
-              <p className="mt-1 text-sm text-muted-foreground">{meta.subtitle}</p>
-
-              <div className="mt-5">
+              <div key={`content-${step}`} className="animate-quiz-step mt-5">
                 {/* Step 1: Interests (multi-select chips) */}
                 {step === 0 && (
                   <div className="flex flex-wrap gap-2.5">
@@ -571,67 +724,209 @@ function QuizSection({
                         })}
                       </div>
                     ) : (
-                      <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-                        {(answers.pathway === "not-sure"
-                          ? [...destinationOptions, indiaDestinationOption]
-                          : destinationOptions
-                        ).map((dest) => {
-                          const selected = answers.destinations.includes(dest.id)
-                          return (
-                            <button
-                              key={dest.id}
-                              type="button"
-                              onClick={() => toggleDestination(dest.id)}
-                              className={`group relative overflow-hidden rounded-xl border bg-card text-left transition-all duration-300 ${
-                                selected
-                                  ? "border-primary ring-1 ring-primary"
-                                  : "border-border hover:-translate-y-1 hover:shadow-lg"
-                              }`}
-                            >
-                              <div className="relative h-36 w-full overflow-hidden">
-                                {dest.image ? (
-                                  <>
-                                    <Image
-                                      src={dest.image}
-                                      alt={`Study in ${dest.country}`}
-                                      fill
-                                      className="object-cover transition-transform duration-500 group-hover:scale-105"
-                                    />
-                                    <div className="absolute inset-0 bg-gradient-to-t from-foreground/70 via-foreground/20 to-transparent" />
-                                  </>
-                                ) : (
-                                  <div className="flex h-full w-full items-center justify-center bg-gradient-to-br from-primary/80 via-primary/60 to-primary/40">
-                                    <span className="font-heading text-2xl font-extrabold tracking-tight text-white/90">
-                                      IN
-                                    </span>
-                                    <div className="absolute inset-0 bg-gradient-to-t from-foreground/70 via-transparent to-transparent" />
-                                  </div>
-                                )}
-                                <div className="absolute bottom-3 left-4 pr-10">
-                                  <h3 className="font-heading text-base font-bold text-white drop-shadow-md">
-                                    {dest.country}
-                                  </h3>
-                                  <p className="text-xs text-white/80 drop-shadow-sm leading-snug">
-                                    {dest.tagline}
-                                  </p>
-                                </div>
-                              </div>
-                              <div className="flex items-center justify-between gap-2 px-4 py-3">
-                                <span className="text-xs font-medium text-muted-foreground">
-                                  <MapPin className="mr-1 inline h-3.5 w-3.5 text-primary" />
-                                  From ${dest.minBudget.toLocaleString("en-US")}/yr
-                                </span>
-                                <span
-                                  className={`flex h-5 w-5 shrink-0 items-center justify-center rounded-md border-2 transition-colors ${
-                                    selected ? "border-primary bg-primary" : "border-muted-foreground/40"
-                                  }`}
+                      <div>
+                        <div className="relative">
+                          <Search className="absolute top-1/2 left-3.5 h-4 w-4 -translate-y-1/2 text-muted-foreground/60" />
+                          <input
+                            type="text"
+                            value={countrySearch}
+                            onChange={(e) => setCountrySearch(e.target.value)}
+                            placeholder="Search all countries — type to filter..."
+                            className="w-full rounded-lg border border-border bg-background py-2.5 pr-4 pl-10 text-sm outline-none transition-colors placeholder:text-muted-foreground/60 focus:border-primary focus:ring-1 focus:ring-primary"
+                          />
+                        </div>
+
+                        {selectedCountryIds.length > 0 && (
+                          <div className="mt-3 flex flex-wrap items-center gap-2">
+                            {selectedCountryIds.map((id) => {
+                              const country = COUNTRY_BY_ID.get(id)
+                              if (!country) return null
+                              return (
+                                <button
+                                  key={id}
+                                  type="button"
+                                  onClick={() => toggleDestination(id)}
+                                  className="inline-flex items-center gap-1.5 rounded-full border border-primary/30 bg-primary/10 px-3 py-1 text-xs font-semibold text-primary transition-colors hover:bg-primary/20"
                                 >
-                                  {selected && <Check className="h-3 w-3 text-primary-foreground" />}
-                                </span>
-                              </div>
+                                  {country.name}
+                                  <X className="h-3 w-3" />
+                                </button>
+                              )
+                            })}
+                            <button
+                              type="button"
+                              onClick={() =>
+                                setAnswers((prev) => ({
+                                  ...prev,
+                                  destinations: [],
+                                  destinationStates: {},
+                                }))
+                              }
+                              className="text-xs font-medium text-muted-foreground underline-offset-2 hover:underline"
+                            >
+                              Clear all ({selectedCountryIds.length})
                             </button>
-                          )
-                        })}
+                          </div>
+                        )}
+
+                        <div className="mt-3 flex flex-wrap gap-1.5">
+                          {["All", ...REGIONS].map((region) => {
+                            const active =
+                              region === "All"
+                                ? regionFilter === null
+                                : regionFilter === region
+                            return (
+                              <button
+                                key={region}
+                                type="button"
+                                onClick={() => setRegionFilter(region === "All" ? null : region)}
+                                className={`rounded-full border px-3 py-1 text-xs font-medium transition-all duration-200 ${
+                                  active
+                                    ? "border-primary bg-primary text-primary-foreground"
+                                    : "border-border bg-secondary text-muted-foreground hover:border-primary/40 hover:text-foreground"
+                                }`}
+                              >
+                                {region}
+                              </button>
+                            )
+                          })}
+                        </div>
+
+                        <div className="mt-4 max-h-80 overflow-y-auto rounded-xl border border-border bg-background">
+                          {visibleRegions.map((region) => {
+                            const countries = GLOBAL_COUNTRIES.filter(
+                              (c) =>
+                                c.region === region &&
+                                (showIndiaInCountries || c.id !== "India") &&
+                                matchesCountryQuery(c)
+                            )
+                            if (countries.length === 0) return null
+                            return (
+                              <div key={region}>
+                                <p className="sticky top-0 z-10 border-b border-border bg-secondary/95 px-4 py-2 text-[11px] font-bold tracking-wider text-muted-foreground uppercase backdrop-blur">
+                                  {region} · {countries.length}
+                                </p>
+                                <ul>
+                                  {countries.map((country) => {
+                                    const selected = answers.destinations.includes(country.id)
+                                    return (
+                                      <li
+                                        key={country.id}
+                                        className="border-b border-border/60 last:border-b-0"
+                                      >
+                                        <button
+                                          type="button"
+                                          onClick={() => toggleDestination(country.id)}
+                                          className={`flex w-full items-center gap-3 px-4 py-2.5 text-left transition-colors ${
+                                            selected ? "bg-primary/5" : "hover:bg-secondary/70"
+                                          }`}
+                                        >
+                                          <span
+                                            className={`flex h-[18px] w-[18px] shrink-0 items-center justify-center rounded border-2 transition-colors ${
+                                              selected
+                                                ? "border-primary bg-primary"
+                                                : "border-muted-foreground/40"
+                                            }`}
+                                          >
+                                            {selected && (
+                                              <Check className="h-3 w-3 text-primary-foreground" />
+                                            )}
+                                          </span>
+                                          <span className="flex-1 text-sm font-medium text-card-foreground">
+                                            {country.name}
+                                          </span>
+                                          {country.core && (
+                                            <span className="hidden rounded-full bg-primary/10 px-2 py-0.5 text-[10px] font-bold tracking-wide text-primary uppercase sm:inline">
+                                              Full guide
+                                            </span>
+                                          )}
+                                          {country.minBudgetInr !== null && (
+                                            <span className="hidden text-xs font-medium text-muted-foreground sm:inline">
+                                              From ₹{formatLakh(country.minBudgetInr)}/yr
+                                            </span>
+                                          )}
+                                        </button>
+                                      </li>
+                                    )
+                                  })}
+                                </ul>
+                              </div>
+                            )
+                          })}
+                          {query.length > 0 && !hasVisibleCountries && (
+                            <p className="p-6 text-center text-sm text-muted-foreground">
+                              No countries match &quot;{countrySearch}&quot;{regionFilter ? ` in ${regionFilter}` : ""}. Try a
+                              different search.
+                            </p>
+                          )}
+                        </div>
+
+                        {stateCountries.length > 0 && (
+                          <div className="mt-4 space-y-4">
+                            {stateCountries.map((countryId) => {
+                              const country = COUNTRY_BY_ID.get(countryId)
+                              if (!country) return null
+                              const stateOptions = STATE_OPTIONS[countryId] ?? []
+                              const selectedStates = answers.destinationStates[countryId] ?? []
+                              return (
+                                <div
+                                  key={countryId}
+                                  className="rounded-xl border border-border bg-secondary/40 p-4"
+                                >
+                                  <div className="flex flex-wrap items-center justify-between gap-2">
+                                    <p className="text-sm font-semibold text-card-foreground">
+                                      {country.name}
+                                      <span className="ml-1.5 text-xs font-medium text-muted-foreground">
+                                        preferred states/provinces (optional)
+                                      </span>
+                                    </p>
+                                    {selectedStates.length > 0 && (
+                                      <button
+                                        type="button"
+                                        onClick={() =>
+                                          setAnswers((prev) => ({
+                                            ...prev,
+                                            destinationStates: {
+                                              ...prev.destinationStates,
+                                              [countryId]: [],
+                                            },
+                                          }))
+                                        }
+                                        className="text-xs font-medium text-muted-foreground underline-offset-2 hover:underline"
+                                      >
+                                        Clear ({selectedStates.length})
+                                      </button>
+                                    )}
+                                  </div>
+                                  <p className="mt-1 text-xs leading-relaxed text-muted-foreground">
+                                    We&apos;ll prioritize universities in your preferred{" "}
+                                    {countryId === "Canada" ? "provinces" : "states"}. Skip this to
+                                    keep the whole country in play.
+                                  </p>
+                                  <div className="mt-3 flex max-h-44 flex-wrap gap-2 overflow-y-auto">
+                                    {stateOptions.map((state) => {
+                                      const active = selectedStates.includes(state.id)
+                                      return (
+                                        <button
+                                          key={state.id}
+                                          type="button"
+                                          onClick={() => toggleState(countryId, state.id)}
+                                          className={`rounded-full border px-3 py-1.5 text-xs font-medium transition-all duration-200 ${
+                                            active
+                                              ? "border-primary bg-primary text-primary-foreground"
+                                              : "border-border bg-card text-muted-foreground hover:border-primary/40 hover:text-foreground"
+                                          }`}
+                                        >
+                                          {state.label}
+                                        </button>
+                                      )
+                                    })}
+                                  </div>
+                                </div>
+                              )
+                            })}
+                          </div>
+                        )}
                       </div>
                     )}
 
@@ -698,7 +993,7 @@ function QuizSection({
                         Annual budget (tuition + living)
                       </span>
                       <span className="font-heading text-xl font-extrabold text-primary">
-                        ${answers.budget.toLocaleString("en-US")}
+                        ₹{answers.budget.toLocaleString("en-IN")}
                       </span>
                     </div>
                     <div className="mt-6 px-1">
@@ -707,15 +1002,17 @@ function QuizSection({
                         onValueChange={(value) =>
                           setAnswers((prev) => ({ ...prev, budget: value[0] }))
                         }
-                        min={5000}
-                        max={60000}
-                        step={5000}
+                        min={500000}
+                        max={5000000}
+                        step={250000}
                       />
                     </div>
                     <div className="mt-3 flex justify-between text-xs font-medium text-muted-foreground">
-                      <span>$5,000</span>
-                      <span className="text-primary">${budgetBand(answers.budget).toUpperCase()}</span>
-                      <span>$60,000</span>
+                      <span>₹5,00,000</span>
+                      <span className="text-primary">
+                        {budgetBand(answers.budget).toUpperCase()}
+                      </span>
+                      <span>₹50,00,000</span>
                     </div>
                   </div>
                 )}
@@ -751,6 +1048,15 @@ function QuizSection({
                 )}
               </div>
 
+              {microMessage && (
+                <div className="animate-quiz-pop mt-5 flex justify-center">
+                  <span className="inline-flex items-center gap-2 rounded-full bg-primary/10 px-4 py-1.5 text-xs font-semibold text-primary">
+                    <Sparkles className="h-3.5 w-3.5" />
+                    {microMessage}
+                  </span>
+                </div>
+              )}
+
               {/* Footer nav */}
               <div className="mt-6 flex items-center justify-between border-t border-border pt-6">
                 <Button
@@ -778,11 +1084,13 @@ function QuizSection({
                     </div>
                     <div>
                       <p className="font-heading text-base font-bold text-card-foreground">
-                        Your Top 3 Matched Institutions
+                        {loading
+                          ? "Finding Your Matched Institutions"
+                          : `Your Top ${results ? Math.min(results.length, 12) : 12} Matched Institutions`}
                       </p>
                       <p className="text-sm text-muted-foreground">
                         {loading
-                          ? "Matching your profile across the database..."
+                          ? "Finding your best matches across 80,000+ universities..."
                           : `Ranked from ${eligible.toLocaleString("en-US")} institutions that fit your profile`}
                       </p>
                     </div>
@@ -809,22 +1117,28 @@ function QuizSection({
                 )}
 
                 {loading ? (
-                  <div className="mt-8 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-                    {[0, 1, 2].map((i) => (
-                      <Skeleton key={i} className="h-[420px] rounded-xl" />
-                    ))}
-                  </div>
+                  <MatchLoading />
                 ) : results && results.length > 0 ? (
-                  <div className="mt-8 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-                    {results.map((match, i) => (
-                      <ResultCard
-                        key={match.university.id}
-                        match={match}
-                        index={i}
-                        services={buildServiceTags(answers)}
-                      />
-                    ))}
-                  </div>
+                  <>
+                    {nonCoreSelected.length > 0 && (
+                      <div className="mt-6 rounded-xl border border-border bg-card p-4">
+                        <p className="text-sm leading-relaxed text-muted-foreground">
+                          <Globe2 className="mr-1.5 inline h-4 w-4 shrink-0 text-primary" />
+                          {listNames(
+                            nonCoreSelected.map((id) => COUNTRY_BY_ID.get(id)?.name ?? id)
+                          )}{" "}
+                          {nonCoreSelected.length === 1 ? "is" : "are"} matched from our global
+                          university database. Our counselors can share detailed cost, visa, and
+                          intake guidance for these destinations on request.
+                        </p>
+                      </div>
+                    )}
+                    <ResultCarousel
+                      matches={results}
+                      services={buildServiceTags(answers)}
+                    />
+                    {explanation && <HowWeGotHere explanation={explanation} />}
+                  </>
                 ) : !error ? (
                   <div className="mt-8 rounded-xl border border-border bg-card p-8 text-center">
                     <p className="text-sm text-muted-foreground">

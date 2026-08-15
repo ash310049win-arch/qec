@@ -3,6 +3,7 @@ import { notFound } from "next/navigation"
 import type { Metadata } from "next"
 import { PageWrapper } from "@/components/page-wrapper"
 import { ArrowLeft, Calendar } from "lucide-react"
+import { DEFAULT_OG_IMAGE } from "@/lib/site-config"
 import { articles } from "../articles"
 import type { ArticleBlock } from "../articles"
 
@@ -17,10 +18,28 @@ export function generateStaticParams() {
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params
   const article = articles.find((a) => a.slug === slug)
-  if (!article) return { title: "Article Not Found | Quilon Educational Consultancy" }
+  if (!article) return { title: "Article Not Found" }
+  const canonicalUrl = `/resources/${article.slug}`
   return {
-    title: `${article.title} | Quilon Educational Consultancy`,
+    title: article.title,
     description: article.excerpt,
+    alternates: {
+      canonical: canonicalUrl,
+    },
+    openGraph: {
+      title: `${article.title} | Quilon Educational Consultancy`,
+      description: article.excerpt,
+      url: canonicalUrl,
+      type: "article",
+      publishedTime: article.date,
+      images: [DEFAULT_OG_IMAGE],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: `${article.title} | Quilon Educational Consultancy`,
+      description: article.excerpt,
+      images: [DEFAULT_OG_IMAGE],
+    },
   }
 }
 

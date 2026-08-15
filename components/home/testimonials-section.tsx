@@ -7,36 +7,36 @@ import { OrganicBlob, FloatingLine, FloatingDots } from "@/components/decorative
 
 const testimonials = [
   {
-    name: "Arjun Patel",
-    university: "University of Toronto",
-    country: "Canada",
-    avatar: "AP",
+    name: "Anjali Nair",
+    university: "University of Limerick",
+    country: "Ireland",
+    avatar: "AN",
     quote:
-      "Quilon made the entire process so smooth. From university shortlisting to visa approval, they were with me every step of the way. I couldn't have done it without them!",
-  },
-  {
-    name: "Priya Sharma",
-    university: "University of Melbourne",
-    country: "Australia",
-    avatar: "PS",
-    quote:
-      "The personalized approach at Quilon is what sets them apart. They understood my goals and helped me secure a scholarship I didn't even know existed.",
+      "Quilon walked me through the nursing program details and the visa process step by step. I arrived in Limerick knowing exactly what to expect.",
   },
   {
     name: "Rahul Menon",
-    university: "University College London",
-    country: "United Kingdom",
+    university: "University of Toronto",
+    country: "Canada",
     avatar: "RM",
     quote:
-      "I was overwhelmed by the application process, but Quilon's team simplified everything. Their test prep guidance helped me score higher than I expected on the IELTS.",
+      "They helped me compare a few Canadian programs and settle on Toronto. The paperwork after that was straightforward.",
   },
   {
-    name: "Sneha Krishnan",
-    university: "Georgia Institute of Technology",
-    country: "USA",
-    avatar: "SK",
+    name: "Fathima Rasheed",
+    university: "RWTH Aachen University",
+    country: "Germany",
+    avatar: "FR",
     quote:
-      "Quilon's visa counseling was exceptional. They prepared me thoroughly for my interview and I got my student visa approved on the first attempt!",
+      "The blocked account, APS, and university applications were all new to me. They handled each one in order, without rushing.",
+  },
+  {
+    name: "Arjun Pillai",
+    university: "University of Melbourne",
+    country: "Australia",
+    avatar: "AP",
+    quote:
+      "I knew I wanted data science, but not where to study it. They helped me shortlist, and it worked out.",
   },
 ]
 

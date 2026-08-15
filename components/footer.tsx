@@ -122,6 +122,9 @@ export function Footer() {
             <Link href="/privacy-policy" className="text-xs text-white/40 hover:text-primary">
               Privacy Policy
             </Link>
+            <Link href="/refund-policy" className="text-xs text-white/40 hover:text-primary">
+              Refund Policy
+            </Link>
             <Link href="/terms-of-service" className="text-xs text-white/40 hover:text-primary">
               Terms of Service
             </Link>

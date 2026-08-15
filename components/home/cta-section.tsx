@@ -41,11 +41,13 @@ export function CtaSection() {
             </Button>
             <Button
               asChild
-              variant="outline"
               size="lg"
-              className="text-base px-8 border-white/20 text-white bg-transparent hover:bg-white/10 hover:text-white"
+              className="text-base px-8 bg-primary hover:bg-primary/90"
             >
-              <Link href="/success-stories">Read Success Stories</Link>
+              <Link href="/book-consultation">
+                Book a Free Consultation
+                <ArrowRight className="ml-1 h-4 w-4" />
+              </Link>
             </Button>
           </div>
         </div>

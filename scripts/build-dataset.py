@@ -1,4 +1,4 @@
-import json
+﻿import json
 import os
 import re
 from collections import Counter
@@ -210,6 +210,7 @@ def main():
             "pathway": "domestic",
             "tier": india_tier(name, "University", None, None),
             "tests": False,
+            "hasVerifiedTags": True,
             "est": to_int(year),
             "tags": tags_from_name(str(name), patterns),
             "sites": [str(website).strip()] if website else [],
@@ -236,6 +237,7 @@ def main():
             "pathway": "domestic",
             "tier": india_tier(name, "Standalone", mgmt, stype),
             "tests": False,
+            "hasVerifiedTags": True,
             "est": to_int(year),
             "tags": tags,
             "sites": [],
@@ -261,6 +263,7 @@ def main():
             "pathway": "domestic",
             "tier": india_tier(name, "College", mgmt, None),
             "tests": False,
+            "hasVerifiedTags": True,
             "est": to_int(year),
             "tags": tags,
             "sites": [str(website).strip()] if website else [],
@@ -290,6 +293,10 @@ def main():
             "tier": COUNTRY_TIER.get(str(country).strip(), "unknown"),
             "tests": True if str(country).strip() in TEST_REQUIRED_COUNTRIES
                     else False if str(country).strip() in NO_TEST_COUNTRIES else None,
+            # Raw Hipolabs imports carry only name/country/domain — no verified
+            # subject or course data — so their name-derived tags are never used
+            # for course-specific matching (see hasVerifiedTags in lib/matcher.ts).
+            "hasVerifiedTags": False,
             "est": None,
             "tags": tags_from_name(str(name), patterns),
             "sites": [str(p) for p in (rec.get("web_pages") or [])],
@@ -297,6 +304,9 @@ def main():
         abroad += 1
     counts["abroad"] = abroad
 
+    # NOTE: any manually curated records merged after this build (e.g. the "M-"
+    # Mauritius entries) must set "hasVerifiedTags": True — only raw Hipolabs
+    # imports are flagged False.
     with open(OUT, "w", encoding="utf-8") as fh:
         json.dump(records, fh, ensure_ascii=False, separators=(",", ":"))
 

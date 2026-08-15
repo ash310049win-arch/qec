@@ -1,12 +1,70 @@
 import React from "react"
 import type { Metadata } from "next"
 import Script from "next/script"
+import { SITE_URL, SITE_NAME, DEFAULT_OG_IMAGE } from "@/lib/site-config"
 import "./globals.css"
 
 export const metadata: Metadata = {
-  title: "Quilon Educational Consultancy | Study Abroad Experts",
+  metadataBase: new URL(SITE_URL),
+  title: {
+    default: "Quilon Educational Consultancy | Study Abroad Experts in Kerala",
+    template: "%s | Quilon Educational Consultancy",
+  },
   description:
-    "Quilon Educational Consultancy guides students from choosing the right country to landing on campus. Expert visa support, personalized counseling, and top global destinations.",
+    "Kerala's trusted study abroad consultancy in Kollam. University admissions, student visa guidance, IELTS coaching, and scholarships for students across Kerala.",
+  applicationName: SITE_NAME,
+  authors: [{ name: SITE_NAME }],
+  keywords: [
+    "study abroad consultancy Kerala",
+    "overseas education consultants Kollam",
+    "study abroad consultants Kottarakara",
+    "student visa guidance",
+    "IELTS coaching Kerala",
+    "admissions to universities abroad",
+    "scholarships for Indian students",
+    "Quilon Educational Consultancy",
+  ],
+  alternates: {
+    canonical: "/",
+  },
+  openGraph: {
+    type: "website",
+    siteName: SITE_NAME,
+    locale: "en_IN",
+    url: "/",
+    title: "Quilon Educational Consultancy | Study Abroad Experts in Kerala",
+    description:
+      "Kerala's trusted study abroad consultancy in Kollam. University admissions, student visa guidance, IELTS coaching, and scholarships for students across Kerala.",
+    images: [
+      {
+        url: DEFAULT_OG_IMAGE,
+        width: 1200,
+        height: 630,
+        alt: "Quilon Educational Consultancy — Study abroad guidance for Kerala students",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Quilon Educational Consultancy | Study Abroad Experts in Kerala",
+    description:
+      "Kerala's trusted study abroad consultancy in Kollam. University admissions, student visa guidance, IELTS coaching, and scholarships for students across Kerala.",
+    images: [DEFAULT_OG_IMAGE],
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
+  },
+  icons: {
+    icon: "/images/qec-logo.png",
+    apple: "/images/qec-logo.png",
+  },
 }
 
 export default function RootLayout({

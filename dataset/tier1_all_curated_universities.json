@@ -1,0 +1,2628 @@
+[
+    {
+      "id": "T-0001",
+      "name": "Massachusetts Institute of Technology (MIT)",
+      "country": "USA",
+      "state": null,
+      "city": "Cambridge, MA",
+      "type": "University",
+      "pathway": "abroad",
+      "tier": "premium",
+      "tests": true,
+      "est": null,
+      "tags": [
+        "engineering",
+        "technology",
+        "science",
+        "computer-science"
+      ],
+      "sites": [],
+      "hasVerifiedTags": true
+    },
+    {
+      "id": "T-0002",
+      "name": "Stanford University",
+      "country": "USA",
+      "state": null,
+      "city": "Stanford, CA",
+      "type": "University",
+      "pathway": "abroad",
+      "tier": "premium",
+      "tests": true,
+      "est": null,
+      "tags": [
+        "technology",
+        "business",
+        "computer-science",
+        "engineering"
+      ],
+      "sites": [],
+      "hasVerifiedTags": true
+    },
+    {
+      "id": "T-0003",
+      "name": "Arizona State University",
+      "country": "USA",
+      "state": null,
+      "city": "Tempe, AZ",
+      "type": "University",
+      "pathway": "abroad",
+      "tier": "mid",
+      "tests": true,
+      "est": null,
+      "tags": [
+        "business",
+        "engineering",
+        "technology",
+        "education"
+      ],
+      "sites": [],
+      "hasVerifiedTags": true
+    },
+    {
+      "id": "T-0004",
+      "name": "University of Texas at Dallas",
+      "country": "USA",
+      "state": null,
+      "city": "Dallas, TX",
+      "type": "University",
+      "pathway": "abroad",
+      "tier": "mid",
+      "tests": true,
+      "est": null,
+      "tags": [
+        "engineering",
+        "computer-science",
+        "business"
+      ],
+      "sites": [],
+      "hasVerifiedTags": true
+    },
+    {
+      "id": "T-0005",
+      "name": "Northeastern University",
+      "country": "USA",
+      "state": null,
+      "city": "Boston, MA",
+      "type": "University",
+      "pathway": "abroad",
+      "tier": "mid",
+      "tests": true,
+      "est": null,
+      "tags": [
+        "business",
+        "engineering",
+        "computer-science",
+        "technology"
+      ],
+      "sites": [],
+      "hasVerifiedTags": true
+    },
+    {
+      "id": "T-0006",
+      "name": "University of Illinois Urbana-Champaign",
+      "country": "USA",
+      "state": null,
+      "city": "Champaign, IL",
+      "type": "University",
+      "pathway": "abroad",
+      "tier": "premium",
+      "tests": true,
+      "est": null,
+      "tags": [
+        "engineering",
+        "computer-science",
+        "science"
+      ],
+      "sites": [],
+      "hasVerifiedTags": true
+    },
+    {
+      "id": "T-0007",
+      "name": "Purdue University",
+      "country": "USA",
+      "state": null,
+      "city": "West Lafayette, IN",
+      "type": "University",
+      "pathway": "abroad",
+      "tier": "mid",
+      "tests": true,
+      "est": null,
+      "tags": [
+        "engineering",
+        "technology",
+        "agriculture",
+        "science"
+      ],
+      "sites": [],
+      "hasVerifiedTags": true
+    },
+    {
+      "id": "T-0008",
+      "name": "University of Cincinnati",
+      "country": "USA",
+      "state": null,
+      "city": "Cincinnati, OH",
+      "type": "University",
+      "pathway": "abroad",
+      "tier": "budget",
+      "tests": true,
+      "est": null,
+      "tags": [
+        "engineering",
+        "business",
+        "design"
+      ],
+      "sites": [],
+      "hasVerifiedTags": true
+    },
+    {
+      "id": "T-0009",
+      "name": "Illinois Institute of Technology",
+      "country": "USA",
+      "state": null,
+      "city": "Chicago, IL",
+      "type": "University",
+      "pathway": "abroad",
+      "tier": "mid",
+      "tests": true,
+      "est": null,
+      "tags": [
+        "engineering",
+        "technology",
+        "computer-science",
+        "business"
+      ],
+      "sites": [],
+      "hasVerifiedTags": true
+    },
+    {
+      "id": "T-0010",
+      "name": "University of South Florida",
+      "country": "USA",
+      "state": null,
+      "city": "Tampa, FL",
+      "type": "University",
+      "pathway": "abroad",
+      "tier": "budget",
+      "tests": true,
+      "est": null,
+      "tags": [
+        "business",
+        "engineering",
+        "medicine"
+      ],
+      "sites": [],
+      "hasVerifiedTags": true
+    },
+    {
+      "id": "T-0011",
+      "name": "Carnegie Mellon University",
+      "country": "USA",
+      "state": null,
+      "city": "Pittsburgh, PA",
+      "type": "University",
+      "pathway": "abroad",
+      "tier": "premium",
+      "tests": true,
+      "est": null,
+      "tags": [
+        "computer-science",
+        "technology",
+        "engineering",
+        "business"
+      ],
+      "sites": [],
+      "hasVerifiedTags": true
+    },
+    {
+      "id": "T-0012",
+      "name": "SUNY Buffalo",
+      "country": "USA",
+      "state": null,
+      "city": "Buffalo, NY",
+      "type": "University",
+      "pathway": "abroad",
+      "tier": "budget",
+      "tests": true,
+      "est": null,
+      "tags": [
+        "engineering",
+        "business",
+        "science"
+      ],
+      "sites": [],
+      "hasVerifiedTags": true
+    },
+    {
+      "id": "T-0013",
+      "name": "University of Toronto",
+      "country": "Canada",
+      "state": null,
+      "city": "Toronto, ON",
+      "type": "University",
+      "pathway": "abroad",
+      "tier": "premium",
+      "tests": true,
+      "est": null,
+      "tags": [
+        "engineering",
+        "business",
+        "computer-science",
+        "science",
+        "medicine"
+      ],
+      "sites": [],
+      "hasVerifiedTags": true
+    },
+    {
+      "id": "T-0014",
+      "name": "University of British Columbia",
+      "country": "Canada",
+      "state": null,
+      "city": "Vancouver, BC",
+      "type": "University",
+      "pathway": "abroad",
+      "tier": "premium",
+      "tests": true,
+      "est": null,
+      "tags": [
+        "engineering",
+        "business",
+        "science",
+        "arts"
+      ],
+      "sites": [],
+      "hasVerifiedTags": true
+    },
+    {
+      "id": "T-0015",
+      "name": "McGill University",
+      "country": "Canada",
+      "state": null,
+      "city": "Montreal, QC",
+      "type": "University",
+      "pathway": "abroad",
+      "tier": "premium",
+      "tests": true,
+      "est": null,
+      "tags": [
+        "medicine",
+        "science",
+        "business",
+        "engineering"
+      ],
+      "sites": [],
+      "hasVerifiedTags": true
+    },
+    {
+      "id": "T-0016",
+      "name": "University of Waterloo",
+      "country": "Canada",
+      "state": null,
+      "city": "Waterloo, ON",
+      "type": "University",
+      "pathway": "abroad",
+      "tier": "premium",
+      "tests": true,
+      "est": null,
+      "tags": [
+        "computer-science",
+        "engineering",
+        "technology"
+      ],
+      "sites": [],
+      "hasVerifiedTags": true
+    },
+    {
+      "id": "T-0017",
+      "name": "Conestoga College",
+      "country": "Canada",
+      "state": null,
+      "city": "Kitchener, ON",
+      "type": "University",
+      "pathway": "abroad",
+      "tier": "budget",
+      "tests": true,
+      "est": null,
+      "tags": [
+        "engineering",
+        "business",
+        "technology"
+      ],
+      "sites": [],
+      "hasVerifiedTags": true
+    },
+    {
+      "id": "T-0018",
+      "name": "Seneca Polytechnic",
+      "country": "Canada",
+      "state": null,
+      "city": "Toronto, ON",
+      "type": "University",
+      "pathway": "abroad",
+      "tier": "budget",
+      "tests": true,
+      "est": null,
+      "tags": [
+        "business",
+        "technology",
+        "creative"
+      ],
+      "sites": [],
+      "hasVerifiedTags": true
+    },
+    {
+      "id": "T-0019",
+      "name": "University of Alberta",
+      "country": "Canada",
+      "state": null,
+      "city": "Edmonton, AB",
+      "type": "University",
+      "pathway": "abroad",
+      "tier": "mid",
+      "tests": true,
+      "est": null,
+      "tags": [
+        "engineering",
+        "science",
+        "business",
+        "agriculture"
+      ],
+      "sites": [],
+      "hasVerifiedTags": true
+    },
+    {
+      "id": "T-0020",
+      "name": "Simon Fraser University",
+      "country": "Canada",
+      "state": null,
+      "city": "Burnaby, BC",
+      "type": "University",
+      "pathway": "abroad",
+      "tier": "mid",
+      "tests": true,
+      "est": null,
+      "tags": [
+        "business",
+        "computer-science",
+        "science"
+      ],
+      "sites": [],
+      "hasVerifiedTags": true
+    },
+    {
+      "id": "T-0021",
+      "name": "Humber College",
+      "country": "Canada",
+      "state": null,
+      "city": "Toronto, ON",
+      "type": "University",
+      "pathway": "abroad",
+      "tier": "budget",
+      "tests": true,
+      "est": null,
+      "tags": [
+        "business",
+        "creative",
+        "hospitality"
+      ],
+      "sites": [],
+      "hasVerifiedTags": true
+    },
+    {
+      "id": "T-0022",
+      "name": "Dalhousie University",
+      "country": "Canada",
+      "state": null,
+      "city": "Halifax, NS",
+      "type": "University",
+      "pathway": "abroad",
+      "tier": "mid",
+      "tests": true,
+      "est": null,
+      "tags": [
+        "science",
+        "engineering",
+        "medicine"
+      ],
+      "sites": [],
+      "hasVerifiedTags": true
+    },
+    {
+      "id": "T-0023",
+      "name": "University of Oxford",
+      "country": "UK",
+      "state": null,
+      "city": "Oxford",
+      "type": "University",
+      "pathway": "abroad",
+      "tier": "premium",
+      "tests": true,
+      "est": null,
+      "tags": [
+        "law",
+        "medicine",
+        "arts",
+        "business",
+        "science"
+      ],
+      "sites": [],
+      "hasVerifiedTags": true
+    },
+    {
+      "id": "T-0024",
+      "name": "University of Cambridge",
+      "country": "UK",
+      "state": null,
+      "city": "Cambridge",
+      "type": "University",
+      "pathway": "abroad",
+      "tier": "premium",
+      "tests": true,
+      "est": null,
+      "tags": [
+        "science",
+        "engineering",
+        "medicine",
+        "arts"
+      ],
+      "sites": [],
+      "hasVerifiedTags": true
+    },
+    {
+      "id": "T-0025",
+      "name": "Imperial College London",
+      "country": "UK",
+      "state": null,
+      "city": "London",
+      "type": "University",
+      "pathway": "abroad",
+      "tier": "premium",
+      "tests": true,
+      "est": null,
+      "tags": [
+        "engineering",
+        "medicine",
+        "technology",
+        "business"
+      ],
+      "sites": [],
+      "hasVerifiedTags": true
+    },
+    {
+      "id": "T-0026",
+      "name": "University of Manchester",
+      "country": "UK",
+      "state": null,
+      "city": "Manchester",
+      "type": "University",
+      "pathway": "abroad",
+      "tier": "premium",
+      "tests": true,
+      "est": null,
+      "tags": [
+        "business",
+        "engineering",
+        "science",
+        "finance"
+      ],
+      "sites": [],
+      "hasVerifiedTags": true
+    },
+    {
+      "id": "T-0027",
+      "name": "University of Edinburgh",
+      "country": "UK",
+      "state": null,
+      "city": "Edinburgh",
+      "type": "University",
+      "pathway": "abroad",
+      "tier": "premium",
+      "tests": true,
+      "est": null,
+      "tags": [
+        "science",
+        "medicine",
+        "business",
+        "arts"
+      ],
+      "sites": [],
+      "hasVerifiedTags": true
+    },
+    {
+      "id": "T-0028",
+      "name": "Coventry University",
+      "country": "UK",
+      "state": null,
+      "city": "Coventry",
+      "type": "University",
+      "pathway": "abroad",
+      "tier": "mid",
+      "tests": true,
+      "est": null,
+      "tags": [
+        "business",
+        "engineering",
+        "creative"
+      ],
+      "sites": [],
+      "hasVerifiedTags": true
+    },
+    {
+      "id": "T-0029",
+      "name": "University of Birmingham",
+      "country": "UK",
+      "state": null,
+      "city": "Birmingham",
+      "type": "University",
+      "pathway": "abroad",
+      "tier": "mid",
+      "tests": true,
+      "est": null,
+      "tags": [
+        "business",
+        "engineering",
+        "science"
+      ],
+      "sites": [],
+      "hasVerifiedTags": true
+    },
+    {
+      "id": "T-0030",
+      "name": "University of Leeds",
+      "country": "UK",
+      "state": null,
+      "city": "Leeds",
+      "type": "University",
+      "pathway": "abroad",
+      "tier": "mid",
+      "tests": true,
+      "est": null,
+      "tags": [
+        "business",
+        "engineering",
+        "science",
+        "arts"
+      ],
+      "sites": [],
+      "hasVerifiedTags": true
+    },
+    {
+      "id": "T-0031",
+      "name": "Northumbria University",
+      "country": "UK",
+      "state": null,
+      "city": "Newcastle",
+      "type": "University",
+      "pathway": "abroad",
+      "tier": "budget",
+      "tests": true,
+      "est": null,
+      "tags": [
+        "business",
+        "design",
+        "computer-science"
+      ],
+      "sites": [],
+      "hasVerifiedTags": true
+    },
+    {
+      "id": "T-0032",
+      "name": "University of Hertfordshire",
+      "country": "UK",
+      "state": null,
+      "city": "Hatfield",
+      "type": "University",
+      "pathway": "abroad",
+      "tier": "budget",
+      "tests": true,
+      "est": null,
+      "tags": [
+        "business",
+        "engineering",
+        "computer-science"
+      ],
+      "sites": [],
+      "hasVerifiedTags": true
+    },
+    {
+      "id": "T-0033",
+      "name": "University of Melbourne",
+      "country": "Australia",
+      "state": null,
+      "city": "Melbourne",
+      "type": "University",
+      "pathway": "abroad",
+      "tier": "premium",
+      "tests": true,
+      "est": null,
+      "tags": [
+        "business",
+        "science",
+        "medicine",
+        "arts"
+      ],
+      "sites": [],
+      "hasVerifiedTags": true
+    },
+    {
+      "id": "T-0034",
+      "name": "University of Sydney",
+      "country": "Australia",
+      "state": null,
+      "city": "Sydney",
+      "type": "University",
+      "pathway": "abroad",
+      "tier": "premium",
+      "tests": true,
+      "est": null,
+      "tags": [
+        "business",
+        "engineering",
+        "medicine",
+        "science"
+      ],
+      "sites": [],
+      "hasVerifiedTags": true
+    },
+    {
+      "id": "T-0035",
+      "name": "Monash University",
+      "country": "Australia",
+      "state": null,
+      "city": "Melbourne",
+      "type": "University",
+      "pathway": "abroad",
+      "tier": "premium",
+      "tests": true,
+      "est": null,
+      "tags": [
+        "engineering",
+        "business",
+        "science",
+        "medicine"
+      ],
+      "sites": [],
+      "hasVerifiedTags": true
+    },
+    {
+      "id": "T-0036",
+      "name": "University of New South Wales",
+      "country": "Australia",
+      "state": null,
+      "city": "Sydney",
+      "type": "University",
+      "pathway": "abroad",
+      "tier": "premium",
+      "tests": true,
+      "est": null,
+      "tags": [
+        "engineering",
+        "computer-science",
+        "business"
+      ],
+      "sites": [],
+      "hasVerifiedTags": true
+    },
+    {
+      "id": "T-0037",
+      "name": "University of Queensland",
+      "country": "Australia",
+      "state": null,
+      "city": "Brisbane",
+      "type": "University",
+      "pathway": "abroad",
+      "tier": "premium",
+      "tests": true,
+      "est": null,
+      "tags": [
+        "science",
+        "engineering",
+        "business",
+        "agriculture"
+      ],
+      "sites": [],
+      "hasVerifiedTags": true
+    },
+    {
+      "id": "T-0038",
+      "name": "RMIT University",
+      "country": "Australia",
+      "state": null,
+      "city": "Melbourne",
+      "type": "University",
+      "pathway": "abroad",
+      "tier": "mid",
+      "tests": true,
+      "est": null,
+      "tags": [
+        "design",
+        "technology",
+        "business",
+        "engineering"
+      ],
+      "sites": [],
+      "hasVerifiedTags": true
+    },
+    {
+      "id": "T-0039",
+      "name": "Deakin University",
+      "country": "Australia",
+      "state": null,
+      "city": "Melbourne",
+      "type": "University",
+      "pathway": "abroad",
+      "tier": "mid",
+      "tests": true,
+      "est": null,
+      "tags": [
+        "business",
+        "nursing",
+        "technology"
+      ],
+      "sites": [],
+      "hasVerifiedTags": true
+    },
+    {
+      "id": "T-0040",
+      "name": "Griffith University",
+      "country": "Australia",
+      "state": null,
+      "city": "Brisbane",
+      "type": "University",
+      "pathway": "abroad",
+      "tier": "mid",
+      "tests": true,
+      "est": null,
+      "tags": [
+        "business",
+        "nursing",
+        "creative"
+      ],
+      "sites": [],
+      "hasVerifiedTags": true
+    },
+    {
+      "id": "T-0041",
+      "name": "Victoria University",
+      "country": "Australia",
+      "state": null,
+      "city": "Melbourne",
+      "type": "University",
+      "pathway": "abroad",
+      "tier": "budget",
+      "tests": true,
+      "est": null,
+      "tags": [
+        "business",
+        "nursing",
+        "technology"
+      ],
+      "sites": [],
+      "hasVerifiedTags": true
+    },
+    {
+      "id": "T-0042",
+      "name": "Federation University Australia",
+      "country": "Australia",
+      "state": null,
+      "city": "Ballarat",
+      "type": "University",
+      "pathway": "abroad",
+      "tier": "budget",
+      "tests": true,
+      "est": null,
+      "tags": [
+        "business",
+        "nursing",
+        "engineering"
+      ],
+      "sites": [],
+      "hasVerifiedTags": true
+    },
+    {
+      "id": "T-0043",
+      "name": "Technical University of Munich",
+      "country": "Germany",
+      "state": null,
+      "city": "Munich",
+      "type": "University",
+      "pathway": "abroad",
+      "tier": "premium",
+      "tests": true,
+      "est": null,
+      "tags": [
+        "engineering",
+        "technology",
+        "computer-science",
+        "science"
+      ],
+      "sites": [],
+      "hasVerifiedTags": true
+    },
+    {
+      "id": "T-0044",
+      "name": "RWTH Aachen University",
+      "country": "Germany",
+      "state": null,
+      "city": "Aachen",
+      "type": "University",
+      "pathway": "abroad",
+      "tier": "premium",
+      "tests": true,
+      "est": null,
+      "tags": [
+        "engineering",
+        "technology",
+        "science"
+      ],
+      "sites": [],
+      "hasVerifiedTags": true
+    },
+    {
+      "id": "T-0045",
+      "name": "University of Stuttgart",
+      "country": "Germany",
+      "state": null,
+      "city": "Stuttgart",
+      "type": "University",
+      "pathway": "abroad",
+      "tier": "mid",
+      "tests": true,
+      "est": null,
+      "tags": [
+        "engineering",
+        "automotive",
+        "technology"
+      ],
+      "sites": [],
+      "hasVerifiedTags": true
+    },
+    {
+      "id": "T-0046",
+      "name": "Technical University of Berlin",
+      "country": "Germany",
+      "state": null,
+      "city": "Berlin",
+      "type": "University",
+      "pathway": "abroad",
+      "tier": "mid",
+      "tests": true,
+      "est": null,
+      "tags": [
+        "engineering",
+        "technology",
+        "computer-science"
+      ],
+      "sites": [],
+      "hasVerifiedTags": true
+    },
+    {
+      "id": "T-0047",
+      "name": "University of Freiburg",
+      "country": "Germany",
+      "state": null,
+      "city": "Freiburg",
+      "type": "University",
+      "pathway": "abroad",
+      "tier": "mid",
+      "tests": true,
+      "est": null,
+      "tags": [
+        "science",
+        "medicine",
+        "arts"
+      ],
+      "sites": [],
+      "hasVerifiedTags": true
+    },
+    {
+      "id": "T-0048",
+      "name": "Karlsruhe Institute of Technology",
+      "country": "Germany",
+      "state": null,
+      "city": "Karlsruhe",
+      "type": "University",
+      "pathway": "abroad",
+      "tier": "premium",
+      "tests": true,
+      "est": null,
+      "tags": [
+        "engineering",
+        "technology",
+        "computer-science"
+      ],
+      "sites": [],
+      "hasVerifiedTags": true
+    },
+    {
+      "id": "T-0049",
+      "name": "University of Mannheim",
+      "country": "Germany",
+      "state": null,
+      "city": "Mannheim",
+      "type": "University",
+      "pathway": "abroad",
+      "tier": "mid",
+      "tests": true,
+      "est": null,
+      "tags": [
+        "business",
+        "economics"
+      ],
+      "sites": [],
+      "hasVerifiedTags": true
+    },
+    {
+      "id": "T-0050",
+      "name": "Leibniz University Hannover",
+      "country": "Germany",
+      "state": null,
+      "city": "Hannover",
+      "type": "University",
+      "pathway": "abroad",
+      "tier": "budget",
+      "tests": true,
+      "est": null,
+      "tags": [
+        "engineering",
+        "science"
+      ],
+      "sites": [],
+      "hasVerifiedTags": true
+    },
+    {
+      "id": "T-0051",
+      "name": "Trinity College Dublin",
+      "country": "Ireland",
+      "state": null,
+      "city": "Dublin",
+      "type": "University",
+      "pathway": "abroad",
+      "tier": "premium",
+      "tests": true,
+      "est": null,
+      "tags": [
+        "business",
+        "medicine",
+        "science",
+        "arts"
+      ],
+      "sites": [],
+      "hasVerifiedTags": true
+    },
+    {
+      "id": "T-0052",
+      "name": "University College Dublin",
+      "country": "Ireland",
+      "state": null,
+      "city": "Dublin",
+      "type": "University",
+      "pathway": "abroad",
+      "tier": "premium",
+      "tests": true,
+      "est": null,
+      "tags": [
+        "business",
+        "engineering",
+        "science"
+      ],
+      "sites": [],
+      "hasVerifiedTags": true
+    },
+    {
+      "id": "T-0053",
+      "name": "University of Limerick",
+      "country": "Ireland",
+      "state": null,
+      "city": "Limerick",
+      "type": "University",
+      "pathway": "abroad",
+      "tier": "mid",
+      "tests": true,
+      "est": null,
+      "tags": [
+        "engineering",
+        "nursing",
+        "business"
+      ],
+      "sites": [],
+      "hasVerifiedTags": true
+    },
+    {
+      "id": "T-0054",
+      "name": "Dublin City University",
+      "country": "Ireland",
+      "state": null,
+      "city": "Dublin",
+      "type": "University",
+      "pathway": "abroad",
+      "tier": "mid",
+      "tests": true,
+      "est": null,
+      "tags": [
+        "business",
+        "computer-science",
+        "engineering"
+      ],
+      "sites": [],
+      "hasVerifiedTags": true
+    },
+    {
+      "id": "T-0055",
+      "name": "University College Cork",
+      "country": "Ireland",
+      "state": null,
+      "city": "Cork",
+      "type": "University",
+      "pathway": "abroad",
+      "tier": "mid",
+      "tests": true,
+      "est": null,
+      "tags": [
+        "pharmacy",
+        "science",
+        "business"
+      ],
+      "sites": [],
+      "hasVerifiedTags": true
+    },
+    {
+      "id": "T-0056",
+      "name": "National University of Ireland Galway",
+      "country": "Ireland",
+      "state": null,
+      "city": "Galway",
+      "type": "University",
+      "pathway": "abroad",
+      "tier": "mid",
+      "tests": true,
+      "est": null,
+      "tags": [
+        "science",
+        "medicine",
+        "arts"
+      ],
+      "sites": [],
+      "hasVerifiedTags": true
+    },
+    {
+      "id": "T-0057",
+      "name": "University of Auckland",
+      "country": "New Zealand",
+      "state": null,
+      "city": "Auckland",
+      "type": "University",
+      "pathway": "abroad",
+      "tier": "premium",
+      "tests": true,
+      "est": null,
+      "tags": [
+        "engineering",
+        "business",
+        "science",
+        "medicine"
+      ],
+      "sites": [],
+      "hasVerifiedTags": true
+    },
+    {
+      "id": "T-0058",
+      "name": "University of Otago",
+      "country": "New Zealand",
+      "state": null,
+      "city": "Dunedin",
+      "type": "University",
+      "pathway": "abroad",
+      "tier": "premium",
+      "tests": true,
+      "est": null,
+      "tags": [
+        "medicine",
+        "science",
+        "business"
+      ],
+      "sites": [],
+      "hasVerifiedTags": true
+    },
+    {
+      "id": "T-0059",
+      "name": "Victoria University of Wellington",
+      "country": "New Zealand",
+      "state": null,
+      "city": "Wellington",
+      "type": "University",
+      "pathway": "abroad",
+      "tier": "mid",
+      "tests": true,
+      "est": null,
+      "tags": [
+        "business",
+        "law",
+        "science"
+      ],
+      "sites": [],
+      "hasVerifiedTags": true
+    },
+    {
+      "id": "T-0060",
+      "name": "Auckland University of Technology",
+      "country": "New Zealand",
+      "state": null,
+      "city": "Auckland",
+      "type": "University",
+      "pathway": "abroad",
+      "tier": "mid",
+      "tests": true,
+      "est": null,
+      "tags": [
+        "business",
+        "technology",
+        "creative"
+      ],
+      "sites": [],
+      "hasVerifiedTags": true
+    },
+    {
+      "id": "T-0061",
+      "name": "University of Canterbury",
+      "country": "New Zealand",
+      "state": null,
+      "city": "Christchurch",
+      "type": "University",
+      "pathway": "abroad",
+      "tier": "mid",
+      "tests": true,
+      "est": null,
+      "tags": [
+        "engineering",
+        "science",
+        "business"
+      ],
+      "sites": [],
+      "hasVerifiedTags": true
+    },
+    {
+      "id": "T-0062",
+      "name": "Sorbonne University",
+      "country": "France",
+      "state": null,
+      "city": "Paris",
+      "type": "University",
+      "pathway": "abroad",
+      "tier": "premium",
+      "tests": true,
+      "est": null,
+      "tags": [
+        "arts",
+        "science",
+        "medicine"
+      ],
+      "sites": [],
+      "hasVerifiedTags": true
+    },
+    {
+      "id": "T-0063",
+      "name": "Sciences Po Paris",
+      "country": "France",
+      "state": null,
+      "city": "Paris",
+      "type": "University",
+      "pathway": "abroad",
+      "tier": "premium",
+      "tests": true,
+      "est": null,
+      "tags": [
+        "business",
+        "law",
+        "international-relations"
+      ],
+      "sites": [],
+      "hasVerifiedTags": true
+    },
+    {
+      "id": "T-0064",
+      "name": "HEC Paris",
+      "country": "France",
+      "state": null,
+      "city": "Paris",
+      "type": "University",
+      "pathway": "abroad",
+      "tier": "premium",
+      "tests": true,
+      "est": null,
+      "tags": [
+        "business",
+        "finance"
+      ],
+      "sites": [],
+      "hasVerifiedTags": true
+    },
+    {
+      "id": "T-0065",
+      "name": "\u00c9cole Polytechnique",
+      "country": "France",
+      "state": null,
+      "city": "Palaiseau",
+      "type": "University",
+      "pathway": "abroad",
+      "tier": "premium",
+      "tests": true,
+      "est": null,
+      "tags": [
+        "engineering",
+        "technology",
+        "science"
+      ],
+      "sites": [],
+      "hasVerifiedTags": true
+    },
+    {
+      "id": "T-0066",
+      "name": "University of Lyon",
+      "country": "France",
+      "state": null,
+      "city": "Lyon",
+      "type": "University",
+      "pathway": "abroad",
+      "tier": "mid",
+      "tests": true,
+      "est": null,
+      "tags": [
+        "business",
+        "science",
+        "engineering"
+      ],
+      "sites": [],
+      "hasVerifiedTags": true
+    },
+    {
+      "id": "T-0067",
+      "name": "University of Amsterdam",
+      "country": "Netherlands",
+      "state": null,
+      "city": "Amsterdam",
+      "type": "University",
+      "pathway": "abroad",
+      "tier": "premium",
+      "tests": true,
+      "est": null,
+      "tags": [
+        "business",
+        "science",
+        "arts"
+      ],
+      "sites": [],
+      "hasVerifiedTags": true
+    },
+    {
+      "id": "T-0068",
+      "name": "Delft University of Technology",
+      "country": "Netherlands",
+      "state": null,
+      "city": "Delft",
+      "type": "University",
+      "pathway": "abroad",
+      "tier": "premium",
+      "tests": true,
+      "est": null,
+      "tags": [
+        "engineering",
+        "technology",
+        "computer-science"
+      ],
+      "sites": [],
+      "hasVerifiedTags": true
+    },
+    {
+      "id": "T-0069",
+      "name": "Erasmus University Rotterdam",
+      "country": "Netherlands",
+      "state": null,
+      "city": "Rotterdam",
+      "type": "University",
+      "pathway": "abroad",
+      "tier": "premium",
+      "tests": true,
+      "est": null,
+      "tags": [
+        "business",
+        "economics"
+      ],
+      "sites": [],
+      "hasVerifiedTags": true
+    },
+    {
+      "id": "T-0070",
+      "name": "Wageningen University",
+      "country": "Netherlands",
+      "state": null,
+      "city": "Wageningen",
+      "type": "University",
+      "pathway": "abroad",
+      "tier": "mid",
+      "tests": true,
+      "est": null,
+      "tags": [
+        "agriculture",
+        "environmental-science",
+        "science"
+      ],
+      "sites": [],
+      "hasVerifiedTags": true
+    },
+    {
+      "id": "T-0071",
+      "name": "Utrecht University",
+      "country": "Netherlands",
+      "state": null,
+      "city": "Utrecht",
+      "type": "University",
+      "pathway": "abroad",
+      "tier": "premium",
+      "tests": true,
+      "est": null,
+      "tags": [
+        "science",
+        "medicine",
+        "business"
+      ],
+      "sites": [],
+      "hasVerifiedTags": true
+    },
+    {
+      "id": "T-0072",
+      "name": "American University of Sharjah",
+      "country": "UAE",
+      "state": null,
+      "city": "Sharjah",
+      "type": "University",
+      "pathway": "abroad",
+      "tier": "mid",
+      "tests": true,
+      "est": null,
+      "tags": [
+        "business",
+        "engineering",
+        "architecture"
+      ],
+      "sites": [],
+      "hasVerifiedTags": true
+    },
+    {
+      "id": "T-0073",
+      "name": "BITS Pilani Dubai",
+      "country": "UAE",
+      "state": null,
+      "city": "Dubai",
+      "type": "University",
+      "pathway": "abroad",
+      "tier": "mid",
+      "tests": true,
+      "est": null,
+      "tags": [
+        "engineering",
+        "computer-science",
+        "science"
+      ],
+      "sites": [],
+      "hasVerifiedTags": true
+    },
+    {
+      "id": "T-0074",
+      "name": "NYU Abu Dhabi",
+      "country": "UAE",
+      "state": null,
+      "city": "Abu Dhabi",
+      "type": "University",
+      "pathway": "abroad",
+      "tier": "premium",
+      "tests": true,
+      "est": null,
+      "tags": [
+        "arts",
+        "science",
+        "business"
+      ],
+      "sites": [],
+      "hasVerifiedTags": true
+    },
+    {
+      "id": "T-0075",
+      "name": "Heriot-Watt University Dubai",
+      "country": "UAE",
+      "state": null,
+      "city": "Dubai",
+      "type": "University",
+      "pathway": "abroad",
+      "tier": "mid",
+      "tests": true,
+      "est": null,
+      "tags": [
+        "business",
+        "engineering"
+      ],
+      "sites": [],
+      "hasVerifiedTags": true
+    },
+    {
+      "id": "T-0076",
+      "name": "University of Wollongong in Dubai",
+      "country": "UAE",
+      "state": null,
+      "city": "Dubai",
+      "type": "University",
+      "pathway": "abroad",
+      "tier": "mid",
+      "tests": true,
+      "est": null,
+      "tags": [
+        "business",
+        "engineering",
+        "computer-science"
+      ],
+      "sites": [],
+      "hasVerifiedTags": true
+    },
+    {
+      "id": "T-0077",
+      "name": "University of Tokyo",
+      "country": "Japan",
+      "state": null,
+      "city": "Tokyo",
+      "type": "University",
+      "pathway": "abroad",
+      "tier": "premium",
+      "tests": true,
+      "est": null,
+      "tags": [
+        "engineering",
+        "science",
+        "technology",
+        "medicine"
+      ],
+      "sites": [],
+      "hasVerifiedTags": true
+    },
+    {
+      "id": "T-0078",
+      "name": "Kyoto University",
+      "country": "Japan",
+      "state": null,
+      "city": "Kyoto",
+      "type": "University",
+      "pathway": "abroad",
+      "tier": "premium",
+      "tests": true,
+      "est": null,
+      "tags": [
+        "science",
+        "engineering",
+        "medicine"
+      ],
+      "sites": [],
+      "hasVerifiedTags": true
+    },
+    {
+      "id": "T-0079",
+      "name": "Waseda University",
+      "country": "Japan",
+      "state": null,
+      "city": "Tokyo",
+      "type": "University",
+      "pathway": "abroad",
+      "tier": "mid",
+      "tests": true,
+      "est": null,
+      "tags": [
+        "business",
+        "engineering",
+        "robotics"
+      ],
+      "sites": [],
+      "hasVerifiedTags": true
+    },
+    {
+      "id": "T-0080",
+      "name": "Tokyo Institute of Technology",
+      "country": "Japan",
+      "state": null,
+      "city": "Tokyo",
+      "type": "University",
+      "pathway": "abroad",
+      "tier": "premium",
+      "tests": true,
+      "est": null,
+      "tags": [
+        "engineering",
+        "technology",
+        "science"
+      ],
+      "sites": [],
+      "hasVerifiedTags": true
+    },
+    {
+      "id": "T-0081",
+      "name": "Osaka University",
+      "country": "Japan",
+      "state": null,
+      "city": "Osaka",
+      "type": "University",
+      "pathway": "abroad",
+      "tier": "premium",
+      "tests": true,
+      "est": null,
+      "tags": [
+        "engineering",
+        "medicine",
+        "science"
+      ],
+      "sites": [],
+      "hasVerifiedTags": true
+    },
+    {
+      "id": "T-0082",
+      "name": "Seoul National University",
+      "country": "South Korea",
+      "state": null,
+      "city": "Seoul",
+      "type": "University",
+      "pathway": "abroad",
+      "tier": "premium",
+      "tests": true,
+      "est": null,
+      "tags": [
+        "engineering",
+        "science",
+        "business",
+        "medicine"
+      ],
+      "sites": [],
+      "hasVerifiedTags": true
+    },
+    {
+      "id": "T-0083",
+      "name": "KAIST",
+      "country": "South Korea",
+      "state": null,
+      "city": "Daejeon",
+      "type": "University",
+      "pathway": "abroad",
+      "tier": "premium",
+      "tests": true,
+      "est": null,
+      "tags": [
+        "engineering",
+        "technology",
+        "science",
+        "robotics"
+      ],
+      "sites": [],
+      "hasVerifiedTags": true
+    },
+    {
+      "id": "T-0084",
+      "name": "Yonsei University",
+      "country": "South Korea",
+      "state": null,
+      "city": "Seoul",
+      "type": "University",
+      "pathway": "abroad",
+      "tier": "premium",
+      "tests": true,
+      "est": null,
+      "tags": [
+        "business",
+        "medicine",
+        "arts"
+      ],
+      "sites": [],
+      "hasVerifiedTags": true
+    },
+    {
+      "id": "T-0085",
+      "name": "Korea University",
+      "country": "South Korea",
+      "state": null,
+      "city": "Seoul",
+      "type": "University",
+      "pathway": "abroad",
+      "tier": "premium",
+      "tests": true,
+      "est": null,
+      "tags": [
+        "business",
+        "law",
+        "science"
+      ],
+      "sites": [],
+      "hasVerifiedTags": true
+    },
+    {
+      "id": "T-0086",
+      "name": "Sungkyunkwan University",
+      "country": "South Korea",
+      "state": null,
+      "city": "Seoul",
+      "type": "University",
+      "pathway": "abroad",
+      "tier": "mid",
+      "tests": true,
+      "est": null,
+      "tags": [
+        "business",
+        "engineering",
+        "science"
+      ],
+      "sites": [],
+      "hasVerifiedTags": true
+    },
+    {
+      "id": "T-0087",
+      "name": "National University of Singapore",
+      "country": "Singapore",
+      "state": null,
+      "city": "Singapore",
+      "type": "University",
+      "pathway": "abroad",
+      "tier": "premium",
+      "tests": true,
+      "est": null,
+      "tags": [
+        "engineering",
+        "business",
+        "computer-science",
+        "medicine"
+      ],
+      "sites": [],
+      "hasVerifiedTags": true
+    },
+    {
+      "id": "T-0088",
+      "name": "Nanyang Technological University",
+      "country": "Singapore",
+      "state": null,
+      "city": "Singapore",
+      "type": "University",
+      "pathway": "abroad",
+      "tier": "premium",
+      "tests": true,
+      "est": null,
+      "tags": [
+        "engineering",
+        "technology",
+        "business"
+      ],
+      "sites": [],
+      "hasVerifiedTags": true
+    },
+    {
+      "id": "T-0089",
+      "name": "Singapore Management University",
+      "country": "Singapore",
+      "state": null,
+      "city": "Singapore",
+      "type": "University",
+      "pathway": "abroad",
+      "tier": "premium",
+      "tests": true,
+      "est": null,
+      "tags": [
+        "business",
+        "finance",
+        "law"
+      ],
+      "sites": [],
+      "hasVerifiedTags": true
+    },
+    {
+      "id": "T-0090",
+      "name": "Singapore University of Technology and Design",
+      "country": "Singapore",
+      "state": null,
+      "city": "Singapore",
+      "type": "University",
+      "pathway": "abroad",
+      "tier": "mid",
+      "tests": true,
+      "est": null,
+      "tags": [
+        "engineering",
+        "design",
+        "technology"
+      ],
+      "sites": [],
+      "hasVerifiedTags": true
+    },
+    {
+      "id": "T-0091",
+      "name": "University of Warsaw",
+      "country": "Poland",
+      "state": null,
+      "city": "Warsaw",
+      "type": "University",
+      "pathway": "abroad",
+      "tier": "mid",
+      "tests": true,
+      "est": null,
+      "tags": [
+        "business",
+        "science",
+        "arts"
+      ],
+      "sites": [],
+      "hasVerifiedTags": true
+    },
+    {
+      "id": "T-0092",
+      "name": "Warsaw University of Technology",
+      "country": "Poland",
+      "state": null,
+      "city": "Warsaw",
+      "type": "University",
+      "pathway": "abroad",
+      "tier": "mid",
+      "tests": true,
+      "est": null,
+      "tags": [
+        "engineering",
+        "technology",
+        "computer-science"
+      ],
+      "sites": [],
+      "hasVerifiedTags": true
+    },
+    {
+      "id": "T-0093",
+      "name": "Jagiellonian University",
+      "country": "Poland",
+      "state": null,
+      "city": "Krakow",
+      "type": "University",
+      "pathway": "abroad",
+      "tier": "mid",
+      "tests": true,
+      "est": null,
+      "tags": [
+        "science",
+        "medicine",
+        "arts"
+      ],
+      "sites": [],
+      "hasVerifiedTags": true
+    },
+    {
+      "id": "T-0094",
+      "name": "University of Malaya",
+      "country": "Malaysia",
+      "state": null,
+      "city": "Kuala Lumpur",
+      "type": "University",
+      "pathway": "abroad",
+      "tier": "mid",
+      "tests": true,
+      "est": null,
+      "tags": [
+        "business",
+        "engineering",
+        "medicine"
+      ],
+      "sites": [],
+      "hasVerifiedTags": true
+    },
+    {
+      "id": "T-0095",
+      "name": "Taylor's University",
+      "country": "Malaysia",
+      "state": null,
+      "city": "Subang Jaya",
+      "type": "University",
+      "pathway": "abroad",
+      "tier": "mid",
+      "tests": true,
+      "est": null,
+      "tags": [
+        "business",
+        "hospitality",
+        "engineering"
+      ],
+      "sites": [],
+      "hasVerifiedTags": true
+    },
+    {
+      "id": "T-0096",
+      "name": "Sunway University",
+      "country": "Malaysia",
+      "state": null,
+      "city": "Subang Jaya",
+      "type": "University",
+      "pathway": "abroad",
+      "tier": "mid",
+      "tests": true,
+      "est": null,
+      "tags": [
+        "business",
+        "engineering",
+        "computer-science"
+      ],
+      "sites": [],
+      "hasVerifiedTags": true
+    },
+    {
+      "id": "T-0097",
+      "name": "Universiti Teknologi Malaysia",
+      "country": "Malaysia",
+      "state": null,
+      "city": "Johor Bahru",
+      "type": "University",
+      "pathway": "abroad",
+      "tier": "budget",
+      "tests": true,
+      "est": null,
+      "tags": [
+        "engineering",
+        "technology"
+      ],
+      "sites": [],
+      "hasVerifiedTags": true
+    },
+    {
+      "id": "T-0098",
+      "name": "Monash University Malaysia",
+      "country": "Malaysia",
+      "state": null,
+      "city": "Selangor",
+      "type": "University",
+      "pathway": "abroad",
+      "tier": "mid",
+      "tests": true,
+      "est": null,
+      "tags": [
+        "engineering",
+        "business",
+        "science"
+      ],
+      "sites": [],
+      "hasVerifiedTags": true
+    },
+    {
+      "id": "T-0099",
+      "name": "University of Mauritius",
+      "country": "Mauritius",
+      "state": null,
+      "city": "Reduit",
+      "type": "University",
+      "pathway": "abroad",
+      "tier": "budget",
+      "tests": true,
+      "est": null,
+      "tags": [
+        "business",
+        "engineering",
+        "science"
+      ],
+      "sites": [],
+      "hasVerifiedTags": true
+    },
+    {
+      "id": "T-0100",
+      "name": "University of Technology Mauritius",
+      "country": "Mauritius",
+      "state": null,
+      "city": "Moka",
+      "type": "University",
+      "pathway": "abroad",
+      "tier": "budget",
+      "tests": true,
+      "est": null,
+      "tags": [
+        "technology",
+        "engineering",
+        "business"
+      ],
+      "sites": [],
+      "hasVerifiedTags": true
+    },
+    {
+      "id": "T-0101",
+      "name": "Middlesex University Mauritius",
+      "country": "Mauritius",
+      "state": null,
+      "city": "Ebene",
+      "type": "University",
+      "pathway": "abroad",
+      "tier": "mid",
+      "tests": true,
+      "est": null,
+      "tags": [
+        "business",
+        "computer-science",
+        "creative"
+      ],
+      "sites": [],
+      "hasVerifiedTags": true
+    },
+    {
+      "id": "T-0102",
+      "name": "Open University of Mauritius",
+      "country": "Mauritius",
+      "state": null,
+      "city": "Reduit",
+      "type": "University",
+      "pathway": "abroad",
+      "tier": "budget",
+      "tests": true,
+      "est": null,
+      "tags": [
+        "business",
+        "science",
+        "education"
+      ],
+      "sites": [],
+      "hasVerifiedTags": true
+    },
+    {
+      "id": "T-0103",
+      "name": "IE University",
+      "country": "Spain",
+      "state": null,
+      "city": "Madrid",
+      "type": "University",
+      "pathway": "abroad",
+      "tier": "premium",
+      "tests": true,
+      "est": null,
+      "tags": [
+        "business",
+        "technology",
+        "design"
+      ],
+      "sites": [],
+      "hasVerifiedTags": true
+    },
+    {
+      "id": "T-0104",
+      "name": "University of Barcelona",
+      "country": "Spain",
+      "state": null,
+      "city": "Barcelona",
+      "type": "University",
+      "pathway": "abroad",
+      "tier": "mid",
+      "tests": true,
+      "est": null,
+      "tags": [
+        "business",
+        "science",
+        "arts"
+      ],
+      "sites": [],
+      "hasVerifiedTags": true
+    },
+    {
+      "id": "T-0105",
+      "name": "Universidad Polit\u00e9cnica de Madrid",
+      "country": "Spain",
+      "state": null,
+      "city": "Madrid",
+      "type": "University",
+      "pathway": "abroad",
+      "tier": "mid",
+      "tests": true,
+      "est": null,
+      "tags": [
+        "engineering",
+        "technology",
+        "architecture"
+      ],
+      "sites": [],
+      "hasVerifiedTags": true
+    },
+    {
+      "id": "T-0106",
+      "name": "ESADE Business School",
+      "country": "Spain",
+      "state": null,
+      "city": "Barcelona",
+      "type": "University",
+      "pathway": "abroad",
+      "tier": "premium",
+      "tests": true,
+      "est": null,
+      "tags": [
+        "business",
+        "finance"
+      ],
+      "sites": [],
+      "hasVerifiedTags": true
+    },
+    {
+      "id": "T-0107",
+      "name": "Politecnico di Milano",
+      "country": "Italy",
+      "state": null,
+      "city": "Milan",
+      "type": "University",
+      "pathway": "abroad",
+      "tier": "premium",
+      "tests": true,
+      "est": null,
+      "tags": [
+        "engineering",
+        "design",
+        "architecture",
+        "technology"
+      ],
+      "sites": [],
+      "hasVerifiedTags": true
+    },
+    {
+      "id": "T-0108",
+      "name": "Bocconi University",
+      "country": "Italy",
+      "state": null,
+      "city": "Milan",
+      "type": "University",
+      "pathway": "abroad",
+      "tier": "premium",
+      "tests": true,
+      "est": null,
+      "tags": [
+        "business",
+        "finance",
+        "economics"
+      ],
+      "sites": [],
+      "hasVerifiedTags": true
+    },
+    {
+      "id": "T-0109",
+      "name": "University of Bologna",
+      "country": "Italy",
+      "state": null,
+      "city": "Bologna",
+      "type": "University",
+      "pathway": "abroad",
+      "tier": "mid",
+      "tests": true,
+      "est": null,
+      "tags": [
+        "arts",
+        "science",
+        "business",
+        "law"
+      ],
+      "sites": [],
+      "hasVerifiedTags": true
+    },
+    {
+      "id": "T-0110",
+      "name": "Politecnico di Torino",
+      "country": "Italy",
+      "state": null,
+      "city": "Turin",
+      "type": "University",
+      "pathway": "abroad",
+      "tier": "mid",
+      "tests": true,
+      "est": null,
+      "tags": [
+        "engineering",
+        "technology"
+      ],
+      "sites": [],
+      "hasVerifiedTags": true
+    },
+    {
+      "id": "T-0111",
+      "name": "KTH Royal Institute of Technology",
+      "country": "Sweden",
+      "state": null,
+      "city": "Stockholm",
+      "type": "University",
+      "pathway": "abroad",
+      "tier": "premium",
+      "tests": true,
+      "est": null,
+      "tags": [
+        "engineering",
+        "technology",
+        "computer-science"
+      ],
+      "sites": [],
+      "hasVerifiedTags": true
+    },
+    {
+      "id": "T-0112",
+      "name": "Lund University",
+      "country": "Sweden",
+      "state": null,
+      "city": "Lund",
+      "type": "University",
+      "pathway": "abroad",
+      "tier": "premium",
+      "tests": true,
+      "est": null,
+      "tags": [
+        "engineering",
+        "science",
+        "business"
+      ],
+      "sites": [],
+      "hasVerifiedTags": true
+    },
+    {
+      "id": "T-0113",
+      "name": "Chalmers University of Technology",
+      "country": "Sweden",
+      "state": null,
+      "city": "Gothenburg",
+      "type": "University",
+      "pathway": "abroad",
+      "tier": "premium",
+      "tests": true,
+      "est": null,
+      "tags": [
+        "engineering",
+        "technology",
+        "architecture"
+      ],
+      "sites": [],
+      "hasVerifiedTags": true
+    },
+    {
+      "id": "T-0114",
+      "name": "Stockholm School of Economics",
+      "country": "Sweden",
+      "state": null,
+      "city": "Stockholm",
+      "type": "University",
+      "pathway": "abroad",
+      "tier": "premium",
+      "tests": true,
+      "est": null,
+      "tags": [
+        "business",
+        "finance"
+      ],
+      "sites": [],
+      "hasVerifiedTags": true
+    },
+    {
+      "id": "T-0115",
+      "name": "Technical University of Denmark (DTU)",
+      "country": "Denmark",
+      "state": null,
+      "city": "Kongens Lyngby",
+      "type": "University",
+      "pathway": "abroad",
+      "tier": "premium",
+      "tests": true,
+      "est": null,
+      "tags": [
+        "engineering",
+        "technology",
+        "science"
+      ],
+      "sites": [],
+      "hasVerifiedTags": true
+    },
+    {
+      "id": "T-0116",
+      "name": "University of Copenhagen",
+      "country": "Denmark",
+      "state": null,
+      "city": "Copenhagen",
+      "type": "University",
+      "pathway": "abroad",
+      "tier": "premium",
+      "tests": true,
+      "est": null,
+      "tags": [
+        "science",
+        "medicine",
+        "business"
+      ],
+      "sites": [],
+      "hasVerifiedTags": true
+    },
+    {
+      "id": "T-0117",
+      "name": "Copenhagen Business School",
+      "country": "Denmark",
+      "state": null,
+      "city": "Copenhagen",
+      "type": "University",
+      "pathway": "abroad",
+      "tier": "premium",
+      "tests": true,
+      "est": null,
+      "tags": [
+        "business",
+        "finance",
+        "economics"
+      ],
+      "sites": [],
+      "hasVerifiedTags": true
+    },
+    {
+      "id": "T-0118",
+      "name": "Aalborg University",
+      "country": "Denmark",
+      "state": null,
+      "city": "Aalborg",
+      "type": "University",
+      "pathway": "abroad",
+      "tier": "mid",
+      "tests": true,
+      "est": null,
+      "tags": [
+        "engineering",
+        "technology",
+        "computer-science"
+      ],
+      "sites": [],
+      "hasVerifiedTags": true
+    },
+    {
+      "id": "T-0119",
+      "name": "Aalto University",
+      "country": "Finland",
+      "state": null,
+      "city": "Espoo",
+      "type": "University",
+      "pathway": "abroad",
+      "tier": "premium",
+      "tests": true,
+      "est": null,
+      "tags": [
+        "engineering",
+        "business",
+        "design",
+        "technology"
+      ],
+      "sites": [],
+      "hasVerifiedTags": true
+    },
+    {
+      "id": "T-0120",
+      "name": "University of Helsinki",
+      "country": "Finland",
+      "state": null,
+      "city": "Helsinki",
+      "type": "University",
+      "pathway": "abroad",
+      "tier": "premium",
+      "tests": true,
+      "est": null,
+      "tags": [
+        "science",
+        "medicine",
+        "arts"
+      ],
+      "sites": [],
+      "hasVerifiedTags": true
+    },
+    {
+      "id": "T-0121",
+      "name": "Tampere University",
+      "country": "Finland",
+      "state": null,
+      "city": "Tampere",
+      "type": "University",
+      "pathway": "abroad",
+      "tier": "mid",
+      "tests": true,
+      "est": null,
+      "tags": [
+        "engineering",
+        "technology",
+        "business"
+      ],
+      "sites": [],
+      "hasVerifiedTags": true
+    },
+    {
+      "id": "T-0122",
+      "name": "LUT University",
+      "country": "Finland",
+      "state": null,
+      "city": "Lappeenranta",
+      "type": "University",
+      "pathway": "abroad",
+      "tier": "mid",
+      "tests": true,
+      "est": null,
+      "tags": [
+        "engineering",
+        "business",
+        "technology"
+      ],
+      "sites": [],
+      "hasVerifiedTags": true
+    },
+    {
+      "id": "T-0123",
+      "name": "KU Leuven",
+      "country": "Belgium",
+      "state": null,
+      "city": "Leuven",
+      "type": "University",
+      "pathway": "abroad",
+      "tier": "premium",
+      "tests": true,
+      "est": null,
+      "tags": [
+        "engineering",
+        "science",
+        "business",
+        "medicine"
+      ],
+      "sites": [],
+      "hasVerifiedTags": true
+    },
+    {
+      "id": "T-0124",
+      "name": "Ghent University",
+      "country": "Belgium",
+      "state": null,
+      "city": "Ghent",
+      "type": "University",
+      "pathway": "abroad",
+      "tier": "premium",
+      "tests": true,
+      "est": null,
+      "tags": [
+        "science",
+        "engineering",
+        "business"
+      ],
+      "sites": [],
+      "hasVerifiedTags": true
+    },
+    {
+      "id": "T-0125",
+      "name": "Universit\u00e9 libre de Bruxelles",
+      "country": "Belgium",
+      "state": null,
+      "city": "Brussels",
+      "type": "University",
+      "pathway": "abroad",
+      "tier": "mid",
+      "tests": true,
+      "est": null,
+      "tags": [
+        "business",
+        "law",
+        "science"
+      ],
+      "sites": [],
+      "hasVerifiedTags": true
+    },
+    {
+      "id": "T-0126",
+      "name": "University of Vienna",
+      "country": "Austria",
+      "state": null,
+      "city": "Vienna",
+      "type": "University",
+      "pathway": "abroad",
+      "tier": "premium",
+      "tests": true,
+      "est": null,
+      "tags": [
+        "science",
+        "arts",
+        "business"
+      ],
+      "sites": [],
+      "hasVerifiedTags": true
+    },
+    {
+      "id": "T-0127",
+      "name": "Vienna University of Technology (TU Wien)",
+      "country": "Austria",
+      "state": null,
+      "city": "Vienna",
+      "type": "University",
+      "pathway": "abroad",
+      "tier": "premium",
+      "tests": true,
+      "est": null,
+      "tags": [
+        "engineering",
+        "technology",
+        "computer-science"
+      ],
+      "sites": [],
+      "hasVerifiedTags": true
+    },
+    {
+      "id": "T-0128",
+      "name": "WU Vienna University of Economics and Business",
+      "country": "Austria",
+      "state": null,
+      "city": "Vienna",
+      "type": "University",
+      "pathway": "abroad",
+      "tier": "mid",
+      "tests": true,
+      "est": null,
+      "tags": [
+        "business",
+        "economics",
+        "finance"
+      ],
+      "sites": [],
+      "hasVerifiedTags": true
+    },
+    {
+      "id": "T-0129",
+      "name": "Charles University",
+      "country": "Czech Republic",
+      "state": null,
+      "city": "Prague",
+      "type": "University",
+      "pathway": "abroad",
+      "tier": "mid",
+      "tests": true,
+      "est": null,
+      "tags": [
+        "science",
+        "medicine",
+        "arts",
+        "business"
+      ],
+      "sites": [],
+      "hasVerifiedTags": true
+    },
+    {
+      "id": "T-0130",
+      "name": "Czech Technical University in Prague",
+      "country": "Czech Republic",
+      "state": null,
+      "city": "Prague",
+      "type": "University",
+      "pathway": "abroad",
+      "tier": "mid",
+      "tests": true,
+      "est": null,
+      "tags": [
+        "engineering",
+        "technology",
+        "computer-science"
+      ],
+      "sites": [],
+      "hasVerifiedTags": true
+    },
+    {
+      "id": "T-0131",
+      "name": "Brno University of Technology",
+      "country": "Czech Republic",
+      "state": null,
+      "city": "Brno",
+      "type": "University",
+      "pathway": "abroad",
+      "tier": "budget",
+      "tests": true,
+      "est": null,
+      "tags": [
+        "engineering",
+        "technology"
+      ],
+      "sites": [],
+      "hasVerifiedTags": true
+    },
+    {
+      "id": "T-0132",
+      "name": "University of Lisbon",
+      "country": "Portugal",
+      "state": null,
+      "city": "Lisbon",
+      "type": "University",
+      "pathway": "abroad",
+      "tier": "mid",
+      "tests": true,
+      "est": null,
+      "tags": [
+        "business",
+        "science",
+        "arts"
+      ],
+      "sites": [],
+      "hasVerifiedTags": true
+    },
+    {
+      "id": "T-0133",
+      "name": "University of Porto",
+      "country": "Portugal",
+      "state": null,
+      "city": "Porto",
+      "type": "University",
+      "pathway": "abroad",
+      "tier": "mid",
+      "tests": true,
+      "est": null,
+      "tags": [
+        "engineering",
+        "science",
+        "business"
+      ],
+      "sites": [],
+      "hasVerifiedTags": true
+    },
+    {
+      "id": "T-0134",
+      "name": "NOVA School of Business and Economics",
+      "country": "Portugal",
+      "state": null,
+      "city": "Lisbon",
+      "type": "University",
+      "pathway": "abroad",
+      "tier": "mid",
+      "tests": true,
+      "est": null,
+      "tags": [
+        "business",
+        "finance"
+      ],
+      "sites": [],
+      "hasVerifiedTags": true
+    },
+    {
+      "id": "T-0135",
+      "name": "Budapest University of Technology and Economics",
+      "country": "Hungary",
+      "state": null,
+      "city": "Budapest",
+      "type": "University",
+      "pathway": "abroad",
+      "tier": "budget",
+      "tests": true,
+      "est": null,
+      "tags": [
+        "engineering",
+        "technology",
+        "business"
+      ],
+      "sites": [],
+      "hasVerifiedTags": true
+    },
+    {
+      "id": "T-0136",
+      "name": "Corvinus University of Budapest",
+      "country": "Hungary",
+      "state": null,
+      "city": "Budapest",
+      "type": "University",
+      "pathway": "abroad",
+      "tier": "budget",
+      "tests": true,
+      "est": null,
+      "tags": [
+        "business",
+        "economics"
+      ],
+      "sites": [],
+      "hasVerifiedTags": true
+    },
+    {
+      "id": "T-0137",
+      "name": "Semmelweis University",
+      "country": "Hungary",
+      "state": null,
+      "city": "Budapest",
+      "type": "University",
+      "pathway": "abroad",
+      "tier": "mid",
+      "tests": true,
+      "est": null,
+      "tags": [
+        "medicine",
+        "science"
+      ],
+      "sites": [],
+      "hasVerifiedTags": true
+    }
+  ]

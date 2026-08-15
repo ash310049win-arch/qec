@@ -51,6 +51,76 @@ const destinations = [
       "English-speaking, strong tech industry ties, and a friendly student community.",
     href: "/destinations/ireland",
   },
+  {
+    country: "New Zealand",
+    image: "/images/dest-new-zealand-hero.jpg",
+    description:
+      "Safe, scenic, and welcoming — with excellent post-study work rights and quality research degrees.",
+    href: "/destinations/new-zealand",
+  },
+  {
+    country: "France",
+    image: "/images/dest-france-hero.jpg",
+    description:
+      "Affordable tuition, rich culture, and globally respected Grandes Écoles and engineering programs.",
+    href: "/destinations/france",
+  },
+  {
+    country: "Netherlands",
+    image: "/images/dest-netherlands-hero.jpg",
+    description:
+      "Innovative, English-taught programs and strong ties to European industry.",
+    href: "/destinations/netherlands",
+  },
+  {
+    country: "Japan",
+    image: "/images/dest-japan-hero.jpg",
+    description:
+      "Cutting-edge technology, strong STEM programs, and affordable tuition at top-ranked universities.",
+    href: "/destinations/japan",
+  },
+  {
+    country: "Singapore",
+    image: "/images/dest-singapore-hero.jpg",
+    description:
+      "Asia's education hub with globally ranked universities and strong career prospects.",
+    href: "/destinations/singapore",
+  },
+  {
+    country: "Malaysia",
+    image: "/images/dest-malaysia-hero.jpg",
+    description:
+      "Quality degrees at low cost, with a familiar culture and strong university partnerships.",
+    href: "/destinations/malaysia",
+  },
+  {
+    country: "South Korea",
+    image: "/images/dest-south-korea-hero.jpg",
+    description:
+      "World-class engineering and technology universities with generous scholarships.",
+    href: "/destinations/south-korea",
+  },
+  {
+    country: "UAE",
+    image: "/images/dest-uae-hero.jpg",
+    description:
+      "A growing study hub with international campuses, modern facilities, and tax-free careers.",
+    href: "/destinations/uae",
+  },
+  {
+    country: "Poland",
+    image: "/images/dest-poland-hero.jpg",
+    description:
+      "Affordable European degrees with a growing range of English-taught programs.",
+    href: "/destinations/poland",
+  },
+  {
+    country: "Mauritius",
+    image: "/images/dest-mauritius.jpg",
+    description:
+      "Affordable, English-medium education in a safe island setting close to home.",
+    href: "/destinations/mauritius",
+  },
 ]
 
 export function DestinationsPreviewSection() {

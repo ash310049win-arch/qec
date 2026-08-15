@@ -1,7 +1,7 @@
 import { NextRequest, NextResponse } from "next/server"
 import { readFileSync } from "node:fs"
 import { join } from "node:path"
-import { countEligible, matchStudent, type MatchAnswers, type University } from "@/lib/matcher"
+import { countEligible, matchStudent, buildMatchExplanation, type MatchAnswers, type University } from "@/lib/matcher"
 
 export const runtime = "nodejs"
 export const dynamic = "force-dynamic"
@@ -28,7 +28,8 @@ export async function POST(request: NextRequest) {
     const database = loadDatabase()
     const results = matchStudent(answers, database)
     const eligible = countEligible(answers, database)
-    return NextResponse.json({ results, eligible, total: database.length })
+    const explanation = buildMatchExplanation(answers, database, results)
+    return NextResponse.json({ results, eligible, total: database.length, explanation })
   } catch (error) {
     return NextResponse.json(
       { error: error instanceof Error ? error.message : "Unexpected error." },

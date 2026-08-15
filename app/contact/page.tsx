@@ -1,8 +1,12 @@
 "use client"
 
 import { PageWrapper } from "@/components/page-wrapper"
+import { JsonLd } from "@/components/json-ld"
 import { useScrollAnimation } from "@/hooks/use-scroll-animation"
-import { Phone, Mail, MapPin, MessageCircle } from "lucide-react"
+import { Button } from "@/components/ui/button"
+import Link from "next/link"
+import { ArrowRight, Phone, Mail, MapPin, MessageCircle } from "lucide-react"
+import { localBusinessSchema } from "@/lib/site-config"
 
 const MAP_EMBED_URL =
   "https://www.google.com/maps?q=9.0068898,76.7832048&z=17&output=embed"
@@ -18,6 +22,14 @@ function PageBanner() {
           Ready to take the first step? Get in touch with our team for a free consultation
           and let us help you plan your study abroad journey.
         </p>
+        <div className="animate-fade-up-delay-2 mt-8">
+          <Button asChild size="lg" className="text-base px-8">
+            <Link href="/book-consultation">
+              Book a Free Consultation
+              <ArrowRight className="ml-1 h-4 w-4" />
+            </Link>
+          </Button>
+        </div>
       </div>
     </section>
   )
@@ -163,20 +175,23 @@ function ContactInfo() {
 
 export default function ContactPage() {
   return (
-    <PageWrapper>
-      <PageBanner />
-      <section className="bg-background py-20 lg:py-28">
-        <div className="mx-auto max-w-7xl px-6">
-          <div className="grid gap-10 lg:grid-cols-5">
-            <div className="lg:col-span-3">
-              <LocationMap />
-            </div>
-            <div className="lg:col-span-2">
-              <ContactInfo />
+    <>
+      <JsonLd data={localBusinessSchema()} />
+      <PageWrapper>
+        <PageBanner />
+        <section className="bg-background py-20 lg:py-28">
+          <div className="mx-auto max-w-7xl px-6">
+            <div className="grid gap-10 lg:grid-cols-5">
+              <div className="lg:col-span-3">
+                <LocationMap />
+              </div>
+              <div className="lg:col-span-2">
+                <ContactInfo />
+              </div>
             </div>
           </div>
-        </div>
-      </section>
-    </PageWrapper>
+        </section>
+      </PageWrapper>
+    </>
   )
 }

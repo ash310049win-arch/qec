@@ -1,3 +1,4 @@
+import type { Metadata } from "next"
 import Link from "next/link"
 import {
   ArrowRight,
@@ -12,6 +13,23 @@ import {
 } from "lucide-react"
 import { PageWrapper } from "@/components/page-wrapper"
 import { CountryMotif } from "@/components/destinations/country-motif"
+import { DEFAULT_OG_IMAGE } from "@/lib/site-config"
+
+export const metadata: Metadata = {
+  title: "Our Admission Process | How We Guide Students",
+  description:
+    "Free consultation, university shortlisting, applications, visa filing, and arrival support — see how Quilon guides Kerala students.",
+  alternates: {
+    canonical: "/process",
+  },
+  openGraph: {
+    title: "Our Admission Process | Quilon Educational Consultancy",
+    description:
+      "Free consultation, university shortlisting, applications, visa filing, and arrival support — see how Quilon guides Kerala students.",
+    url: "/process",
+    images: [DEFAULT_OG_IMAGE],
+  },
+}
 
 const steps = [
   {

@@ -402,7 +402,7 @@ function ClosingCta({ country }: { country: CountryData }) {
         <p className="mx-auto mt-4 max-w-xl leading-relaxed text-white/85">{country.closing.text}</p>
         <div className="mt-8 flex flex-wrap items-center justify-center gap-4">
           <Link
-            href="/contact"
+            href="/book-consultation"
             className="inline-flex h-12 items-center gap-2 rounded-lg bg-white px-7 font-heading text-sm font-semibold uppercase tracking-wide text-brand shadow-md transition-transform hover:scale-[1.03]"
           >
             Book a Free Consultation
