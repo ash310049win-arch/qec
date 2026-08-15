@@ -87,9 +87,7 @@ export default function PrivacyPolicyPage() {
       <PageBanner />
       <section className="bg-background py-20 lg:py-28">
         <div className="mx-auto max-w-3xl px-6">
-          <p className="text-sm font-semibold text-muted-foreground">Last updated: November 05, 2024</p>
-
-          <div className="mt-6 flex flex-col gap-12">
+          <div className="mt-0 flex flex-col gap-12">
             <Section title="Overview">
               <p>
                 This Privacy Policy describes Our policies and procedures on the collection, use and

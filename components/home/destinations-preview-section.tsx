@@ -116,7 +116,7 @@ const destinations = [
   },
   {
     country: "Mauritius",
-    image: "/images/dest-mauritius.jpg",
+    image: "/images/dest-mauritius-hero.jpg",
     description:
       "Affordable, English-medium education in a safe island setting close to home.",
     href: "/destinations/mauritius",
