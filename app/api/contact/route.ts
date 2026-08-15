@@ -15,6 +15,15 @@ function escapeHtml(value: string): string {
 }
 
 export async function POST(request: Request) {
+  console.log(
+    "[Contact API] runtime env check -> SMTP_USER present:",
+    Boolean(process.env.SMTP_USER),
+    "| SMTP_PASS present:",
+    Boolean(process.env.SMTP_PASS),
+    "| CONTACT_EMAIL present:",
+    Boolean(process.env.CONTACT_EMAIL)
+  )
+
   let body: Record<string, unknown>
   try {
     body = await request.json()
@@ -65,6 +74,14 @@ export async function POST(request: Request) {
   const recipient = process.env.CONTACT_EMAIL || smtpUser
 
   if (!smtpUser || !smtpPass) {
+    console.error(
+      "[Contact API] SMTP config check -> SMTP_USER present:",
+      Boolean(smtpUser),
+      "| SMTP_PASS present:",
+      Boolean(smtpPass),
+      "| CONTACT_EMAIL present:",
+      Boolean(process.env.CONTACT_EMAIL)
+    )
     console.error("Contact API: SMTP_USER or SMTP_PASS is not configured.")
     return NextResponse.json(
       { error: "The email service is not configured yet. Please contact us directly." },

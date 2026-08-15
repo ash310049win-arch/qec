@@ -13,8 +13,6 @@ const footerLinks = {
   resources: [
     { href: "/resources", label: "Blog & Guides" },
     { href: "/contact", label: "Contact Us" },
-    { href: "/resources", label: "Visa Checklist" },
-    { href: "/resources", label: "Scholarship Tips" },
   ],
 }
 

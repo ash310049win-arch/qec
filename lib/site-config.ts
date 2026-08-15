@@ -1,6 +1,6 @@
-export const SITE_URL = "https://www.quilonconsultancy.com"
+export const SITE_URL = "https://www.quilonconsultancy.in"
 export const SITE_NAME = "Quilon Educational Consultancy"
-export const DEFAULT_OG_IMAGE = "/images/hero-students.jpg"
+export const DEFAULT_OG_IMAGE = "/images/hero-students-new.jpg"
 
 export const BUSINESS = {
   name: "Quilon Educational Consultancy",

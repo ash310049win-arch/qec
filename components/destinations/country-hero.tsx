@@ -61,7 +61,7 @@ export function CountryHero({ country }: { country: CountryData }) {
         {/* Primary CTA below the card row */}
         <div className="animate-fade-up-delay-3 mt-10 flex flex-wrap items-center gap-4 md:mt-12">
           <Link
-            href="/contact"
+            href="/book-consultation"
             className="inline-flex h-12 items-center gap-2 rounded-lg bg-brand px-7 font-heading text-sm font-semibold uppercase tracking-wide text-white shadow-md transition-colors hover:bg-brand-dark"
           >
             Get Your Free Consultation Plan

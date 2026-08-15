@@ -62,8 +62,11 @@ export const metadata: Metadata = {
     },
   },
   icons: {
-    icon: "/images/qec-logo.png",
-    apple: "/images/qec-logo.png",
+    icon: [
+      { url: "/favicon.ico", sizes: "any" },
+      { url: "/icon.png", type: "image/png", sizes: "96x96" },
+    ],
+    apple: [{ url: "/apple-touch-icon.png", sizes: "180x180", type: "image/png" }],
   },
 }
 
