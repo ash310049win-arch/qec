@@ -1,15 +1,13 @@
 "use client"
 
+import { useState } from "react"
 import { PageWrapper } from "@/components/page-wrapper"
 import { JsonLd } from "@/components/json-ld"
 import { useScrollAnimation } from "@/hooks/use-scroll-animation"
 import { Button } from "@/components/ui/button"
 import Link from "next/link"
 import { ArrowRight, Phone, Mail, MapPin, MessageCircle } from "lucide-react"
-import { localBusinessSchema } from "@/lib/site-config"
-
-const MAP_EMBED_URL =
-  "https://www.google.com/maps?q=9.0068898,76.7832048&z=17&output=embed"
+import { localBusinessSchema, OFFICE_LOCATIONS } from "@/lib/site-config"
 
 function PageBanner() {
   return (
@@ -36,41 +34,139 @@ function PageBanner() {
 }
 
 function LocationMap() {
+  const [activeId, setActiveId] = useState(OFFICE_LOCATIONS[0].id)
+  const active = OFFICE_LOCATIONS.find((o) => o.id === activeId) ?? OFFICE_LOCATIONS[0]
+
   return (
     <div className="overflow-hidden rounded-xl border border-border bg-card">
-      <div className="flex items-center justify-between gap-3 border-b border-border px-6 py-5">
-        <div className="flex items-start gap-3">
-          <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-primary/10">
-            <MapPin className="h-5 w-5 text-primary" />
+      <div className="border-b border-border px-6 pt-6">
+        <div className="flex items-start justify-between gap-3">
+          <div className="flex items-start gap-3">
+            <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-primary/10">
+              <MapPin className="h-5 w-5 text-primary" />
+            </div>
+            <div>
+              <h2 className="font-heading text-xl font-bold text-card-foreground">
+                Visit Our Offices
+              </h2>
+              <p className="mt-1 text-sm font-medium text-primary">{active.label}</p>
+              <address className="mt-0.5 text-sm not-italic leading-relaxed text-muted-foreground">
+                {active.addressLines.map((line) => (
+                  <span key={line} className="block">
+                    {line}
+                  </span>
+                ))}
+              </address>
+            </div>
           </div>
-          <div>
-            <h2 className="font-heading text-xl font-bold text-card-foreground">
-              Visit Our Office
-            </h2>
-            <p className="mt-0.5 text-sm leading-relaxed text-muted-foreground">
-              Opp. Swayamvara Silks, Pulamon Junction
-              <br />
-              Kottarakara, Kollam, Kerala - 691531
-            </p>
-          </div>
+          <a
+            href={active.mapsUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="hidden shrink-0 items-center gap-1.5 rounded-lg bg-primary/10 px-3 py-2 text-xs font-semibold text-primary transition-colors hover:bg-primary/20 sm:flex"
+          >
+            Open in Google Maps
+          </a>
         </div>
-        <a
-          href="https://maps.google.com/?q=9.0068898,76.7832048"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="hidden shrink-0 items-center gap-1.5 rounded-lg bg-primary/10 px-3 py-2 text-xs font-semibold text-primary transition-colors hover:bg-primary/20 sm:flex"
+
+        <div
+          role="tablist"
+          aria-label="Office locations"
+          className="mt-5 flex flex-wrap gap-2 pb-4"
         >
-          Open in Google Maps
-        </a>
+          {OFFICE_LOCATIONS.map((office) => {
+            const isActive = office.id === active.id
+            return (
+              <button
+                key={office.id}
+                type="button"
+                role="tab"
+                aria-selected={isActive}
+                onClick={() => setActiveId(office.id)}
+                className={`rounded-lg px-4 py-2 text-sm font-semibold transition-colors ${
+                  isActive
+                    ? "bg-primary text-primary-foreground"
+                    : "bg-muted text-muted-foreground hover:bg-primary/10 hover:text-primary"
+                }`}
+              >
+                {office.city}
+              </button>
+            )
+          })}
+        </div>
       </div>
       <iframe
-        src={MAP_EMBED_URL}
-        title="Google Maps location of Quilon Educational Consultancy"
+        key={active.id}
+        src={active.embedUrl}
+        title={`Google Maps location of Quilon Educational Consultancy — ${active.city}`}
         className="block h-[400px] w-full border-0 md:h-[500px]"
         allowFullScreen
         loading="eager"
         referrerPolicy="no-referrer-when-downgrade"
       />
+      <div className="border-t border-border px-6 py-4 sm:hidden">
+        <a
+          href={active.mapsUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="inline-flex items-center gap-1.5 rounded-lg bg-primary/10 px-3 py-2 text-xs font-semibold text-primary"
+        >
+          Open in Google Maps
+        </a>
+      </div>
+    </div>
+  )
+}
+
+function OfficeDirectory() {
+  const ref = useScrollAnimation()
+
+  return (
+    <div ref={ref} className="mt-16">
+      <div className="max-w-2xl">
+        <h2 className="animate-on-scroll font-heading text-2xl font-bold tracking-tight text-foreground md:text-3xl">
+          Our Office Locations
+        </h2>
+        <p className="animate-on-scroll stagger-1 mt-3 text-base leading-relaxed text-muted-foreground text-pretty">
+          Walk in to any of our four branches across Kerala for in-person counseling,
+          document guidance, and application support.
+        </p>
+      </div>
+
+      <div className="mt-8 grid gap-5 sm:grid-cols-2">
+        {OFFICE_LOCATIONS.map((office, i) => (
+          <a
+            key={office.id}
+            href={office.mapsUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className={`animate-on-scroll stagger-${Math.min(i + 1, 4)} group flex flex-col rounded-xl border border-border bg-card p-6 transition-all duration-200 hover:border-primary/30 hover:shadow-sm`}
+          >
+            <div className="flex items-start justify-between gap-3">
+              <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-primary/10">
+                <MapPin className="h-5 w-5 text-primary" />
+              </div>
+              <span className="rounded-full bg-muted px-2.5 py-1 text-[11px] font-semibold uppercase tracking-wide text-muted-foreground">
+                {office.label}
+              </span>
+            </div>
+            <h3 className="mt-4 font-heading text-lg font-bold text-card-foreground">
+              {office.city}
+            </h3>
+            <address className="mt-1.5 text-sm not-italic leading-relaxed text-muted-foreground">
+              {office.addressLines.map((line) => (
+                <span key={line} className="block">
+                  {line}
+                </span>
+              ))}
+            </address>
+            <span className="mt-4 inline-flex items-center gap-1 text-sm font-semibold text-primary">
+              Get directions
+              <ArrowRight className="h-3.5 w-3.5 transition-transform duration-200 group-hover:translate-x-0.5" />
+            </span>
+          </a>
+        ))}
+      </div>
     </div>
   )
 }
@@ -138,11 +234,19 @@ function ContactInfo() {
               <MapPin className="h-5 w-5 text-primary" />
             </div>
             <div>
-              <p className="text-sm font-semibold text-card-foreground">Office</p>
+              <p className="text-sm font-semibold text-card-foreground">
+                Head Office — Kottarakara
+              </p>
               <p className="text-sm text-muted-foreground">
-                Opp. Swayamvara Silks, Pulamon Junction
+                Opposite Swayamwara Skills, Pulamon P.O
                 <br />
-                Kottarakara, Kollam, Kerala - 691531
+                Kottarakara (Kollam), Kerala
+              </p>
+              <p className="mt-2 text-sm text-muted-foreground">
+                Branches in{" "}
+                {OFFICE_LOCATIONS.filter((o) => o.id !== "kottarakara")
+                  .map((o) => o.city)
+                  .join(", ")}
               </p>
             </div>
           </div>
@@ -189,6 +293,7 @@ export default function ContactPage() {
                 <ContactInfo />
               </div>
             </div>
+            <OfficeDirectory />
           </div>
         </section>
       </PageWrapper>

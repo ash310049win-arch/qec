@@ -25,6 +25,57 @@ export const BUSINESS = {
   ],
 } as const
 
+export type OfficeLocation = {
+  id: string
+  city: string
+  label: string
+  addressLines: string[]
+  mapsQuery: string
+  mapsUrl: string
+  embedUrl: string
+}
+
+function office(
+  id: string,
+  city: string,
+  label: string,
+  addressLines: string[],
+  mapsQuery: string
+): OfficeLocation {
+  const encoded = encodeURIComponent(mapsQuery)
+  return {
+    id,
+    city,
+    label,
+    addressLines,
+    mapsQuery,
+    mapsUrl: `https://www.google.com/maps/search/?api=1&query=${encoded}`,
+    embedUrl: `https://www.google.com/maps?q=${encoded}&z=15&output=embed`,
+  }
+}
+
+export const OFFICE_LOCATIONS: OfficeLocation[] = [
+  office(
+    "kottarakara",
+    "Kottarakara",
+    "Head Office",
+    ["Opposite Swayamwara Skills, Pulamon P.O", "Kottarakara (Kollam), Kerala"],
+    "Opposite Swayamwara Skills, Pulamon P.O, Kottarakara, Kollam, Kerala 691531"
+  ),
+  office("kollam", "Kollam", "Branch Office", ["Kollam, Kerala"], "Kollam, Kerala"),
+  office(
+    "trivandrum",
+    "Trivandrum",
+    "Branch Office",
+    [
+      "Near Ameya Collections, Vanross Road",
+      "Oottukuzhy Jn, Trivandrum, Kerala - 695001",
+    ],
+    "Near Ameya Collections, Vanross Road, Oottukuzhy Jn, Trivandrum, Kerala 695001"
+  ),
+  office("adimali", "Adimali", "Branch Office", ["Adimali, Idukki, Kerala"], "Adimali, Idukki, Kerala"),
+]
+
 const DAY_NAMES: Record<string, string> = {
   Mon: "Monday",
   Tue: "Tuesday",
