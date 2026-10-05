@@ -121,6 +121,11 @@ export function Footer() {
                     <span>
                       <span className="block text-sm font-medium text-white/80 transition-colors group-hover:text-primary">
                         {office.city}
+                        {office.label === "Head Office" && (
+                          <span className="ml-1.5 text-[10px] font-semibold uppercase tracking-wide text-primary">
+                            {office.label}
+                          </span>
+                        )}
                       </span>
                       <span className="mt-0.5 block text-xs leading-relaxed text-white/45">
                         {office.addressLines.join(", ")}

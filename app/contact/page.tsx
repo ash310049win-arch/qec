@@ -7,7 +7,12 @@ import { useScrollAnimation } from "@/hooks/use-scroll-animation"
 import { Button } from "@/components/ui/button"
 import Link from "next/link"
 import { ArrowRight, Phone, Mail, MapPin, MessageCircle } from "lucide-react"
-import { localBusinessSchema, OFFICE_LOCATIONS } from "@/lib/site-config"
+import {
+  localBusinessSchema,
+  OFFICE_LOCATIONS,
+  HEAD_OFFICE,
+  BRANCH_OFFICES,
+} from "@/lib/site-config"
 
 function PageBanner() {
   return (
@@ -128,7 +133,8 @@ function OfficeDirectory() {
           Our Office Locations
         </h2>
         <p className="animate-on-scroll stagger-1 mt-3 text-base leading-relaxed text-muted-foreground text-pretty">
-          Walk in to any of our four branches across Kerala for in-person counseling,
+          Walk in to any of our {OFFICE_LOCATIONS.length} offices across Kerala for
+          in-person counseling,
           document guidance, and application support.
         </p>
       </div>
@@ -235,18 +241,17 @@ function ContactInfo() {
             </div>
             <div>
               <p className="text-sm font-semibold text-card-foreground">
-                Head Office — Kottarakara
+                Head Office — {HEAD_OFFICE.city}
               </p>
-              <p className="text-sm text-muted-foreground">
-                Opposite Swayamwara Skills, Pulamon P.O
-                <br />
-                Kottarakara (Kollam), Kerala
-              </p>
+              <address className="text-sm not-italic text-muted-foreground">
+                {HEAD_OFFICE.addressLines.map((line) => (
+                  <span key={line} className="block">
+                    {line}
+                  </span>
+                ))}
+              </address>
               <p className="mt-2 text-sm text-muted-foreground">
-                Branches in{" "}
-                {OFFICE_LOCATIONS.filter((o) => o.id !== "kottarakara")
-                  .map((o) => o.city)
-                  .join(", ")}
+                Branches in {BRANCH_OFFICES.map((o) => o.city).join(", ")}
               </p>
             </div>
           </div>

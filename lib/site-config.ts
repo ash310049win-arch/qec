@@ -11,10 +11,10 @@ export const BUSINESS = {
   telephone: "+91 94977 71392",
   telephoneAlt: "+91 92077 74401",
   email: "info@quilonconsultancy.com",
-  streetAddress: "Opp. Swayamvara Silks, Pulamon Junction",
-  addressLocality: "Kottarakara",
+  streetAddress: "6/730, Kunnumpurathu Building, Ampalakara P.O.",
+  addressLocality: "Valakom, Kottarakara",
   addressRegion: "Kerala",
-  postalCode: "691531",
+  postalCode: "691532",
   addressCountry: "IN",
   latitude: 9.0068898,
   longitude: 76.7832048,
@@ -56,13 +56,54 @@ function office(
 
 export const OFFICE_LOCATIONS: OfficeLocation[] = [
   office(
+    "ampalakara",
+    "Ampalakara",
+    "Head Office",
+    [
+      "6/730, Kunnumpurathu Building, Ampalakara P.O.",
+      "Valakom, Kottarakara, Kollam, Kerala - 691532",
+    ],
+    "6/730, Kunnumpurathu Building, Ampalakara P.O., Valakom, Kottarakara, Kollam, Kerala 691532"
+  ),
+  office(
     "kottarakara",
     "Kottarakara",
-    "Head Office",
+    "Branch Office",
     ["Opposite Swayamwara Skills, Pulamon P.O", "Kottarakara (Kollam), Kerala"],
     "Opposite Swayamwara Skills, Pulamon P.O, Kottarakara, Kollam, Kerala 691531"
   ),
-  office("kollam", "Kollam", "Branch Office", ["Kollam, Kerala"], "Kollam, Kerala"),
+  office(
+    "kollam",
+    "Kollam",
+    "Branch Office",
+    ["High School Jn", "Kollam, Kerala - 691009"],
+    "High School Jn, Kollam, Kerala 691009"
+  ),
+  office(
+    "anchal",
+    "Anchal",
+    "Branch Office",
+    ["College Jn", "Anchal, Kollam, Kerala - 691306"],
+    "College Jn, Anchal, Kollam, Kerala 691306"
+  ),
+  office(
+    "karunagappally",
+    "Karunagappally",
+    "Branch Office",
+    ["Opposite H&J Mall", "Karunagappally, Kerala - 690518"],
+    "Opposite H&J Mall, Karunagappally, Kerala 690518"
+  ),
+  office(
+    "adimali",
+    "Adimali",
+    "Branch Office",
+    [
+      "Service Station Road, Old Putheyath Building",
+      "Near Krishna Jewellery, Adimali",
+      "Adimali - 685561",
+    ],
+    "Service Station Road, Old Putheyath Building, Near Krishna Jewellery, Adimali, Kerala 685561"
+  ),
   office(
     "trivandrum",
     "Trivandrum",
@@ -73,8 +114,11 @@ export const OFFICE_LOCATIONS: OfficeLocation[] = [
     ],
     "Near Ameya Collections, Vanross Road, Oottukuzhy Jn, Trivandrum, Kerala 695001"
   ),
-  office("adimali", "Adimali", "Branch Office", ["Adimali, Idukki, Kerala"], "Adimali, Idukki, Kerala"),
 ]
+
+export const HEAD_OFFICE = OFFICE_LOCATIONS[0]
+
+export const BRANCH_OFFICES = OFFICE_LOCATIONS.slice(1)
 
 const DAY_NAMES: Record<string, string> = {
   Mon: "Monday",
