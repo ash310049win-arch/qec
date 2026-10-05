@@ -26,9 +26,10 @@ export function Footer() {
       <div className="pointer-events-none absolute bottom-20 left-1/4 h-3 w-3 rotate-45 bg-white/5 animate-float-slow" aria-hidden="true" />
 
       <div className="relative mx-auto max-w-7xl px-6 py-16">
-        <div className="grid gap-12 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5">
+        {/* Top row: Brand + Explore + Resources + Contact */}
+        <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-4 lg:gap-8">
           {/* Brand */}
-          <div className="xl:col-span-1">
+          <div>
             <Link href="/" className="flex items-center gap-1.5">
               <Image
                 src="/images/qec-logo.png"
@@ -38,7 +39,7 @@ export function Footer() {
                 className="h-12 w-auto"
               />
             </Link>
-            <p className="mt-4 text-sm leading-relaxed text-white/60">
+            <p className="mt-4 max-w-xs text-sm leading-relaxed text-white/60">
               Guiding students toward their global education dreams with personalized counseling,
               visa support, and expert guidance.
             </p>
@@ -98,44 +99,53 @@ export function Footer() {
               </li>
               <li className="flex items-start gap-2">
                 <Mail className="mt-0.5 h-4 w-4 shrink-0 text-primary" />
-                <span className="text-sm text-white/60">info@quilonconsultancy.com</span>
+                <span className="text-sm break-all text-white/60">
+                  info@quilonconsultancy.com
+                </span>
               </li>
             </ul>
           </div>
+        </div>
 
-          {/* Office Locations */}
-          <div>
-            <h3 className="font-heading text-sm font-semibold uppercase tracking-wider text-white/40">
-              Our Offices
-            </h3>
-            <ul className="mt-4 flex flex-col gap-3">
-              {OFFICE_LOCATIONS.map((office) => (
-                <li key={office.id}>
-                  <a
-                    href={office.mapsUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="group flex items-start gap-2"
-                  >
-                    <MapPin className="mt-0.5 h-4 w-4 shrink-0 text-primary" />
-                    <span>
-                      <span className="block text-sm font-medium text-white/80 transition-colors group-hover:text-primary">
-                        {office.city}
-                        {office.label === "Head Office" && (
-                          <span className="ml-1.5 text-[10px] font-semibold uppercase tracking-wide text-primary">
-                            {office.label}
-                          </span>
-                        )}
-                      </span>
-                      <span className="mt-0.5 block text-xs leading-relaxed text-white/45">
-                        {office.addressLines.join(", ")}
-                      </span>
+        {/* Red divider */}
+        <div className="mt-12 h-px w-full bg-gradient-to-r from-primary via-primary/40 to-transparent" />
+
+        {/* Office Locations — horizontal layout */}
+        <div className="mt-10">
+          <h3 className="font-heading text-sm font-semibold uppercase tracking-wider text-white/40">
+            Our Offices
+          </h3>
+          <ul className="mt-5 grid gap-x-8 gap-y-6 sm:grid-cols-2 lg:grid-cols-4">
+            {OFFICE_LOCATIONS.map((office) => (
+              <li key={office.id}>
+                <a
+                  href={office.mapsUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group flex items-start gap-2"
+                >
+                  <MapPin className="mt-0.5 h-4 w-4 shrink-0 text-primary" />
+                  <span>
+                    <span className="block text-sm font-medium text-white/80 transition-colors group-hover:text-primary">
+                      {office.city}
+                      {office.label === "Head Office" && (
+                        <span className="ml-1.5 text-[10px] font-semibold uppercase tracking-wide text-primary">
+                          {office.label}
+                        </span>
+                      )}
                     </span>
-                  </a>
-                </li>
-              ))}
-            </ul>
-          </div>
+                    <span className="mt-0.5 block text-xs leading-relaxed text-white/45">
+                      {office.addressLines.map((line) => (
+                        <span key={line} className="block">
+                          {line}
+                        </span>
+                      ))}
+                    </span>
+                  </span>
+                </a>
+              </li>
+            ))}
+          </ul>
         </div>
 
         {/* Bottom Bar */}
